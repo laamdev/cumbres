@@ -91,9 +91,9 @@ export default async function HomePage() {
                 </Link>
                 <span className="text-branding-sand">{`o `}</span>
                 <Link href="/registrarse">
-                  <span className="font-medium italic text-branding-green-500">{`únete `}</span>
+                  <span className="font-medium italic text-branding-green-500">{`regístrate `}</span>
                 </Link>
-                <span className="text-branding-sand">{`a Cumbres y lleva un registro de los Techos de España que has coronado y los que aún te quedan por visitar.`}</span>
+                <span className="text-branding-sand">{`en Cumbres y lleva un registro de los Techos de España que has coronado y los que aún te quedan por visitar.`}</span>
               </SignedOut>
             </p>
           </div>

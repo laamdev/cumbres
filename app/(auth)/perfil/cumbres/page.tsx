@@ -10,8 +10,9 @@ export const metadata: Metadata = {
 }
 
 export default function PeaksRoute() {
-  const { userId, session } = auth()
+  const { userId } = auth()
 
-  if (!userId) throw new Error("Login is required to access this page.")
+  if (!userId)
+    throw new Error("Debes iniciar sesión para acceder a esta página.")
   return <SummitsPage />
 }

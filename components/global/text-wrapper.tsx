@@ -1,8 +1,21 @@
 import { ReactNode } from "react"
 
-export const TextWrapper = ({ children }: { children: ReactNode }) => {
+import { cn } from "@/lib/utils"
+
+export const TextWrapper = ({
+  children,
+  className,
+}: {
+  children: ReactNode
+  className?: string
+}) => {
   return (
-    <p className="max-w-3xl font-serif text-lg leading-relaxed text-branding-white-950 sm:text-2xl">
+    <p
+      className={cn(
+        className,
+        "max-w-3xl font-serif text-lg leading-relaxed text-branding-white-950 sm:text-2xl"
+      )}
+    >
       {children}
     </p>
   )

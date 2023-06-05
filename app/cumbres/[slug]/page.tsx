@@ -4,13 +4,13 @@ import { notFound } from "next/navigation"
 import { prisma } from "@/lib/client"
 import { PeakPage } from "@/components/pages/peak-page"
 
-export async function generateStaticParams() {
-  const peaks = await prisma.peak.findMany()
+// export async function generateStaticParams() {
+//   const peaks = await prisma.peak.findMany()
 
-  return peaks.map((peak: any) => ({
-    slug: peak.slug,
-  }))
-}
+//   return peaks.map((peak: any) => ({
+//     slug: peak.slug,
+//   }))
+// }
 
 async function getPeak(params: any) {
   const peak = await prisma.peak.findUnique({
@@ -24,6 +24,17 @@ async function getPeak(params: any) {
   }
 
   return peak
+}
+
+async function getWeather(peak: any) {
+  const res = await fetch(
+    `https://api.openweathermap.org/data/2.5/weather?lat=${peak.latitude}&lon=${peak.longitude}&appid=${process.env.OPENWEATHER_API_KEY}&units=metric&lang=es`
+  )
+  if (!res.ok) {
+    // This will activate the closest `error.js` Error Boundary
+    throw new Error("Failed to fetch data")
+  }
+  return res.json()
 }
 
 export async function generateMetadata({
@@ -72,10 +83,11 @@ export default async function PeakRoute({
   params: { slug: string }
 }) {
   const peak = await getPeak(params)
+  const weather = await getWeather(peak)
 
   if (!peak) {
     return notFound()
   }
 
-  return <PeakPage peak={peak} />
+  return <PeakPage peak={peak} weather={weather} />
 }

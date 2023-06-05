@@ -97,14 +97,14 @@ export const SummitsPage = () => {
           <ul className="mt-8 grid grid-cols-1 gap-y-4 sm:grid-cols-2 sm:gap-4">
             {isLoading ? (
               <>
-                {/* {Array.from({ length: 12 }, (_, i) => i + 1).map(
+                {Array.from({ length: 12 }, (_, i) => i + 1).map(
                   (item, itemIdx) => (
                     <Skeleton
                       key={itemIdx}
                       className="relative rounded-lg border bg-branding-sand px-5 py-10 lg:h-72"
                     />
                   )
-                )} */}
+                )}
               </>
             ) : (
               <>

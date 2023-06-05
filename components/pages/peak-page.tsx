@@ -1,14 +1,23 @@
 import Image from "next/image"
-import { ClockIcon, MapPinIcon, MountainIcon } from "lucide-react"
+import {
+  ClockIcon,
+  MapPinIcon,
+  MountainIcon,
+  ThermometerSnowflakeIcon,
+  ThermometerSunIcon,
+} from "lucide-react"
 
 import { Peak } from "@/types/prisma"
 import { Separator } from "@/components/ui/separator"
 import { PageContainer } from "@/components/global/page-container"
 import { PageTagline } from "@/components/global/page-tagline"
 import { PageTitle } from "@/components/global/page-title"
+import { TextWrapper } from "@/components/global/text-wrapper"
 import { PeakDetail } from "@/components/peak/peak-detail"
+import { DetailsWidget } from "@/components/peaks/details-widget"
 
-export const PeakPage = ({ peak }: { peak: any }) => {
+export const PeakPage = ({ peak, weather }: { peak: any; weather: any }) => {
+  console.log(weather)
   return (
     <PageContainer>
       <PageTagline>{peak.county}</PageTagline>
@@ -16,7 +25,7 @@ export const PeakPage = ({ peak }: { peak: any }) => {
 
       <section className="mt-10 grid gap-y-10 sm:mt-20 sm:grid-cols-5 sm:gap-x-20">
         <div className="sm:col-span-2">
-          <p className="prose sm:prose-lg">{peak.description}</p>
+          <TextWrapper>{peak.description}</TextWrapper>
         </div>
 
         <div className="row-start-1 sm:col-span-3 sm:row-auto">
@@ -28,9 +37,9 @@ export const PeakPage = ({ peak }: { peak: any }) => {
               className="rounded object-cover object-center"
             />
           </div>
-          <Separator className="my-5 bg-branding-green" />
+          {/* <Separator className="my-5 bg-branding-green" /> */}
 
-          <section className="flex justify-between gap-x-5">
+          {/* <section className="flex justify-between gap-x-5">
             <div>
               <PeakDetail
                 icon={<MapPinIcon className="h-4 w-4" />}
@@ -42,6 +51,7 @@ export const PeakPage = ({ peak }: { peak: any }) => {
               <PeakDetail
                 icon={<MountainIcon className="h-4 w-4" />}
                 value={peak.elevation}
+                unit="m"
               />
               <PeakDetail
                 icon={<ClockIcon className="h-4 w-4" />}
@@ -51,8 +61,13 @@ export const PeakPage = ({ peak }: { peak: any }) => {
                 icon={<MountainIcon className="h-4 w-4" />}
                 value={peak.elevation}
               />
+              <PeakDetail
+                icon={<ThermometerSnowflakeIcon className="h-4 w-4" />}
+                value={weather.main.temp_min}
+              />
             </div>
-          </section>
+          </section> */}
+          <DetailsWidget peak={peak} weather={weather} />
         </div>
       </section>
     </PageContainer>
