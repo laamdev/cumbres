@@ -1,9 +1,8 @@
 "use client"
 
-import { Summit } from "@prisma/client"
 import useSWR from "swr"
 
-import { Peak } from "@/types/prisma"
+import { Peak, Summit } from "@/types/prisma"
 import {
   addSummit,
   userPeaksEndpoint as cacheKey,
