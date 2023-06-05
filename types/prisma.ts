@@ -9,6 +9,7 @@ export interface Peak {
   id: string
   name: string
   slug: string
+  description: string
   elevation: number
   province: string
   county: string
