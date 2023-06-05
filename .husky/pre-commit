@@ -12,6 +12,6 @@ pnpm lint ||
     false;
 )
 
-echo '🎉 No error found: committing this now.... ✨🚀🏄‍♂️🍻'
+echo '🎉 No error found: committing this now... ✨🚀🏄‍♂️🍻'
 
 pnpm dlx lint-staged
