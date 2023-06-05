@@ -30,9 +30,9 @@ model Summit {
   id            String   @id @default(cuid())
   createdAt     DateTime @default(now())
   updatedAt     DateTime @updatedAt
-  summitDate    DateTime @default(now())
-  summitTime    Int      @default(1)
-  summitWeather Boolean  @default(false)
+  summitDate    DateTime
+  summitTime    Int
+  summitWeather Boolean
   userId        String
   peakId        String
   peak          Peak?    @relation(fields: [peakId], references: [id])
