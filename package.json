@@ -10,6 +10,7 @@
     "typecheck": "tsc --noEmit",
     "format:write": "prettier --write \"**/*.{ts,tsx,mdx}\" --cache",
     "format:check": "prettier --check \"**/*.{ts,tsx,mdx}\" --cache",
+    "postinstall": "pnpm dlx prisma generate",
     "studio": "pnpm dlx prisma studio",
     "generate": "pnpm dlx prisma generate",
     "migrate": "pnpm dlx prisma migrate dev",
