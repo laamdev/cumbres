@@ -7,7 +7,7 @@ import { Peak } from "@/types/prisma"
 import { PageContainer } from "@/components/global/page-container"
 import { PageTitle } from "@/components/global/page-title"
 
-export const PeaksPage = ({ peaks }: { peaks: Peak[] }) => {
+export const PeaksPage = ({ peaks }: { peaks: any[] }) => {
   return (
     <PageContainer>
       <PageTitle>Los 45 Techos</PageTitle>

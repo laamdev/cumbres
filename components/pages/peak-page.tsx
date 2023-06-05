@@ -8,7 +8,7 @@ import { PageTagline } from "@/components/global/page-tagline"
 import { PageTitle } from "@/components/global/page-title"
 import { PeakDetail } from "@/components/peak/peak-detail"
 
-export const PeakPage = ({ peak }: { peak: Peak }) => {
+export const PeakPage = ({ peak }: { peak: any }) => {
   return (
     <PageContainer>
       <PageTagline>{peak.county}</PageTagline>
