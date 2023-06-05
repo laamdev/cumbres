@@ -1,7 +1,7 @@
 import Image from "next/image"
-import { Peak } from "@prisma/client"
 import { ClockIcon, MapPinIcon, MountainIcon } from "lucide-react"
 
+import { Peak } from "@/types/prisma"
 import { Separator } from "@/components/ui/separator"
 import { PageContainer } from "@/components/global/page-container"
 import { PageTagline } from "@/components/global/page-tagline"
