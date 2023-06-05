@@ -3,7 +3,7 @@ import type { Metadata } from "next"
 import { prisma } from "@/lib/client"
 import { PeaksPage } from "@/components/pages/peaks-page"
 
-export const dynamic = "force-dynamic"
+// // export const dynamic = "force-dynamic"
 
 async function getPeaks() {
   const res = await prisma.peak.findMany({
