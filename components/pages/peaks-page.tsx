@@ -2,8 +2,8 @@
 
 import Image from "next/image"
 import Link from "next/link"
-import { Peak } from "@prisma/client"
 
+import { Peak } from "@/types/prisma"
 import { PageContainer } from "@/components/global/page-container"
 import { PageTitle } from "@/components/global/page-title"
 
