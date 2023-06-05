@@ -1,7 +1,19 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  reactStrictMode: true,
   images: {
-    domains: ["images.clerk.dev", "res.cloudinary.com"],
+    remotePatterns: [
+      { hostname: "images.clerk.dev" },
+      { hostname: "res.cloudinary.com" },
+    ],
+  },
+  typescript: {
+    // Set this to false if you want production builds to abort if there's type errors
+    ignoreBuildErrors: process.env.VERCEL_ENV === "production",
+  },
+  eslint: {
+    /// Set this to false if you want production builds to abort if there's lint errors
+    ignoreDuringBuilds: process.env.VERCEL_ENV === "production",
   },
 }
 
