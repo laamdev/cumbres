@@ -1,0 +1,39 @@
+generator client {
+  provider        = "prisma-client-js"
+  previewFeatures = ["jsonProtocol"]
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Peak {
+  id           String   @id @default(cuid())
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+  name         String   @unique
+  slug         String   @unique
+  description  String
+  elevation    Float
+  province     String
+  county       String
+  range        String
+  latitude     Float
+  longitude    Float
+  highestPoint String?
+  imageUrl     String
+  summits      Summit[]
+}
+
+model Summit {
+  id            String   @id @default(cuid())
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+  summitDate    DateTime @default(now())
+  summitTime    Int      @default(1)
+  summitWeather Boolean  @default(false)
+  userId        String
+  peakId        String
+  peak          Peak?    @relation(fields: [peakId], references: [id])
+}

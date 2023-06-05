@@ -75,7 +75,14 @@
     @apply border-border;
   }
   body {
-    @apply bg-background text-foreground;
+    /* @apply bg-background text-foreground; */
     font-feature-settings: "rlig" 1, "calt" 1;
+    @apply overflow-x-hidden bg-branding-white-50 text-foreground;
+  }
+}
+
+@layer components {
+  .tw-transition {
+    @apply transition delay-150 ease-in-out;
   }
 }
