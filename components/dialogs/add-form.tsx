@@ -185,7 +185,7 @@ export const AddForm = ({
           {submitting ? (
             <p className="flex items-center gap-x-1">
               <span>{`Añadiendo`}</span>
-              <RotateCwIcon className="animate-spin" />
+              <RotateCwIcon className="h-5 w-5 animate-spin" />
             </p>
           ) : (
             <p>{`Añadir`}</p>

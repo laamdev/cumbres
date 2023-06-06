@@ -14,7 +14,8 @@ export const PeaksPage = ({ peaks }: { peaks: any[] }) => {
       <TextWrapper className="mt-5">
         Estas son las 45 montañas que tienen el honor de ser el techo de una de
         las 50 provincias que componen España. 4 de estas montañas son
-        compartidas por 2 provincias distintas.
+        compartidas entre provincias colindantes y 2 forman parte de distintas
+        cordilleras.
       </TextWrapper>
 
       <PublicPeakList>

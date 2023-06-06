@@ -16,7 +16,10 @@ import { Skeleton } from "@/components/ui/skeleton"
 import { useToast } from "@/components/ui/use-toast"
 // // import { PeaksFilters } from "@/components/dashboard/peaks-filters"
 import { PageTitle } from "@/components/global/page-title"
+import { TextWrapper } from "@/components/global/text-wrapper"
 import { PeakCard } from "@/components/peak/peak-card"
+
+import { PageContainer } from "../global/page-container"
 
 export const SummitsPage = () => {
   const {
@@ -81,9 +84,12 @@ export const SummitsPage = () => {
   }
 
   return (
-    <div className="mx-auto mt-10 max-w-5xl px-2 sm:mb-24 sm:mt-20">
-      <div className="px-2">
+    <PageContainer>
+      <div>
         <PageTitle>Tus Cumbres</PageTitle>
+        <TextWrapper className="mt-5">
+          {`Estos son los Techos de España que has coronado y los que aún te quedan por visitar. Puedes añadir, editar o eliminar la cumbre que desees de tu lista.`}
+        </TextWrapper>
       </div>
 
       <div className="mt-16 sm:mt-24">
@@ -125,6 +131,6 @@ export const SummitsPage = () => {
           </ul>
         )}
       </div>
-    </div>
+    </PageContainer>
   )
 }

@@ -7,7 +7,10 @@ import { ProfileMenu } from "@/components/ui/profile-menu"
 
 export const Header = () => {
   return (
-    <nav className="sticky top-4 z-40 mx-4 flex max-w-4xl items-center justify-between rounded bg-white p-4 sm:mx-auto">
+    <nav
+      id="top"
+      className="sticky top-4 z-40 mx-4 flex max-w-4xl items-center justify-between rounded bg-white p-4 sm:mx-auto"
+    >
       <Link href="/">
         <GiMountaintop className="tw-transition h-8 w-8 text-branding-green hover:text-branding-green-800 sm:h-12 sm:w-12" />
       </Link>

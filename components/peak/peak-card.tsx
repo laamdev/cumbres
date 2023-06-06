@@ -103,7 +103,7 @@ export const PeakCard = ({
       </div>
 
       {isSummited && (
-        <div className="flex items-center justify-between rounded-xl border border-branding-white bg-branding-green px-2.5 font-semibold text-branding-white">
+        <div className="flex items-center justify-between rounded-xl border bg-white px-2.5 font-semibold text-branding-green">
           {peak.summitWeather ? <SnowflakeIcon /> : <SunIcon />}
           <p>{format(new Date(peak.summitDate), "P", { locale: es })}</p>
           <p>{peak.summitTime} h</p>

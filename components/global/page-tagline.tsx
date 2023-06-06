@@ -2,7 +2,7 @@ import { ReactNode } from "react"
 
 export const PageTagline = ({ children }: { children: ReactNode }) => {
   return (
-    <h2 className="text-lg font-bold text-branding-sand-900 sm:text-xl">
+    <h2 className="text-base font-bold text-branding-sand-900 sm:text-lg">
       {children}
     </h2>
   )
