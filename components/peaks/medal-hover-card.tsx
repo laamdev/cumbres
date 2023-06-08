@@ -13,7 +13,7 @@ export const MedalHoverCard = ({
   highestPoint,
 }: {
   name: string
-  highestPoint: string
+  highestPoint: string[]
 }) => {
   return (
     <HoverCard>
@@ -25,7 +25,9 @@ export const MedalHoverCard = ({
       <HoverCardContent className="w-80">
         <div className="space-y-1">
           <h4 className="text-sm font-semibold">{name}</h4>
-          <p className="text-sm">{`Punto más alto de ${highestPoint}`}</p>
+          <p className="text-sm">{`Punto más alto de ${highestPoint.join(
+            " y "
+          )}`}</p>
         </div>
       </HoverCardContent>
     </HoverCard>

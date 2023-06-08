@@ -21,7 +21,7 @@ export const PublicPeakCard = ({ peak }: { peak: Peak }) => {
       <h2 className="absolute bottom-2.5 left-2.5 z-10 rounded-xl bg-white px-3 py-2 text-sm font-semibold text-branding-green sm:mt-2.5 sm:text-xl">
         {peak.name}
       </h2>
-      {peak.highestPoint && (
+      {peak.highestPoint?.length && (
         <div className="absolute -right-2.5 -top-2.5">
           <MedalHoverCard name={peak.name} highestPoint={peak.highestPoint} />
         </div>

@@ -117,7 +117,7 @@ export const peaksJson = [
     latitude: 37.096111,
     longitude: -2.998611,
     imageUrl:
-      "https://res.cloudinary.com/brother-sailor/image/upload/v1682389285/peaks/torre-blanca_cluzwy.webp",
+      "https://res.cloudinary.com/brother-sailor/image/upload/v1682389483/peaks/chullo_tyh3qk.webp",
   },
   {
     name: "Pic de Costa Cabirolera",
@@ -218,7 +218,7 @@ export const peaksJson = [
     longitude: -5.721389,
     highestPoint: ["Extremadura"],
     imageUrl:
-      "https://res.cloudinary.com/brother-sailor/image/upload/v1682390605/peaks/canchal-de-la-ceja_ql83xf.webp",
+      "https://res.cloudinary.com/brother-sailor/image/upload/v1682427301/peaks/calvitero_r5aner.webp",
   },
   {
     name: "Moncayo",
