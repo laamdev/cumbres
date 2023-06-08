@@ -1,31 +1,34 @@
-import { cn } from "@/lib/utils"
+import { UserPeak } from "@/types/payloads"
+import { cn, getAllIncluded } from "@/lib/utils"
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 import {
   Popover,
   PopoverContent,
   PopoverTrigger,
 } from "@/components/ui/popover"
+import { BadgesSkeleton } from "@/components/badges/badges-skeleton"
 
 export const BadgesFullCountyCard = ({
-  peaks,
-  county,
-  summits,
+  badgePeaks,
+  badgeCounty,
+  summited,
+  isLoading,
 }: {
-  peaks: any
-  county: any
-  summits: any
+  badgePeaks: any
+  badgeCounty: any
+  summited: UserPeak[]
+  isLoading: boolean
 }) => {
-  const peaksNames = peaks.map((peak: any) => peak.name)
-  const peaksAndProvincesNames = peaks.map(
+  if (isLoading) return <BadgesSkeleton />
+
+  const badgePeaksNames = badgePeaks.map((badgePeak: any) => badgePeak.name)
+  const badgePeaksAndProvincesNames = badgePeaks.map(
     (peak: any) => `${peak.name} (${peak.province})`
   )
 
-  const summitedNames = summits?.map((summit: any) => summit.peak.name)
+  const summitedNames = summited?.map((peak: UserPeak) => peak.name)
 
-  const checker = (arr: any, target: any) =>
-    target.every((v) => arr.includes(v))
-
-  const completed = checker(summitedNames, peaksNames)
+  const completed = getAllIncluded(summitedNames, badgePeaksNames)
 
   return (
     <Popover>
@@ -37,22 +40,22 @@ export const BadgesFullCountyCard = ({
               completed ? "grayscale-0" : "grayscale"
             )}
           >
-            <AvatarImage src={county.imageUrl} alt={county.name} />
-            <AvatarFallback>{county.name}</AvatarFallback>
+            <AvatarImage src={badgeCounty.imageUrl} alt={badgeCounty.name} />
+            <AvatarFallback>{badgeCounty.name}</AvatarFallback>
           </Avatar>
           <p className="mt-1 space-x-1">
-            <span className="text-lg font-semibold">{county.name}</span>
-            <span className="text-sm">{`(${peaksNames.length})`}</span>
+            <span className="text-lg font-semibold">{badgeCounty.name}</span>
+            <span className="text-sm">{`(${badgePeaksNames.length})`}</span>
           </p>
         </div>
       </PopoverTrigger>
       <PopoverContent>
         <div className="flex justify-between space-x-4">
           <div className="space-y-1">
-            <h4 className="text-sm font-semibold">{`${peaksAndProvincesNames.join(
+            <h4 className="text-sm font-semibold">{`${badgePeaksAndProvincesNames.join(
               ", "
             )}`}</h4>
-            <p className="text-sm">{`Todos los picos de ${county.name}`}</p>
+            <p className="text-sm">{`Todos los picos de ${badgeCounty.name}`}</p>
           </div>
         </div>
       </PopoverContent>

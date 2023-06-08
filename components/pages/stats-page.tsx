@@ -7,7 +7,7 @@ import { UserPeak } from "@/types/payloads"
 import { userPeaksEndpoint as cacheKey, getUserPeaks } from "@/lib/api"
 import { getAverage, getPercentage, getSum } from "@/lib/helpers"
 import { Button } from "@/components/ui/button"
-import { Skeleton } from "@/components/ui/skeleton"
+// // import { Skeleton } from "@/components/ui/skeleton"
 import { ProgressBar } from "@/components/dashboard/progress-bar"
 import { StatCard } from "@/components/dashboard/stat-card"
 import { StatList } from "@/components/dashboard/stat-list"
@@ -17,14 +17,7 @@ import { PageTitle } from "@/components/global/page-title"
 import { TextWrapper } from "@/components/global/text-wrapper"
 
 export const StatsPage = () => {
-  const {
-    isLoading,
-    // // isValidating,
-    error,
-    data: userPeaks,
-  } = useSWR(cacheKey, getUserPeaks, {
-    // // onSuccess: (data) => data.sort((a, b) => b.id - a.id),
-  })
+  const { isLoading, data: userPeaks } = useSWR(cacheKey, getUserPeaks, {})
 
   if (isLoading) return <div></div>
 
@@ -63,7 +56,7 @@ export const StatsPage = () => {
         visualizan tu avance en el reto de los 45 Techos de España.
       </TextWrapper>
 
-      {summited.length ? (
+      {summited ? (
         <>
           <section className="mt-10 grid gap-5 sm:mt-20 sm:grid-cols-2">
             <ProgressBar
@@ -100,8 +93,8 @@ export const StatsPage = () => {
             </StatList>
           </section>
 
-          <section className="mt-5 grid grid-cols-2 gap-5">
-            <div className="col-span-1 h-96 rounded-xl border-2 border-branding-green bg-white px-2.5 py-3">
+          <section className="relative mt-5">
+            <div className="h-96 rounded-xl border-2 border-branding-green bg-white px-5 py-2.5">
               <h3 className="text-bold text-sm">Condiciones Climáticas</h3>
               <WeatherChart
                 totalSummited={totalSummited}

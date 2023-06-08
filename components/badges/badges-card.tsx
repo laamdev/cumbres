@@ -2,6 +2,7 @@ import { format } from "date-fns"
 import es from "date-fns/locale/es"
 import { CalendarDaysIcon } from "lucide-react"
 
+import { UserPeak } from "@/types/payloads"
 import { cn } from "@/lib/utils"
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 import {
@@ -14,18 +15,18 @@ export const BadgesCard = ({
   buttonLabel,
   buttonImageUrl,
   popoverLabel,
-  summits,
+  summited,
   intro,
 }: {
   buttonLabel: string
   buttonImageUrl: string
   popoverLabel: string[]
-  summits: any
+  summited: UserPeak
   intro: string
 }) => {
   const summit =
     popoverLabel.length === 1 &&
-    summits.find((summit: any) => summit.peak.name === popoverLabel[0])
+    summited.find((peak: any) => peak.name === popoverLabel[0])
 
   const label =
     popoverLabel.length === 1 ? popoverLabel[0] : popoverLabel.join(", ")
