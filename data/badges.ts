@@ -2,25 +2,21 @@ export const badges = {
   highestPointCountryAndPeninsula: [
     {
       id: 1,
-      peak: {
-        name: "Teide",
-        imageUrl:
-          "https://res.cloudinary.com/brother-sailor/image/upload/v1682388354/peaks/teide_hy9k0z.webp",
+      popover: {
+        name: ["Teide"],
       },
-      location: {
+      button: {
         name: "España",
         imageUrl: "/images/flags/spain.webp",
       },
     },
     {
       id: 2,
-      peak: {
-        name: "Mulhacén",
-        imageUrl:
-          "https://res.cloudinary.com/brother-sailor/image/upload/v1682388509/peaks/mulhacen_ewuy5i.webp",
+      popover: {
+        name: ["Mulhacén"],
       },
-      location: {
-        name: "Península",
+      button: {
+        name: "Península Ibérica",
         imageUrl: "/images/flags/peninsula.webp",
       },
     },
@@ -28,206 +24,523 @@ export const badges = {
   highestPointCounty: [
     {
       id: 1,
-      peak: {
-        name: "Mulhacén",
-        imageUrl:
-          "https://res.cloudinary.com/brother-sailor/image/upload/v1682388509/peaks/mulhacen_ewuy5i.webp",
+      popover: {
+        name: ["Mulhacén"],
       },
-      location: {
+      button: {
         name: "Andalucía",
         imageUrl: "/images/flags/andalucia.webp",
       },
     },
     {
       id: 2,
-      peak: {
-        name: "Pico Aneto",
-        imageUrl:
-          "https://res.cloudinary.com/brother-sailor/image/upload/v1682388760/peaks/pico-aneto_hw6fij.webp",
+      popover: {
+        name: ["Pico Aneto"],
       },
-      location: {
+      button: {
         name: "Aragón",
         imageUrl: "/images/flags/aragon.webp",
       },
     },
     {
       id: 3,
-      peak: {
-        name: "Torre Cerredo",
-        imageUrl:
-          "https://res.cloudinary.com/brother-sailor/image/upload/v1682387704/peaks/torre-cerredo_gl2b16.webp",
+      popover: {
+        name: ["Torre Cerredo"],
       },
-      location: {
-        name: "Asturias",
+      button: {
+        name: "Principado de Asturias",
         imageUrl: "/images/flags/asturias.webp",
       },
     },
     {
       id: 4,
-      peak: {
-        name: "Puig Major",
-        imageUrl:
-          "https://res.cloudinary.com/brother-sailor/image/upload/v1682423839/peaks/puig-major_rmrveh.webp",
+      popover: {
+        name: ["Puig Major"],
       },
-      location: {
+      button: {
         name: "Islas Baleares",
         imageUrl: "/images/flags/islas-baleares.webp",
       },
     },
     {
       id: 5,
-      peak: {
-        name: "Teide",
-        imageUrl:
-          "https://res.cloudinary.com/brother-sailor/image/upload/v1682388354/peaks/teide_hy9k0z.webp",
+      popover: {
+        name: ["Teide"],
       },
-      location: {
+      button: {
         name: "Canarias",
         imageUrl: "/images/flags/canarias.webp",
       },
     },
     {
       id: 6,
-      peak: {
-        name: "Torre Blanca",
-        imageUrl:
-          "https://res.cloudinary.com/brother-sailor/image/upload/v1682389285/peaks/torre-blanca_cluzwy.webp",
+      popover: {
+        name: ["Torre Blanca"],
       },
-      location: {
+      button: {
         name: "Cantabria",
         imageUrl: "/images/flags/cantabria.webp",
       },
     },
     {
       id: 7,
-      peak: {
-        name: "Pico del Lobo",
-        imageUrl:
-          "https://res.cloudinary.com/brother-sailor/image/upload/v1682390903/peaks/pico-del-lobo_llpheq.webp",
+      popover: {
+        name: ["Pico del Lobo"],
       },
-      location: {
+      button: {
         name: "Castilla La Mancha",
         imageUrl: "/images/flags/castilla-la-mancha.webp",
       },
     },
     {
       id: 8,
-      peak: {
-        name: "Torre Cerredo",
-        imageUrl:
-          "https://res.cloudinary.com/brother-sailor/image/upload/v1682387704/peaks/torre-cerredo_gl2b16.webp",
+      popover: {
+        name: ["Torre Cerredo"],
       },
-      location: {
+      button: {
         name: "Castilla y León",
         imageUrl: "/images/flags/castilla-y-leon.webp",
       },
     },
     {
       id: 9,
-      peak: {
-        name: "Pica d'Estats",
-        imageUrl:
-          "https://res.cloudinary.com/brother-sailor/image/upload/v1682389028/peaks/pica-destats_e8x02h.webp",
+      popover: {
+        name: ["Pica d'Estats"],
       },
-      location: {
+      button: {
         name: "Cataluña",
         imageUrl: "/images/flags/cataluna.webp",
       },
     },
     {
       id: 10,
-      peak: {
-        name: "Penyagolosa",
-        imageUrl:
-          "https://res.cloudinary.com/brother-sailor/image/upload/v1682422936/peaks/penyagolosa_weq41w.webp",
+      popover: {
+        name: ["Penyagolosa"],
       },
-      location: {
+      button: {
         name: "Comunidad Valenciana",
         imageUrl: "/images/flags/comunidad-valenciana.webp",
       },
     },
     {
       id: 11,
-      peak: {
-        name: "Calvitero",
-        imageUrl:
-          "https://res.cloudinary.com/brother-sailor/image/upload/v1682427301/peaks/calvitero_r5aner.webp",
+      popover: {
+        name: ["Calvitero"],
       },
-      location: {
+      button: {
         name: "Extremadura",
         imageUrl: "/images/flags/extremadura.webp",
       },
     },
     {
       id: 12,
-      peak: {
-        name: "Peña Trevinca",
-        imageUrl:
-          "https://res.cloudinary.com/brother-sailor/image/upload/v1682421713/peaks/pena-trevinca_zfxbyh.webp",
+      popover: {
+        name: ["Peña Trevinca"],
       },
-      location: {
+      button: {
         name: "Galicia",
         imageUrl: "/images/flags/galicia.webp",
       },
     },
     {
       id: 13,
-      peak: {
-        name: "Cerro de San Lorenzo",
-        imageUrl:
-          "https://res.cloudinary.com/brother-sailor/image/upload/v1682421371/peaks/cerro-san-lorenzo_d5kca3.webp",
+      popover: {
+        name: ["Cerro de San Lorenzo"],
       },
-      location: {
+      button: {
         name: "La Rioja",
         imageUrl: "/images/flags/la-rioja.webp",
       },
     },
     {
       id: 14,
-      peak: {
-        name: "Peñalara",
-        imageUrl:
-          "https://res.cloudinary.com/brother-sailor/image/upload/v1682390370/peaks/pe%C3%B1alara_rtvsej.webp",
+      popover: {
+        name: ["Peñalara"],
       },
-      location: {
+      button: {
         name: "Comunidad de Madrid",
         imageUrl: "/images/flags/comunidad-de-madrid.webp",
       },
     },
     {
       id: 15,
-      peak: {
-        name: "Pico del Obispo",
-        imageUrl:
-          "https://res.cloudinary.com/brother-sailor/image/upload/v1682422419/peaks/pico-del-obispo_akz0yv.webp",
+      popover: {
+        name: ["Pico del Obispo"],
       },
-      location: {
+      button: {
         name: "Murcia",
         imageUrl: "/images/flags/murcia.webp",
       },
     },
     {
       id: 16,
-      peak: {
-        name: "Mesa de los Tres Reyes",
-        imageUrl:
-          "https://res.cloudinary.com/brother-sailor/image/upload/v1682390173/peaks/mesa-de-los-tres-reyes_nifozw.webp",
+      popover: {
+        name: ["Mesa de los Tres Reyes"],
       },
-      location: {
-        name: "Navarra",
+      button: {
+        name: "Comunidad Foral de Navarra",
         imageUrl: "/images/flags/navarra.webp",
       },
     },
     {
       id: 17,
-      peak: {
-        name: "Aitxuri",
-        imageUrl:
-          "https://res.cloudinary.com/brother-sailor/image/upload/v1682423305/peaks/aitxuri_r73sgc.webp",
+      popover: {
+        name: ["Aitxuri"],
       },
-      location: {
+      button: {
         name: "País Vasco",
         imageUrl: "/images/flags/pais-vasco.webp",
+      },
+    },
+  ],
+  allHighestPointsByCounty: [
+    {
+      id: 1,
+      peaks: [
+        {
+          name: "Chullo",
+          province: "Almería",
+        },
+        {
+          name: "El Torreón",
+          province: "Cádiz",
+        },
+        {
+          name: "La Tiñosa",
+          province: "Córdoba",
+        },
+        {
+          name: "Mulhacén",
+          province: "Granada",
+        },
+        {
+          name: "Cerro de los Bonales",
+          province: "Huelva",
+        },
+        {
+          name: "Mágina",
+          province: "Jaén",
+        },
+        {
+          name: "La Maroma",
+          province: "Málaga",
+        },
+        {
+          name: "Terril",
+          province: "Sevilla",
+        },
+      ],
+      county: {
+        name: "Andalucía",
+        imageUrl: "/images/flags/andalucia.webp",
+      },
+    },
+    {
+      id: 2,
+      peaks: [
+        {
+          name: "Aneto",
+          province: "Huesca",
+        },
+        {
+          name: "Peñarroya",
+          province: "Teruel",
+        },
+        {
+          name: "Moncayo",
+          province: "Zaragoza",
+        },
+      ],
+      county: {
+        name: "Aragón",
+        imageUrl: "/images/flags/aragon.webp",
+      },
+    },
+    {
+      id: 3,
+      peaks: [
+        {
+          name: "Torre Cerredo",
+          province: "Asturias",
+        },
+      ],
+      county: {
+        name: "Principado de Asturias",
+        imageUrl: "/images/flags/asturias.webp",
+      },
+    },
+    {
+      id: 4,
+      peaks: [
+        {
+          name: "Puig Major",
+          province: "Baleares",
+        },
+      ],
+      county: {
+        name: "Islas Baleares",
+        imageUrl: "/images/flags/islas-baleares.webp",
+      },
+    },
+    {
+      id: 5,
+      peaks: [
+        {
+          name: "Teide",
+          province: "Santa Cruz de Tenerife",
+        },
+        {
+          name: "Morrón de la Agujerada",
+          province: "La Palmas",
+        },
+      ],
+      county: {
+        name: "Canarias",
+        imageUrl: "/images/flags/canarias.webp",
+      },
+    },
+    {
+      id: 6,
+      peaks: [
+        {
+          name: "Torre Blanca",
+          province: "Cantabria",
+        },
+      ],
+      county: {
+        name: "Cantabria",
+        imageUrl: "/images/flags/cantabria.webp",
+      },
+    },
+    {
+      id: 7,
+      peaks: [
+        {
+          name: "Almanzor",
+          province: "Ávila",
+        },
+        {
+          name: "San Millán",
+          province: "Burgos",
+        },
+        {
+          name: "Torre Cerredo",
+          province: "León",
+        },
+        {
+          name: "Pico del Infierno",
+          province: "Palencia",
+        },
+        {
+          name: "Canchal de la Ceja",
+          province: "Salamanca",
+        },
+        {
+          name: "Peñalara",
+          province: "Segovia",
+        },
+        {
+          name: "Moncayo",
+          province: "Soria",
+        },
+        {
+          name: "Cuchillejo",
+          province: "Valladolid",
+        },
+        {
+          name: "Peña Trevinca",
+          province: "Zamora",
+        },
+      ],
+      county: {
+        name: "Castilla y León",
+        imageUrl: "/images/flags/castilla-y-leon.webp",
+      },
+    },
+    {
+      id: 8,
+      peaks: [
+        {
+          name: "La Atalaya",
+          province: "Albacete",
+        },
+        {
+          name: "Riscos del Amor",
+          province: "Ciudad Real",
+        },
+        {
+          name: "Mogorrita",
+          province: "Cuenca",
+        },
+        {
+          name: "Pico del Lobo",
+          province: "Guadalajara",
+        },
+      ],
+      county: {
+        name: "Castilla-La Mancha",
+        imageUrl: "/images/flags/castilla-la-mancha.webp",
+      },
+    },
+    {
+      id: 9,
+      peaks: [
+        {
+          name: "Pic de Costa Cabirolera",
+          province: "Barcelona",
+        },
+        {
+          name: "Puig Pedrós",
+          province: "Girona",
+        },
+        {
+          name: "Pica d'Estats",
+          province: "Lérida",
+        },
+        {
+          name: "Monte Caro",
+          province: "Tarragona",
+        },
+      ],
+      county: {
+        name: "Cataluña",
+        imageUrl: "/images/flags/cataluna.webp",
+      },
+    },
+    {
+      id: 10,
+      peaks: [
+        {
+          name: "Aitana",
+          province: "Alicante",
+        },
+        {
+          name: "Penyagolosa",
+          province: "Castellón",
+        },
+        {
+          name: "Alto de Barracas",
+          province: "Valencia",
+        },
+      ],
+      county: {
+        name: "Comunidad Valenciana",
+        imageUrl: "/images/flags/comunidad-valenciana.webp",
+      },
+    },
+    {
+      id: 11,
+      peaks: [
+        {
+          name: "Cerro de Tentudía",
+          province: "Badajoz",
+        },
+        {
+          name: "Calvitero",
+          province: "Cáceres",
+        },
+      ],
+      county: {
+        name: "Extremadura",
+        imageUrl: "/images/flags/extremadura.webp",
+      },
+    },
+    {
+      id: 12,
+      peaks: [
+        {
+          name: "Coto Pilar",
+          province: "La Coruña",
+        },
+        {
+          name: "El Mustallar",
+          province: "Lugo",
+        },
+        {
+          name: "Peña Trevinca",
+          province: "Orense",
+        },
+        {
+          name: "Monte do Faro",
+          province: "Pontevedra",
+        },
+      ],
+      county: {
+        name: "Galicia",
+        imageUrl: "/images/flags/galicia.webp",
+      },
+    },
+    {
+      id: 13,
+      peaks: [
+        {
+          name: "Peñalara",
+          province: "Madrid",
+        },
+      ],
+      county: {
+        name: "Comunidad de Madrid",
+        imageUrl: "/images/flags/comunidad-de-madrid.webp",
+      },
+    },
+    {
+      id: 14,
+      peaks: [
+        {
+          name: "Los Obispos",
+          province: "Murcia",
+        },
+      ],
+      county: {
+        name: "Región de Murcia",
+        imageUrl: "/images/flags/murcia.webp",
+      },
+    },
+    {
+      id: 15,
+      peaks: [
+        {
+          name: "Mesa de los Tres Reyes",
+          province: "Navarra",
+        },
+      ],
+      county: {
+        name: "Comunidad Foral de Navarra",
+        imageUrl: "/images/flags/navarra.webp",
+      },
+    },
+    {
+      id: 16,
+      peaks: [
+        {
+          name: "Gorbea",
+          province: "Álava",
+        },
+        {
+          name: "Gorbea",
+          province: "Vizcaya",
+        },
+        {
+          name: "Aitxuri",
+          province: "Guipúzcoa",
+        },
+      ],
+      county: {
+        name: "País Vasco",
+        imageUrl: "/images/flags/pais-vasco.webp",
+      },
+    },
+    {
+      id: 17,
+      peaks: [
+        {
+          name: "Monte de San Lorenzo",
+          province: "La Rioja",
+        },
+      ],
+      county: {
+        name: "La Rioja",
+        imageUrl: "/images/flags/la-rioja.webp",
       },
     },
   ],

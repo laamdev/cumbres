@@ -181,7 +181,7 @@ export const AddForm = ({
           )}
         />
 
-        <Button type="submit">
+        <Button type="submit" className="hover:bg-primary/90">
           {submitting ? (
             <p className="flex items-center gap-x-1">
               <span>{`Añadiendo`}</span>

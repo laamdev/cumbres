@@ -11,12 +11,12 @@ export interface Peak {
   slug: string
   description: string
   elevation: number
-  province: string
-  county: string
-  range: string
+  province: string[]
+  county: string[]
+  range: string[]
   latitude: number
   longitude: number
-  highestPoint?: string
+  highestPoint?: string[]
   imageUrl: string
   userId?: string
   summitId?: string

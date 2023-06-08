@@ -14,12 +14,11 @@ import {
 } from "@/lib/api"
 import { Skeleton } from "@/components/ui/skeleton"
 import { useToast } from "@/components/ui/use-toast"
+import { PageContainer } from "@/components/global/page-container"
 // // import { PeaksFilters } from "@/components/dashboard/peaks-filters"
 import { PageTitle } from "@/components/global/page-title"
 import { TextWrapper } from "@/components/global/text-wrapper"
 import { PeakCard } from "@/components/peak/peak-card"
-
-import { PageContainer } from "../global/page-container"
 
 export const SummitsPage = () => {
   const {

@@ -1,11 +1,8 @@
-"use client"
-
 import { PageContainer } from "@/components/global/page-container"
 import { PageTitle } from "@/components/global/page-title"
-
-import { TextWrapper } from "../global/text-wrapper"
-import { PublicPeakCard } from "../peaks/public-peak-card"
-import { PublicPeakList } from "../peaks/public-peak-list"
+import { TextWrapper } from "@/components/global/text-wrapper"
+import { PublicPeakCard } from "@/components/peaks/public-peak-card"
+import { PublicPeakList } from "@/components/peaks/public-peak-list"
 
 export const PeaksPage = ({ peaks }: { peaks: any[] }) => {
   return (

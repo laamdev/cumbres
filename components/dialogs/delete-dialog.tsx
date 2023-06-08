@@ -21,9 +21,7 @@ export const DeleteDialog = ({
   return (
     <Dialog>
       <DialogTrigger asChild>
-        <button type="button">
-          <MinusCircle className="tw-transition h-5 w-5 text-branding-white hover:text-branding-white/75" />
-        </button>
+        <MinusCircle className="tw-transition h-5 w-5 cursor-pointer text-branding-white hover:text-branding-white/75" />
       </DialogTrigger>
       <DialogContent className="sm:max-w-[425px]">
         <DialogHeader>

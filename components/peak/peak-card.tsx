@@ -30,7 +30,6 @@ export const PeakCard = ({
   updateSummitMutation?: any
   deleteSummitMutation?: any
 }) => {
-  const countyArray = peak?.county?.split(", ")
   return (
     <li
       className={clsx(
@@ -82,7 +81,9 @@ export const PeakCard = ({
       </div>
 
       <div className="text-center">
-        <PeakTagline isSummited={isSummited}>{peak?.range}</PeakTagline>
+        <PeakTagline isSummited={isSummited}>
+          {peak?.range.join(" y ")}
+        </PeakTagline>
         <PeakName isSummited={isSummited}>{peak?.name}</PeakName>
       </div>
 
@@ -96,9 +97,11 @@ export const PeakCard = ({
         </PeakCell>
         <PeakCell right>
           <PeakLabel isSummited={isSummited}>
-            {countyArray?.length > 1 ? "Provincias" : "Provincia"}
+            {peak?.province.length > 1 ? "Provincias" : "Provincia"}
           </PeakLabel>
-          <PeakValue isSummited={isSummited}>{peak?.province}</PeakValue>
+          <PeakValue isSummited={isSummited}>
+            {peak?.province.join(" y ")}
+          </PeakValue>
         </PeakCell>
       </div>
 

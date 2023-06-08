@@ -16,12 +16,12 @@ model Peak {
   slug         String   @unique
   description  String
   elevation    Float
-  province     String
-  county       String
-  range        String
+  province     String[]
+  county       String[]
+  range        String[]
   latitude     Float
   longitude    Float
-  highestPoint String?
+  highestPoint String[]
   imageUrl     String
   summits      Summit[]
 }

@@ -1,15 +1,15 @@
 import Image from "next/image"
 import { MedalIcon } from "lucide-react"
 
+import { Avatar } from "@/components/ui/avatar"
 import { PageContainer } from "@/components/global/page-container"
 import { PageTagline } from "@/components/global/page-tagline"
 import { PageTitle } from "@/components/global/page-title"
 import { TextWrapper } from "@/components/global/text-wrapper"
 import { DetailsWidget } from "@/components/peaks/details-widget"
 
-import { Avatar } from "../ui/avatar"
-
 export const PeakPage = ({ peak, weather }: { peak: any; weather: any }) => {
+  const highestPoint = peak.highestPoint.join(" y ")
   return (
     <PageContainer>
       <PageTagline>
@@ -28,7 +28,7 @@ export const PeakPage = ({ peak, weather }: { peak: any; weather: any }) => {
               <Avatar className="flex items-center justify-center bg-branding-green text-branding-white">
                 <MedalIcon />
               </Avatar>
-              {<div>{`Punto más alto de ${peak.highestPoint}`}</div>}
+              {<div>{`Punto más alto de ${highestPoint}`}</div>}
             </div>
           )}
           <TextWrapper className="mt-5">{peak.description}</TextWrapper>

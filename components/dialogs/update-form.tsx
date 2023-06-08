@@ -195,49 +195,7 @@ export const UpdateForm = ({
           )}
         />
 
-        {/* <div className="grid gap-4 py-4">
-          <div className="grid items-center gap-2">
-            <Label htmlFor="summitDate" className="text-left">
-              Fecha de Ascenso
-            </Label>
-
-            <DatePicker
-              name="summitDate"
-              control={control}
-              defaultValue={peak.summitDate}
-            />
-          </div>
-          <div className="grid items-center gap-2">
-            <Label htmlFor="summitTime" className="text-left">
-              Tiempo de Ascenso (hrs.)
-            </Label>
-            <Input
-              type="number"
-              id="summitTime"
-              {...register("summitTime", {
-                setValueAs: (v) => (v === "" ? undefined : parseInt(v, 10)),
-              })}
-            />
-            {errors.summitTime && (
-              <p className="mt-2 text-xs italic text-red-500">
-                {errors?.summitTime?.message}
-              </p>
-            )}
-          </div>
-        </div>
-        <DialogFooter>
-          <Button type="submit">
-            {isSubmitting ? (
-              <p className="flex items-center gap-x-1">
-                <span>{`Editando`}</span>
-                <RotateCw className="animate-spin" />
-              </p>
-            ) : (
-              <p>{`Editar`}</p>
-            )}
-          </Button>
-        </DialogFooter> */}
-        <Button type="submit">
+        <Button type="submit" className="hover:bg-primary/90">
           {submitting ? (
             <p className="flex items-center gap-x-1">
               <span>{`Editando`}</span>
@@ -248,95 +206,6 @@ export const UpdateForm = ({
           )}
         </Button>
       </form>
-      {/* <form onSubmit={form.handleSubmit(onSubmit)} className="mt-5 space-y-10">
-        <FormField
-          control={form.control}
-          name="summitDate"
-          render={({ field }) => (
-            <FormItem className="flex flex-col">
-              <FormLabel>Fecha</FormLabel>
-              <Popover>
-                <PopoverTrigger asChild>
-                  <FormControl>
-                    <Button
-                      variant={"outline"}
-                      className={cn(
-                        "w-full pl-3 text-left font-normal",
-                        !field.value && "text-muted-foreground"
-                      )}
-                    >
-                      {field.value ? (
-                        format(field.value, "PPP", { locale: es })
-                      ) : (
-                        <span>Elije una fecha de ascenso.</span>
-                      )}
-
-                      <CalendarIcon className="ml-auto h-4 w-4 opacity-50" />
-                    </Button>
-                  </FormControl>
-                </PopoverTrigger>
-                <PopoverContent className="w-auto p-0" align="start">
-                  <Calendar
-                    mode="single"
-                    selected={field.value}
-                    onSelect={field.onChange}
-                    disabled={(date) =>
-                      date > new Date() || date < new Date("1900-01-01")
-                    }
-                    initialFocus
-                  />
-                </PopoverContent>
-              </Popover>
-              <FormDescription>Elije la fecha de ascenso.</FormDescription>
-              <FormMessage />
-            </FormItem>
-          )}
-        />
-
-        <FormField
-          control={form.control}
-          name="summitTime"
-          render={({ field }) => (
-            <FormItem>
-              <FormLabel>Duración</FormLabel>
-              <FormControl>
-                <Input
-                  type="number"
-                  placeholder="Duración del ascenso en horas."
-                  {...field}
-                />
-              </FormControl>
-              <FormDescription>
-                {`Introduce la duración del ascenso (en horas).`}
-              </FormDescription>
-              <FormMessage />
-            </FormItem>
-          )}
-        />
-
-        <FormField
-          control={form.control}
-          name="summitWeather"
-          render={({ field }) => (
-            <FormItem className="flex flex-row items-center justify-between rounded-lg border p-4">
-              <div className="space-y-0.5">
-                <FormLabel className="text-base">Clima</FormLabel>
-                <FormDescription>
-                  Pincha el toggle si el pico estaba nevado.
-                </FormDescription>
-              </div>
-              <FormControl>
-                <Switch
-                  checked={field.value}
-                  onCheckedChange={field.onChange}
-                />
-              </FormControl>
-            </FormItem>
-          )}
-        />
-
-        <Button type="submit">Añadir</Button>
-      </form> */}
     </Form>
   )
 }
