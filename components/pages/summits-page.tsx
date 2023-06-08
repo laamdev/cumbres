@@ -2,7 +2,7 @@
 
 import useSWR from "swr"
 
-import { Peak, Summit } from "@/types/prisma"
+import { Peak, Summit } from "@/types/payloads"
 import {
   addSummit,
   userPeaksEndpoint as cacheKey,

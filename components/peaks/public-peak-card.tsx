@@ -1,7 +1,7 @@
 import Image from "next/image"
 import Link from "next/link"
 
-import { Peak } from "@/types/prisma"
+import { Peak } from "@/types/payloads"
 
 import { MedalHoverCard } from "./medal-hover-card"
 

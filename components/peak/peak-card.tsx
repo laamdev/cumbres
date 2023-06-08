@@ -7,7 +7,7 @@ import format from "date-fns/format"
 import es from "date-fns/locale/es"
 import { SnowflakeIcon, SunIcon } from "lucide-react"
 
-import { Peak } from "@/types/prisma"
+import { Peak } from "@/types/payloads"
 import { AddDialog } from "@/components/dialogs/add-dialog"
 import { DeleteDialog } from "@/components/dialogs/delete-dialog"
 import { UpdateDialog } from "@/components/dialogs/update-dialog"

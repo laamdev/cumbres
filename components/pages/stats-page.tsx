@@ -3,6 +3,7 @@
 import Link from "next/link"
 import useSWR from "swr"
 
+import { UserPeak } from "@/types/payloads"
 import { userPeaksEndpoint as cacheKey, getUserPeaks } from "@/lib/api"
 import { getAverage, getPercentage, getSum } from "@/lib/helpers"
 import { Button } from "@/components/ui/button"
@@ -21,29 +22,27 @@ export const StatsPage = () => {
     // // isValidating,
     error,
     data: userPeaks,
-    mutate,
   } = useSWR(cacheKey, getUserPeaks, {
     // // onSuccess: (data) => data.sort((a, b) => b.id - a.id),
   })
 
   if (isLoading) return <div></div>
 
-  const summited = userPeaks.filter((peak) => peak.summitId)
-  console.log(summited)
+  const summited = userPeaks.filter((peak: UserPeak) => peak.summitId)
   const totalSummited = summited.length
   const totalUnsummited = 45 - totalSummited
   const percentageSummited = getPercentage(totalSummited, 45)
 
   const percentageUnsummited = 100 - percentageSummited
-  const elevationArray = summited.map((summit: any) => +summit.elevation)
+  const elevationArray = summited.map((peak: UserPeak) => peak.elevation)
 
   const totalElevation = getSum(elevationArray)
-  const timeArray = summited.map((summit: any) => +summit.summitTime)
+  const timeArray = summited.map((peak: UserPeak) => peak.summitTime)
 
   const totalTime = getSum(timeArray)
   const averageTime = getAverage(timeArray)
   const totalSnowedSummits = summited.filter(
-    (summit: any) => summit.summitWeather
+    (peak: UserPeak) => peak.summitWeather
   ).length
 
   const totalDrySummits = totalSummited - totalSnowedSummits

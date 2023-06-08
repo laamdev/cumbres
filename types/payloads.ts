@@ -24,3 +24,21 @@ export interface Peak {
   summitTime?: number
   summitWeather?: boolean
 }
+
+export interface UserPeak {
+  id: string
+  name: string
+  elevation: number
+  province: string[]
+  county: string[]
+  range: string[]
+  latitude: number
+  longitude: number
+  highestPoint?: string[]
+  imageUrl: string
+  userId?: string
+  summitId?: string
+  summitDate?: string
+  summitTime?: number
+  summitWeather?: boolean
+}

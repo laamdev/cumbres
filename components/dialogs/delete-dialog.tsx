@@ -1,6 +1,6 @@
 import { MinusCircle } from "lucide-react"
 
-import { Peak } from "@/types/prisma"
+import { Peak } from "@/types/payloads"
 import {
   Dialog,
   DialogContent,
