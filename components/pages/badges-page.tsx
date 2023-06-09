@@ -31,43 +31,41 @@ export const BadgesPage = () => {
       </TextWrapper>
 
       <section className="mt-20 space-y-10">
-        {/* <div>
+        <div>
           <BadgesHeading>Techo Nacional y de la Península</BadgesHeading>
           <BadgesSummary>
             Puntos más alto de España y de la Península ibérica.
           </BadgesSummary>
-          {summited && (
-            <BadgesList>
-              {badges.highestPointCountryAndPeninsula.map((badge) => (
-                <BadgesCard
-                  buttonLabel={badge.button.name}
-                  buttonImageUrl={badge.button.imageUrl}
-                  popoverLabel={badge.popover.name}
-                  summited={summited}
-                  intro="Punto más alto de"
-                />
-              ))}
-            </BadgesList>
-          )}
-        </div> */}
+          <BadgesList>
+            {badges.highestPointCountryAndPeninsula.map((badge) => (
+              <BadgesCard
+                key={badge.id}
+                badgePeak={badge.peak}
+                badgeCounty={badge.county}
+                summited={summited}
+                isLoading={isLoading}
+              />
+            ))}
+          </BadgesList>
+        </div>
 
-        {/* <div>
+        <div>
           <BadgesHeading>Techos Comunitarios</BadgesHeading>
           <BadgesSummary>
-            Puntos más altos de cada Comunidad Autónoma española.
+            Puntos más altos de cada Comunidad Autónoma española.{" "}
           </BadgesSummary>
           <BadgesList>
             {badges.highestPointCounty.map((badge) => (
               <BadgesCard
-                buttonLabel={badge.button.name}
-                buttonImageUrl={badge.button.imageUrl}
-                popoverLabel={badge.popover.name}
-                summits={summits}
-                intro="Punto más alto de"
+                key={badge.id}
+                badgePeak={badge.peak}
+                badgeCounty={badge.county}
+                summited={summited}
+                isLoading={isLoading}
               />
             ))}
           </BadgesList>
-        </div> */}
+        </div>
 
         <div>
           <BadgesHeading>Todos los Techos de cada Comunidad</BadgesHeading>
@@ -77,6 +75,7 @@ export const BadgesPage = () => {
           <BadgesList>
             {badges.allHighestPointsByCounty.map((badge) => (
               <BadgesFullCountyCard
+                key={badge.id}
                 badgePeaks={badge.peaks}
                 badgeCounty={badge.county}
                 summited={summited}

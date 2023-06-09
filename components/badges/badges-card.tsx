@@ -10,27 +10,22 @@ import {
   PopoverContent,
   PopoverTrigger,
 } from "@/components/ui/popover"
+import { BadgesSkeleton } from "@/components/badges/badges-skeleton"
 
 export const BadgesCard = ({
-  buttonLabel,
-  buttonImageUrl,
-  popoverLabel,
+  badgePeak,
+  badgeCounty,
   summited,
-  intro,
+  isLoading,
 }: {
-  buttonLabel: string
-  buttonImageUrl: string
-  popoverLabel: string[]
-  summited: UserPeak
-  intro: string
+  badgePeak: any
+  badgeCounty: any
+  summited: UserPeak[]
+  isLoading: boolean
 }) => {
-  const summit =
-    popoverLabel.length === 1 &&
-    summited.find((peak: any) => peak.name === popoverLabel[0])
+  if (isLoading) return <BadgesSkeleton />
 
-  const label =
-    popoverLabel.length === 1 ? popoverLabel[0] : popoverLabel.join(", ")
-
+  const summit = summited.find((peak: any) => peak.name === badgePeak.name)
   return (
     <Popover>
       <PopoverTrigger>
@@ -41,22 +36,24 @@ export const BadgesCard = ({
               summit ? "grayscale-0" : "grayscale"
             )}
           >
-            <AvatarImage src={buttonImageUrl} alt={buttonLabel} />
-            <AvatarFallback>{buttonLabel}</AvatarFallback>
+            <AvatarImage src={badgeCounty.imageUrl} alt={badgeCounty.name} />
+            <AvatarFallback>{badgeCounty.name}</AvatarFallback>
           </Avatar>
-          <p className="mt-1 text-lg font-semibold">{buttonLabel}</p>
+          <p className="mt-1 text-lg font-semibold">{badgeCounty.name}</p>
         </div>
       </PopoverTrigger>
       <PopoverContent>
         <div className="flex justify-between space-x-4">
           <div className="space-y-1">
-            <h4 className="text-sm font-semibold">{`${label}`}</h4>
-            <p className="text-sm">{`${intro} ${buttonLabel}`}</p>
+            <h4 className="text-sm font-semibold">{`${badgePeak.name}`}</h4>
+            <p className="text-sm">{`Cumbre más alta de ${badgeCounty.name}`}</p>
             {summit && (
               <div className="flex items-center pt-2">
                 <CalendarDaysIcon className="mr-2 h-4 w-4 opacity-70" />{" "}
                 <span className="text-xs text-muted-foreground">
-                  {`${format(summit.summitDate, "PPP", { locale: es })}`}
+                  {`${format(new Date(summit.summitDate!), "PPP", {
+                    locale: es,
+                  })}`}
                 </span>
               </div>
             )}

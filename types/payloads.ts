@@ -38,7 +38,7 @@ export interface UserPeak {
   imageUrl: string
   userId?: string
   summitId?: string
-  summitDate?: string
+  summitDate?: Date
   summitTime?: number
   summitWeather?: boolean
 }

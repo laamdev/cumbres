@@ -2,20 +2,20 @@ export const badges = {
   highestPointCountryAndPeninsula: [
     {
       id: 1,
-      popover: {
-        name: ["Teide"],
+      peak: {
+        name: "Teide",
       },
-      button: {
+      county: {
         name: "España",
         imageUrl: "/images/flags/spain.webp",
       },
     },
     {
       id: 2,
-      popover: {
-        name: ["Mulhacén"],
+      peak: {
+        name: "Mulhacén",
       },
-      button: {
+      county: {
         name: "Península Ibérica",
         imageUrl: "/images/flags/peninsula.webp",
       },
@@ -24,170 +24,170 @@ export const badges = {
   highestPointCounty: [
     {
       id: 1,
-      popover: {
-        name: ["Mulhacén"],
+      peak: {
+        name: "Mulhacén",
       },
-      button: {
+      county: {
         name: "Andalucía",
         imageUrl: "/images/flags/andalucia.webp",
       },
     },
     {
       id: 2,
-      popover: {
-        name: ["Pico Aneto"],
+      peak: {
+        name: "Pico Aneto",
       },
-      button: {
+      county: {
         name: "Aragón",
         imageUrl: "/images/flags/aragon.webp",
       },
     },
     {
       id: 3,
-      popover: {
-        name: ["Torre Cerredo"],
+      peak: {
+        name: "Torre Cerredo",
       },
-      button: {
+      county: {
         name: "Principado de Asturias",
         imageUrl: "/images/flags/asturias.webp",
       },
     },
     {
       id: 4,
-      popover: {
-        name: ["Puig Major"],
+      peak: {
+        name: "Puig Major",
       },
-      button: {
+      county: {
         name: "Islas Baleares",
         imageUrl: "/images/flags/islas-baleares.webp",
       },
     },
     {
       id: 5,
-      popover: {
-        name: ["Teide"],
+      peak: {
+        name: "Teide",
       },
-      button: {
+      county: {
         name: "Canarias",
         imageUrl: "/images/flags/canarias.webp",
       },
     },
     {
       id: 6,
-      popover: {
-        name: ["Torre Blanca"],
+      peak: {
+        name: "Torre Blanca",
       },
-      button: {
+      county: {
         name: "Cantabria",
         imageUrl: "/images/flags/cantabria.webp",
       },
     },
     {
       id: 7,
-      popover: {
-        name: ["Pico del Lobo"],
+      peak: {
+        name: "Pico del Lobo",
       },
-      button: {
-        name: "Castilla La Mancha",
+      county: {
+        name: "Castilla-La Mancha",
         imageUrl: "/images/flags/castilla-la-mancha.webp",
       },
     },
     {
       id: 8,
-      popover: {
-        name: ["Torre Cerredo"],
+      peak: {
+        name: "Torre Cerredo",
       },
-      button: {
+      county: {
         name: "Castilla y León",
         imageUrl: "/images/flags/castilla-y-leon.webp",
       },
     },
     {
       id: 9,
-      popover: {
-        name: ["Pica d'Estats"],
+      peak: {
+        name: "Pica d'Estats",
       },
-      button: {
+      county: {
         name: "Cataluña",
         imageUrl: "/images/flags/cataluna.webp",
       },
     },
     {
       id: 10,
-      popover: {
-        name: ["Penyagolosa"],
+      peak: {
+        name: "Penyagolosa",
       },
-      button: {
+      county: {
         name: "Comunidad Valenciana",
         imageUrl: "/images/flags/comunidad-valenciana.webp",
       },
     },
     {
       id: 11,
-      popover: {
-        name: ["Calvitero"],
+      peak: {
+        name: "Calvitero",
       },
-      button: {
+      county: {
         name: "Extremadura",
         imageUrl: "/images/flags/extremadura.webp",
       },
     },
     {
       id: 12,
-      popover: {
-        name: ["Peña Trevinca"],
+      peak: {
+        name: "Peña Trevinca",
       },
-      button: {
+      county: {
         name: "Galicia",
         imageUrl: "/images/flags/galicia.webp",
       },
     },
     {
       id: 13,
-      popover: {
-        name: ["Cerro de San Lorenzo"],
+      peak: {
+        name: "Cerro de San Lorenzo",
       },
-      button: {
+      county: {
         name: "La Rioja",
         imageUrl: "/images/flags/la-rioja.webp",
       },
     },
     {
       id: 14,
-      popover: {
-        name: ["Peñalara"],
+      peak: {
+        name: "Peñalara",
       },
-      button: {
+      county: {
         name: "Comunidad de Madrid",
         imageUrl: "/images/flags/comunidad-de-madrid.webp",
       },
     },
     {
       id: 15,
-      popover: {
-        name: ["Pico del Obispo"],
+      peak: {
+        name: "Pico del Obispo",
       },
-      button: {
+      county: {
         name: "Murcia",
         imageUrl: "/images/flags/murcia.webp",
       },
     },
     {
       id: 16,
-      popover: {
-        name: ["Mesa de los Tres Reyes"],
+      peak: {
+        name: "Mesa de los Tres Reyes",
       },
-      button: {
+      county: {
         name: "Comunidad Foral de Navarra",
         imageUrl: "/images/flags/navarra.webp",
       },
     },
     {
       id: 17,
-      popover: {
-        name: ["Aitxuri"],
+      peak: {
+        name: "Aitxuri",
       },
-      button: {
+      county: {
         name: "País Vasco",
         imageUrl: "/images/flags/pais-vasco.webp",
       },
