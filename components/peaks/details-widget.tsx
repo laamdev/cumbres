@@ -21,7 +21,7 @@ export const DetailsWidget = ({
 }) => {
   return (
     <section className="mt-5 grid grid-cols-5 divide-x-2 divide-branding-green rounded-xl border-2 border-branding-green bg-white px-2.5 py-1.5 sm:px-5 sm:py-3">
-      <div className="col-span-2 flex flex-col items-center text-branding-green">
+      <div className="col-span-2 flex flex-col items-center text-center text-branding-green">
         {weather.weather[0].main === "Clouds" ? (
           <CloudSunIcon className="h-10 w-10 sm:h-14 sm:w-14" />
         ) : weather.weather[0].main === "Thunderstorm" ? (
@@ -39,7 +39,7 @@ export const DetailsWidget = ({
         ) : (
           <SunIcon className="h-10 w-10 sm:h-14 sm:w-14" />
         )}
-        <div className="mt-1 text-lg capitalize sm:text-xl">
+        <div className="mt-1 text-base capitalize sm:text-lg">
           {weather.weather[0].description}
         </div>
         <div className="mt-2.5 flex items-baseline gap-x-1">

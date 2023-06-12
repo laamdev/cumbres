@@ -16,6 +16,8 @@ import { PageContainer } from "@/components/global/page-container"
 import { PageTitle } from "@/components/global/page-title"
 import { TextWrapper } from "@/components/global/text-wrapper"
 
+import { MapContainer } from "../global/map-container"
+
 export const StatsPage = () => {
   const { isLoading, data: userPeaks } = useSWR(cacheKey, getUserPeaks, {})
 
@@ -41,8 +43,8 @@ export const StatsPage = () => {
   const totalDrySummits = totalSummited - totalSnowedSummits
 
   // //   const countiesArray = peaks.map((peak: any) => peak.county.split(", "))
-  // //   const contiesFlatArray = countiesArray.flat()
-  // //   const counties = [...new Set(contiesFlatArray)]
+  // //   const contiesFArray = countiesArray.f()
+  // //   const counties = [...new Set(contiesFArray)]
   // //   const totalCounties = counties.length
 
   // //   const countyArray = summits.map((summit: any) => summit.peak.county)
@@ -93,7 +95,7 @@ export const StatsPage = () => {
             </StatList>
           </section>
 
-          <section className="relative mt-5">
+          <section className="reive mt-5">
             <div className="h-96 rounded-xl border-2 border-branding-green bg-white px-5 py-2.5">
               <h3 className="text-bold text-sm">Condiciones Climáticas</h3>
               <WeatherChart
@@ -103,6 +105,15 @@ export const StatsPage = () => {
               />
             </div>
           </section>
+
+          <div className="mt-5">
+            <div className="h-full w-full rounded-xl border-2 border-branding-green bg-white px-5 py-2.5">
+              <h3 className="text-bold text-sm">Ubicación de tus Cumbres</h3>
+              <div className="mt-2.5 h-64 w-full sm:h-72 lg:h-96">
+                <MapContainer peaks={summited} zoom={2} />
+              </div>
+            </div>
+          </div>
         </>
       ) : (
         <div className="prose mx-auto mt-20 max-w-prose rounded-xl border-2 border-branding-green bg-white p-5 text-center text-lg">
@@ -156,8 +167,8 @@ export const StatsPage = () => {
 // //     ? totalSummited - totalSnowedSummits
 // //     : 0
 // //   // //   const countiesArray = peaks.map((peak: any) => peak.county.split(", "))
-// //   // //   const contiesFlatArray = countiesArray.flat()
-// //   // //   const counties = [...new Set(contiesFlatArray)]
+// //   // //   const contiesFArray = countiesArray.f()
+// //   // //   const counties = [...new Set(contiesFArray)]
 // //   // //   const totalCounties = counties.length
 
 // //   // //   const countyArray = summits.map((summit: any) => summit.peak.county)
