@@ -1,4 +1,59 @@
 export const badges = {
+  general: [
+    {
+      id: 1,
+      value: {
+        name: "Haz ascendido los 45 Techos de España",
+      },
+      label: {
+        name: "Rey de los Techos",
+        imageUrl: "/images/badges/trophy.webp",
+      },
+      filter: 23,
+    },
+    {
+      id: 2,
+      value: {
+        name: "Haz ascendido 23 de los techos de España",
+      },
+      label: {
+        name: "Mitad + 1",
+        imageUrl: "/images/badges/crown.webp",
+      },
+      filter: 45,
+    },
+  ],
+  misc: [
+    {
+      id: 1,
+      peaks: [
+        {
+          name: "Torre Cerredo",
+          province: ["Asturias", "León"],
+        },
+        {
+          name: "Peñalara",
+          province: ["Madrid", "Segovia"],
+        },
+        {
+          name: "Moncayo",
+          province: ["Soria", "Zaragoza"],
+        },
+        {
+          name: "Peña Trevinca",
+          province: ["Orense", "Zamora"],
+        },
+        {
+          name: "Gorbea",
+          province: ["Álava", "Vizcaya"],
+        },
+      ],
+      label: {
+        name: "Siameses",
+        imageUrl: "/images/badges/siamese.webp",
+      },
+    },
+  ],
   highestPointCountryAndPeninsula: [
     {
       id: 1,

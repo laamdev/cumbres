@@ -1,8 +1,3 @@
-import { format } from "date-fns"
-import es from "date-fns/locale/es"
-import { CalendarDaysIcon } from "lucide-react"
-
-import { UserPeak } from "@/types/payloads"
 import { cn } from "@/lib/utils"
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 import {
@@ -13,19 +8,20 @@ import {
 import { BadgesSkeleton } from "@/components/badges/badges-skeleton"
 
 export const BadgesCard = ({
-  badgePeak,
-  badgeCounty,
-  summited,
+  label,
+  value,
   isLoading,
+  totalSummited,
+  filter,
 }: {
-  badgePeak: any
-  badgeCounty: any
-  summited: UserPeak[]
+  label: any
+  value: any
   isLoading: boolean
+  totalSummited: number
+  filter: number
 }) => {
   if (isLoading) return <BadgesSkeleton />
 
-  const summit = summited.find((peak: any) => peak.name === badgePeak.name)
   return (
     <Popover>
       <PopoverTrigger>
@@ -33,30 +29,20 @@ export const BadgesCard = ({
           <Avatar
             className={cn(
               "tw-transition h-24 w-24 border-4 border-branding-green hover:scale-105",
-              summit ? "grayscale-0" : "grayscale"
+              totalSummited >= filter ? "grayscale-0" : "grayscale"
             )}
           >
-            <AvatarImage src={badgeCounty.imageUrl} alt={badgeCounty.name} />
-            <AvatarFallback>{badgeCounty.name}</AvatarFallback>
+            <AvatarImage src={label.imageUrl} alt={label.name} />
+            <AvatarFallback>{label.name}</AvatarFallback>
           </Avatar>
-          <p className="mt-1 text-lg font-semibold">{badgeCounty.name}</p>
+          <p className="mt-1 text-lg font-semibold">{label.name}</p>
         </div>
       </PopoverTrigger>
-      <PopoverContent>
+      <PopoverContent className="bg-branding-green text-branding-white">
         <div className="flex justify-between space-x-4">
           <div className="space-y-1">
-            <h4 className="text-sm font-semibold">{`${badgePeak.name}`}</h4>
-            <p className="text-sm">{`Cumbre más alta de ${badgeCounty.name}`}</p>
-            {summit && (
-              <div className="flex items-center pt-2">
-                <CalendarDaysIcon className="mr-2 h-4 w-4 opacity-70" />{" "}
-                <span className="text-xs text-muted-foreground">
-                  {`${format(new Date(summit.summitDate!), "PPP", {
-                    locale: es,
-                  })}`}
-                </span>
-              </div>
-            )}
+            <h4 className="text-base font-semibold">{`${label.name}`}</h4>
+            <p className="text-sm">{`${value.name}`}</p>
           </div>
         </div>
       </PopoverContent>

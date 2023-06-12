@@ -1,7 +1,6 @@
-import { CalendarDays, MedalIcon } from "lucide-react"
+import { MedalIcon } from "lucide-react"
 
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
-import { Button } from "@/components/ui/button"
+import { Avatar } from "@/components/ui/avatar"
 import {
   HoverCard,
   HoverCardContent,

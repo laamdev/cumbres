@@ -5,5 +5,9 @@ export const cn = (...inputs: ClassValue[]) => {
   return twMerge(clsx(inputs))
 }
 
-export const getAllIncluded = (arr: any, target: any) =>
-  target.every((v: any) => arr.includes(v))
+export const getAllIncluded = (arr: any, target: any) => {
+  if (arr && arr.length !== 0) {
+    return target.every((v: any) => arr.includes(v))
+  }
+  return
+}

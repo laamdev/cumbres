@@ -5,7 +5,7 @@ import "mapbox-gl/dist/mapbox-gl.css"
 import { useMemo, useState } from "react"
 import clsx from "clsx"
 import getCenter from "geolib/es/getCenter"
-import { MapPinIcon } from "lucide-react"
+import { FlagTriangleRightIcon } from "lucide-react"
 import Map, { Marker, Popup } from "react-map-gl"
 
 import { UserPeak } from "@/types/payloads"
@@ -51,7 +51,7 @@ export const MapContainer = ({
           }}
         >
           <div className="flex cursor-pointer flex-col items-center">
-            <MapPinIcon className="tw-transition h-7 w-7 fill-branding-white stroke-branding-green hover:scale-110 sm:h-10 sm:w-10" />
+            <FlagTriangleRightIcon className="tw-transition h-5 w-5 fill-white stroke-branding-green hover:fill-branding-green sm:h-7 sm:w-7" />
           </div>
         </Marker>
       )),

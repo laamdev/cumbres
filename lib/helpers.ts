@@ -14,13 +14,19 @@ export const getPercentage = (partialValue: number, totalValue: number) => {
 }
 
 export const getAverage = (array: number[]) => {
-  const average = array.reduce((x, y) => (x + y) / array.length).toFixed(1)
-  return parseFloat(average).toLocaleString("es-ES")
+  if (array && array.length !== 0) {
+    const average = array.reduce((x, y) => (x + y) / array.length).toFixed(1)
+    return parseFloat(average).toLocaleString("es-ES")
+  }
+  return
 }
-
 export const getSum = (array: number[]) => {
-  const sum = array.reduce((x, y) => x + y).toLocaleString("es-ES")
-  return parseFloat(sum).toLocaleString("es-ES")
+  if (array && array.length !== 0) {
+    const sum = array.reduce((x, y) => x + y).toLocaleString("es-ES")
+    return parseFloat(sum).toLocaleString("es-ES")
+  }
+
+  return
 }
 
 export const getKm = (array: number[]) => {

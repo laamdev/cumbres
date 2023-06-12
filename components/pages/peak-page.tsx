@@ -51,7 +51,7 @@ export const PeakPage = ({ peak, weather }: { peak: any; weather: any }) => {
         </div>
       </section>
 
-      <div className="mt-10 h-64 w-full sm:mt-20 sm:h-72 lg:h-96">
+      <div className="mt-10 h-64 w-full sm:mt-20 sm:h-72 lg:h-[96]">
         <div className="h-full w-full rounded-xl border-2 border-branding-green bg-white p-2.5">
           <MapContainer peaks={[peak]} zoom={10} />
         </div>

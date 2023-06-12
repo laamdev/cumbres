@@ -8,12 +8,15 @@ import { userPeaksEndpoint as cacheKey, getUserPeaks } from "@/lib/api"
 import { BadgesCard } from "@/components/badges/badges-card"
 import { BadgesFullCountyCard } from "@/components/badges/badges-full-county-card"
 import { BadgesHeading } from "@/components/badges/badges-heading"
+import { BadgesHighestCard } from "@/components/badges/badges-highest-card"
 import { BadgesList } from "@/components/badges/badges-list"
 import { BadgesSkeleton } from "@/components/badges/badges-skeleton"
 import { BadgesSummary } from "@/components/badges/badges-summary"
 import { PageContainer } from "@/components/global/page-container"
 import { PageTitle } from "@/components/global/page-title"
 import { TextWrapper } from "@/components/global/text-wrapper"
+
+import { BadgesSiameseCard } from "../badges/badges-siamese.card"
 
 export const BadgesPage = () => {
   const { isLoading, data: userPeaks } = useSWR(cacheKey, getUserPeaks, {})
@@ -32,13 +35,32 @@ export const BadgesPage = () => {
 
       <section className="mt-20 space-y-10">
         <div>
+          <BadgesHeading>Logros Generales</BadgesHeading>
+          <BadgesSummary>
+            Los principales retos que has conquistado en tus ascensos
+          </BadgesSummary>
+          <BadgesList>
+            {badges.general.map((badge) => (
+              <BadgesCard
+                key={badge.id}
+                label={badge.label}
+                value={badge.value}
+                filter={badge.filter}
+                isLoading={isLoading}
+                totalSummited={summited?.length}
+              />
+            ))}
+          </BadgesList>
+        </div>
+
+        <div>
           <BadgesHeading>Techo Nacional y de la Península</BadgesHeading>
           <BadgesSummary>
             Puntos más alto de España y de la Península ibérica.
           </BadgesSummary>
           <BadgesList>
             {badges.highestPointCountryAndPeninsula.map((badge) => (
-              <BadgesCard
+              <BadgesHighestCard
                 key={badge.id}
                 badgePeak={badge.peak}
                 badgeCounty={badge.county}
@@ -56,7 +78,7 @@ export const BadgesPage = () => {
           </BadgesSummary>
           <BadgesList>
             {badges.highestPointCounty.map((badge) => (
-              <BadgesCard
+              <BadgesHighestCard
                 key={badge.id}
                 badgePeak={badge.peak}
                 badgeCounty={badge.county}
@@ -78,6 +100,24 @@ export const BadgesPage = () => {
                 key={badge.id}
                 badgePeaks={badge.peaks}
                 badgeCounty={badge.county}
+                summited={summited}
+                isLoading={isLoading}
+              />
+            ))}
+          </BadgesList>
+        </div>
+
+        <div>
+          <BadgesHeading>Otros Logros</BadgesHeading>
+          <BadgesSummary>
+            Retos especiales que has conquistado durante tus ascensos
+          </BadgesSummary>
+          <BadgesList>
+            {badges.misc.map((badge: any) => (
+              <BadgesSiameseCard
+                key={badge.id}
+                badgePeaks={badge.peaks}
+                badgeLabel={badge.label}
                 summited={summited}
                 isLoading={isLoading}
               />
