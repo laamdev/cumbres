@@ -1,8 +1,10 @@
 import Image from "next/image"
 import Link from "next/link"
-import { SignedIn, SignedOut } from "@clerk/nextjs"
+import { clerkClient, SignedIn, SignedOut } from "@clerk/nextjs"
 
 import { prisma } from "@/lib/client"
+import { getKm, getSum } from "@/lib/helpers"
+import { StatCard } from "@/components/dashboard/stat-card"
 import { Clouds } from "@/components/home/clouds"
 
 // Prisma does not support Edge without the Data Proxy currently
@@ -32,26 +34,42 @@ async function getSummits() {
   return res
 }
 
+async function getSummitsElevation() {
+  const res = await prisma.summit.findMany({
+    select: {
+      peak: {
+        select: {
+          elevation: true,
+        },
+      },
+    },
+  })
+  return res
+}
+
+async function getTotalUsers() {
+  const users = await clerkClient.users.getCount()
+  return users
+}
+
 export default async function HomePage() {
-  const peaksData = getPeaks()
-  const summitsData = getSummits()
+  const peaksData = await getPeaks()
+  const summitsData = await getSummits()
+  const usersData = await getTotalUsers()
+  const elevationData = await getSummitsElevation()
 
-  const [peaks, totalSummits] = await Promise.all([peaksData, summitsData])
-
-  const globalData = [
-    {
-      id: 1,
-      name: "Participantes",
-    },
-    {
-      id: 2,
-      name: "Cumbres Coronadas",
-    },
-  ]
+  const [peaks, totalSummits, totalUsers, allElevation] = await Promise.all([
+    peaksData,
+    summitsData,
+    usersData,
+    elevationData,
+  ])
+  const elevationArray = allElevation.map((item: any) => item.peak.elevation)
+  const totalElevation = getKm(elevationArray)
 
   return (
-    <main className="mx-auto mt-16 max-w-3xl px-2.5 sm:mt-20">
-      <section>
+    <main className="mt-16 px-2.5 sm:mt-20">
+      <section className="mx-auto max-w-3xl">
         <div className="relative">
           <Image
             alt={`Cumbres`}
@@ -97,6 +115,27 @@ export default async function HomePage() {
               </SignedOut>
             </p>
           </div>
+        </div>
+      </section>
+
+      <section className="mx-auto mb-20 mt-40 max-w-5xl ">
+        <h2 className="text-center font-serif text-3xl font-medium text-branding-green sm:text-5xl">
+          Nuestra Comunidad
+        </h2>
+        {/* <TextWrapper className="mt-5">
+          Estas son las 45 montañas que tienen el honor de ser el techo de una
+          de las 50 provincias que componen España. 4 de estas montañas son
+          compartidas entre provincias colindantes y 2 forman parte de distintas
+          cordilleras.
+        </TextWrapper> */}
+        <div className="mt-10 grid gap-5 sm:grid-cols-3">
+          <StatCard label="Usuarios" value={totalUsers} />
+          <StatCard label="Cumbes Ascendidas" value={totalSummits} />
+          <StatCard
+            label="Distancia Ascendida"
+            value={totalElevation}
+            unit="km"
+          />
         </div>
       </section>
     </main>

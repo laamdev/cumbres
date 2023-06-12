@@ -22,3 +22,9 @@ export const getSum = (array: number[]) => {
   const sum = array.reduce((x, y) => x + y).toLocaleString("es-ES")
   return parseFloat(sum).toLocaleString("es-ES")
 }
+
+export const getKm = (array: number[]) => {
+  const sum = array.reduce((x, y) => x + y)
+  const sumKm = (sum / 1000).toFixed(2)
+  return parseFloat(sumKm).toLocaleString("es-ES")
+}

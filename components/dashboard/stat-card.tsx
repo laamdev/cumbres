@@ -15,7 +15,7 @@ export const StatCard = ({
           <span className="font-serif text-2xl font-bold sm:text-3xl">
             {value}
           </span>
-          <span className="text-sm">{` ${unit}`}</span>
+          {unit && <span className="text-sm">{` ${unit}`}</span>}
         </div>
       </div>
     </div>

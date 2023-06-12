@@ -47,8 +47,9 @@ export const StatsPage = () => {
   // //   const counties = [...new Set(contiesFArray)]
   // //   const totalCounties = counties.length
 
-  // //   const countyArray = summits.map((summit: any) => summit.peak.county)
-  // //   const visitedCounties = [...new Set(countyArray)].length
+  const countyArray = summited.map((summit: any) => summit.county)
+
+  const visitedCounties = [...new Set(countyArray.flat())].length
 
   return (
     <PageContainer>
@@ -87,11 +88,11 @@ export const StatsPage = () => {
                 value={averageTime}
                 unit="h"
               />
-              {/* <StatCard
-          label="Comunidades Visitadas"
-          value={visitedCounties}
-          unit={` / ${totalCounties}`}
-        /> */}
+              <StatCard
+                label="Comunidades Visitadas"
+                value={visitedCounties}
+                unit={` / 17`}
+              />
             </StatList>
           </section>
 
@@ -107,8 +108,7 @@ export const StatsPage = () => {
           </section>
 
           <div className="mt-5">
-            <div className="h-full w-full rounded-xl border-2 border-branding-green bg-white px-5 py-2.5">
-              <h3 className="text-bold text-sm">Ubicación de tus Cumbres</h3>
+            <div className="h-full w-full rounded-xl border-2 border-branding-green bg-white p-2.5">
               <div className="mt-2.5 h-64 w-full sm:h-72 lg:h-96">
                 <MapContainer peaks={summited} zoom={2} />
               </div>
