@@ -21,7 +21,7 @@ export const DetailsWidget = ({
   weather: any
 }) => {
   return (
-    <section className="mt-5 grid grid-cols-5 divide-x-2 divide-branding-green rounded-xl border-2 border-branding-green bg-white px-2.5 py-1.5 sm:px-5 sm:py-3">
+    <section className="mt-10 grid grid-cols-5 divide-x-2 divide-branding-green rounded-xl border-2 border-branding-green bg-white p-2.5 sm:mt-7 sm:p-5">
       <div className="col-span-2 flex flex-col items-center text-center text-branding-green">
         <div className="relative aspect-square h-10 w-10 rounded-full bg-branding-sand sm:h-14 sm:w-14">
           <Image
