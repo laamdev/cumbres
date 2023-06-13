@@ -16,6 +16,7 @@ export const PublicPeakCard = ({ peak }: { peak: Peak }) => {
         src={peak.imageUrl}
         alt={peak.name}
         fill
+        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
         className="tw-transition rounded bg-branding-sand object-cover object-center hover:opacity-90"
       />
       <h2 className="absolute bottom-2.5 left-2.5 z-10 rounded-xl bg-white px-3 py-2 text-sm font-semibold text-branding-green sm:mt-2.5 sm:text-xl">

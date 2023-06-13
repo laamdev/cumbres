@@ -23,8 +23,6 @@ export const BadgesSiameseCard = ({
   const summitedNames = summited?.map((peak: UserPeak) => peak.name)
   const completed = getAllIncluded(summitedNames, badgePeaks)
 
-  console.log(badgesPeaksNames)
-
   return (
     <Popover>
       <PopoverTrigger>

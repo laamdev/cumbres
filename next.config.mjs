@@ -5,6 +5,7 @@ const nextConfig = {
     remotePatterns: [
       { hostname: "images.clerk.dev" },
       { hostname: "res.cloudinary.com" },
+      { hostname: "openweathermap.org" },
     ],
   },
   typescript: {

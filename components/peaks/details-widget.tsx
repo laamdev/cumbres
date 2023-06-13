@@ -1,3 +1,4 @@
+import Image from "next/image"
 import {
   CloudDrizzleIcon,
   CloudFogIcon,
@@ -22,23 +23,13 @@ export const DetailsWidget = ({
   return (
     <section className="mt-5 grid grid-cols-5 divide-x-2 divide-branding-green rounded-xl border-2 border-branding-green bg-white px-2.5 py-1.5 sm:px-5 sm:py-3">
       <div className="col-span-2 flex flex-col items-center text-center text-branding-green">
-        {weather.weather[0].main === "Clouds" ? (
-          <CloudSunIcon className="h-10 w-10 sm:h-14 sm:w-14" />
-        ) : weather.weather[0].main === "Thunderstorm" ? (
-          <CloudLightningIcon className="h-10 w-10 sm:h-14 sm:w-14" />
-        ) : weather.weather[0].main === "Drizzle" ? (
-          <CloudDrizzleIcon className="h-10 w-10 sm:h-14 sm:w-14" />
-        ) : weather.weather[0].main === "Snow" ? (
-          <SnowflakeIcon className="h-10 w-10 sm:h-14 sm:w-14" />
-        ) : weather.weather[0].main === "Rain" ? (
-          <RatIcon className="h-10 w-10 sm:h-14 sm:w-14" />
-        ) : weather.weather[0].main === "Clear" ? (
-          <SnowflakeIcon className="h-10 w-10 sm:h-14 sm:w-14" />
-        ) : weather.weather[0].main === "Atmosphere" ? (
-          <CloudFogIcon className="h-10 w-10 sm:h-14 sm:w-14" />
-        ) : (
-          <SunIcon className="h-10 w-10 sm:h-14 sm:w-14" />
-        )}
+        <div className="relative aspect-square h-10 w-10 rounded-full bg-branding-sand sm:h-14 sm:w-14">
+          <Image
+            src={`https://openweathermap.org/img/wn/${weather.weather[0].icon}@2x.png`}
+            alt={weather.weather[0].main}
+            fill
+          />
+        </div>
         <div className="mt-1 text-base capitalize sm:text-lg">
           {weather.weather[0].description}
         </div>

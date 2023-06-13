@@ -20,6 +20,7 @@ export const Clouds = () => {
           alt={`Cumbres`}
           fill
           className="object-contain object-center"
+          priority
         />
       </motion.div>
       <motion.div
@@ -31,6 +32,7 @@ export const Clouds = () => {
           alt={`Cumbres`}
           fill
           className="object-contain object-center"
+          priority
         />
       </motion.div>
     </>

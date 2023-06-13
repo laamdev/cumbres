@@ -69,7 +69,6 @@ export const AscentTimeChart = ({ peaks }: { peaks: UserPeak[] }) => {
       }}
       pointLabelYOffset={20}
       tooltip={(input) => {
-        console.log(JSON.stringify(input.point, null, 2))
         return (
           <div className="rounded-xl bg-branding-green p-2.5 text-sm text-branding-white">
             <div>

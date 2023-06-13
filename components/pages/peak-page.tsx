@@ -43,7 +43,8 @@ export const PeakPage = ({ peak, weather }: { peak: any; weather: any }) => {
               src={peak.imageUrl}
               alt={peak.name}
               fill
-              className="rounded object-cover object-center"
+              className="rounded bg-branding-sand object-cover object-center"
+              priority
             />
           </div>
 

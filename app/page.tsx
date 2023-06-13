@@ -77,6 +77,7 @@ export default async function HomePage() {
             width={1280}
             height={1280}
             className="rounded"
+            priority
           />
           <h1 className="absolute left-1/2 top-6 -z-10 -translate-x-1/2 -translate-y-1/2 font-serif text-6xl uppercase text-branding-green sm:top-14 lg:text-9xl">
             Cumbres

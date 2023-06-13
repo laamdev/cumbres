@@ -13,7 +13,8 @@
     "studio": "pnpm dlx prisma studio",
     "generate": "pnpm dlx prisma generate",
     "migrate": "pnpm dlx prisma migrate dev",
-    "seed": "pnpm dlx prisma db seed"
+    "seed": "pnpm dlx prisma db seed",
+    "scan": "pnpm dlx unlighthouse --site cumbr.es"
   },
   "prisma": {
     "seed": "ts-node --transpile-only --compiler-options {\"module\":\"CommonJS\"} data/seed.ts"
