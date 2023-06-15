@@ -38,5 +38,9 @@ export const metadata: Metadata = {
 
 export default async function PeaksRoute() {
   const peaks = await getPeaks()
-  return <PeaksPage peaks={peaks} />
+  return (
+    <div className="bg-branding-sand text-branding-green">
+      <PeaksPage peaks={peaks} />
+    </div>
+  )
 }

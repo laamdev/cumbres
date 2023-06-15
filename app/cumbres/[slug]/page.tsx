@@ -89,5 +89,9 @@ export default async function PeakRoute({
     return notFound()
   }
 
-  return <PeakPage peak={peak} weather={weather} />
+  return (
+    <div className="bg-branding-sand text-branding-green">
+      <PeakPage peak={peak} weather={weather} />
+    </div>
+  )
 }

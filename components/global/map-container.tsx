@@ -60,7 +60,7 @@ export const MapContainer = ({
 
   return (
     <Map
-      style={{ width: "100%", height: "100%" }}
+      style={{ width: "100%", height: "100%", borderRadius: "12px" }}
       mapStyle={process.env.NEXT_PUBLIC_MAPBOX_STYLE_URL}
       mapboxAccessToken={process.env.NEXT_PUBLIC_MAPBOX_TOKEN}
       initialViewState={{

@@ -4,8 +4,11 @@ import { clerkClient, SignedIn, SignedOut } from "@clerk/nextjs"
 
 import { prisma } from "@/lib/client"
 import { getKm, getSum } from "@/lib/helpers"
+import { Separator } from "@/components/ui/separator"
 import { StatCard } from "@/components/dashboard/stat-card"
+import { PageContainer } from "@/components/global/page-container"
 import { Clouds } from "@/components/home/clouds"
+import { CustomLink } from "@/components/home/custom-link"
 
 // Prisma does not support Edge without the Data Proxy currently
 export const runtime = "nodejs" // default
@@ -68,7 +71,7 @@ export default async function HomePage() {
   const totalElevation = getKm(elevationArray)
 
   return (
-    <main className="mt-16 px-2.5 sm:mt-20">
+    <PageContainer>
       <section className="mx-auto max-w-3xl">
         <div className="relative">
           <Image
@@ -85,34 +88,28 @@ export default async function HomePage() {
 
           <Clouds />
 
-          <div className="absolute left-1/2 top-2/3 z-10 w-11/12 -translate-x-1/2 space-y-2 rounded-xl bg-branding-green-950/80 p-4 text-center font-serif text-lg font-light leading-relaxed text-branding-sand shadow-lg backdrop-blur-xl sm:space-y-6 sm:text-3xl">
+          <div className="absolute left-1/2 top-2/3 z-10 w-11/12 -translate-x-1/2 space-y-2 rounded-xl bg-branding-green p-5 text-center font-serif text-lg leading-relaxed text-branding-sand shadow-lg backdrop-blur-xl sm:space-y-6 sm:text-3xl">
             <p>
-              <span className="text-branding-sand">{`La cima de `}</span>
-              <Link
-                href="/cumbres"
-                className="hover:text-branding- tw-transition font-medium italic text-branding-green-500 hover:text-branding-green-400"
-              >{`45 montañas `}</Link>
-              <span className="text-branding-sand">{`ostentan los puntos más altos de las 50 provincias españolas.`}</span>
+              <span className="text-branding-white">{`La cima de `}</span>
+              <CustomLink href={`/cumbres`}>{`45 montañas `}</CustomLink>
+              <span className="text-branding-white">{`ostentan los puntos más altos de las 50 provincias españolas.`}</span>
             </p>
             <p>
               <SignedIn>
-                <Link
-                  href="/perfil/cumbres"
-                  className="hover:text-branding- tw-transition font-medium italic text-branding-green-500 hover:text-branding-green-400"
-                >
-                  <span>{`Visita tu perfil `}</span>
-                </Link>
-                <span className="text-branding-sand">{`y gestiona el registro de los Techos de España que has coronado y los que aún te quedan por visitar.`}</span>
+                <CustomLink
+                  href={`/perfil/cumbres`}
+                >{`Visita tu perfil `}</CustomLink>
+
+                <span className="text-branding-white">{`y gestiona el registro de los Techos de España que has coronado y los que aún te quedan por visitar.`}</span>
               </SignedIn>
               <SignedOut>
-                <Link href="/iniciar-sesion">
-                  <span className="font-medium italic text-branding-green-500">{`Inicia sesión `}</span>
-                </Link>
-                <span className="text-branding-sand">{`o `}</span>
-                <Link href="/registrarse">
-                  <span className="font-medium italic text-branding-green-500">{`regístrate `}</span>
-                </Link>
-                <span className="text-branding-sand">{`en Cumbres y lleva un registro de los Techos de España que has coronado y los que aún te quedan por visitar.`}</span>
+                <CustomLink
+                  href={`/iniciar-sesion`}
+                >{`Inicia sesión `}</CustomLink>
+                <span className="text-branding-white">{`o `}</span>
+                <CustomLink href={`/registrarse`}>{`regístrate `}</CustomLink>
+
+                <span className="text-branding-white">{`y lleva un registro de los Techos de España que has coronado y los que aún te quedan por visitar.`}</span>
               </SignedOut>
             </p>
           </div>
@@ -129,6 +126,9 @@ export default async function HomePage() {
           compartidas entre provincias colindantes y 2 forman parte de distintas
           cordilleras.
         </TextWrapper> */}
+
+        <Separator />
+
         <div className="mt-10 grid gap-5 sm:grid-cols-3">
           <StatCard label="Usuarios" value={totalUsers} />
           <StatCard label="Cumbes Ascendidas" value={totalSummits} />
@@ -139,6 +139,6 @@ export default async function HomePage() {
           />
         </div>
       </section>
-    </main>
+    </PageContainer>
   )
 }
