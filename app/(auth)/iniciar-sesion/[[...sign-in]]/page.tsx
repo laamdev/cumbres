@@ -1,29 +1,17 @@
 import { Metadata } from "next"
-import Image from "next/image"
 import Link from "next/link"
 import { SignIn } from "@clerk/nextjs"
 import { GiMountaintop } from "react-icons/gi"
 
-import { cn } from "@/lib/utils"
-import { buttonVariants } from "@/components/ui/button"
-
 export const metadata: Metadata = {
-  title: "Authentication",
-  description: "Authentication forms built using the components.",
+  title: "Inicia Sesión",
+  description:
+    "Inicia sesión, accede a tu perfil de Cumbres y explora el reto de los 45 Techos de España.",
 }
 
 export default function SignInPage() {
   return (
     <>
-      {/* <Link
-          href="/examples/authentication"
-          className={cn(
-            buttonVariants({ variant: "ghost", size: "sm" }),
-            "absolute right-4 top-4 md:right-8 md:top-8"
-          )}
-        >
-          Login
-        </Link> */}
       <div className="relative hidden h-full flex-col bg-muted p-10 text-white dark:border-r lg:flex">
         <div
           className="absolute inset-0 bg-cover"

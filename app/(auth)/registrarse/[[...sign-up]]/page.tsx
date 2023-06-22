@@ -1,17 +1,13 @@
 import { Metadata } from "next"
-import Image from "next/image"
 import Link from "next/link"
 import { SignUp } from "@clerk/nextjs"
 import { GiMountaintop } from "react-icons/gi"
 
-import { cn } from "@/lib/utils"
-import { buttonVariants } from "@/components/ui/button"
-
 export const metadata: Metadata = {
-  title: "Authentication",
-  description: "Authentication forms built using the components.",
+  title: "Regístrate",
+  description:
+    "Regístrate en cumbres y únete al reto de los 45 Techos de España.",
 }
-
 export default function SignUpPage() {
   return (
     <>
