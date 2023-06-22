@@ -103,10 +103,10 @@ export const SummitsPage = () => {
             {isLoading ? (
               <>
                 {Array.from({ length: 12 }, (_, i) => i + 1).map(
-                  (item, itemIdx) => (
+                  (_, itemIdx) => (
                     <Skeleton
                       key={itemIdx}
-                      className="relative rounded-lg border bg-branding-sand px-5 py-10 lg:h-72"
+                      className="relative rounded-lg border bg-branding-green px-5 py-10 lg:h-80"
                     />
                   )
                 )}

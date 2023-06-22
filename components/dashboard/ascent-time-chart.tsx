@@ -22,6 +22,7 @@ export const AscentTimeChart = ({ peaks }: { peaks: UserPeak[] }) => {
 
   return (
     <ResponsiveLine
+      colors="var(--green)"
       axisBottom={{
         format: "%b %y",
         legend: "Date",

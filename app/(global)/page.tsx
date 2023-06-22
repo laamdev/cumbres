@@ -82,13 +82,13 @@ export default async function HomePage() {
             className="rounded"
             priority
           />
-          <h1 className="absolute left-1/2 top-6 -z-10 -translate-x-1/2 -translate-y-1/2 font-serif text-6xl uppercase text-branding-green sm:top-14 lg:text-9xl">
+          <h1 className="absolute left-1/2 top-6 -z-10 -translate-x-1/2 -translate-y-1/2 font-serif text-6xl font-semibold uppercase leading-none tracking-tighter text-branding-green sm:top-14 lg:text-9xl">
             Cumbres
           </h1>
 
           <Clouds />
 
-          <div className="absolute left-1/2 top-2/3 z-10 w-11/12 -translate-x-1/2 space-y-2 rounded-xl bg-branding-green p-5 text-center font-serif text-lg leading-relaxed text-branding-sand shadow-lg backdrop-blur-xl sm:space-y-6 sm:text-3xl">
+          <div className="absolute left-1/2 top-2/3 z-10 w-11/12 -translate-x-1/2 space-y-2 rounded-xl bg-branding-green p-5 text-center font-serif text-lg leading-relaxed shadow-lg sm:space-y-6 sm:text-3xl">
             <p>
               <span className="text-branding-white">{`La cima de `}</span>
               <CustomLink href={`/cumbres`}>{`45 montañas `}</CustomLink>
@@ -116,7 +116,7 @@ export default async function HomePage() {
         </div>
       </section>
 
-      <section className="mx-auto mb-20 mt-40 max-w-5xl ">
+      <section className="mx-auto mb-20 mt-56 max-w-5xl md:mt-40 ">
         <h2 className="text-center font-serif text-3xl font-medium text-branding-green sm:text-5xl">
           Nuestra Comunidad
         </h2>
@@ -127,16 +127,41 @@ export default async function HomePage() {
           cordilleras.
         </TextWrapper> */}
 
-        <Separator />
-
-        <div className="mt-10 grid gap-5 sm:grid-cols-3">
-          <StatCard label="Usuarios" value={totalUsers} />
+        <div className="mt-10 grid gap-10 sm:grid-cols-3">
+          <div className="flex flex-col items-center gap-y-2.5 rounded-xl border-2 border-branding-green bg-branding-yellow px-10 py-5 font-serif shadow">
+            <div className="text-6xl font-semibold uppercase leading-none tracking-tighter">
+              {`${totalUsers}`}
+            </div>
+            <div className="text-lg lowercase leading-none tracking-tighter">
+              {`Usuarios`}
+            </div>
+          </div>
+          <div className="flex flex-col items-center gap-y-2.5 rounded-xl border-2 border-branding-green bg-branding-yellow px-10 py-5 font-serif shadow">
+            <div className="text-6xl font-semibold uppercase leading-none tracking-tighter">
+              {`${totalSummits}`}
+            </div>
+            <div className="text-lg lowercase leading-none tracking-tighter">
+              {`Cumbres Ascendidas`}
+            </div>
+          </div>
+          <div className="flex flex-col items-center gap-y-2.5 rounded-xl border-2 border-branding-green bg-branding-yellow px-10 py-5 font-serif shadow">
+            <div className="text-6xl font-semibold uppercase leading-none tracking-tighter">
+              {`${totalElevation}`}
+              <span className="ml-2.5 font-sans text-xl font-normal lowercase">
+                {`km`}
+              </span>
+            </div>
+            <div className="text-lg lowercase leading-none tracking-tighter">
+              {`Distancia Ascendida`}
+            </div>
+          </div>
+          {/* <StatCard label="Usuarios" value={totalUsers} />
           <StatCard label="Cumbes Ascendidas" value={totalSummits} />
           <StatCard
             label="Distancia Ascendida"
             value={totalElevation}
             unit="km"
-          />
+          /> */}
         </div>
       </section>
     </PageContainer>

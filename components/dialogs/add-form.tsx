@@ -104,9 +104,9 @@ export const AddForm = ({
                 <PopoverTrigger asChild>
                   <FormControl>
                     <Button
-                      variant={"outline"}
+                      variant="outlineGreen"
                       className={cn(
-                        "w-full pl-3 text-left font-normal",
+                        "w-full pl-3 text-left font-sans normal-case",
                         !field.value && "text-muted-foreground"
                       )}
                     >
@@ -122,8 +122,10 @@ export const AddForm = ({
                 </PopoverTrigger>
                 <PopoverContent className="w-auto p-0" align="start">
                   <Calendar
+                    className="font-sans"
                     mode="single"
                     selected={field.value}
+                    // @ts-expect-error xxx
                     onSelect={field.onChange}
                     disabled={(date) =>
                       date > new Date() || date < new Date("1900-01-01")
@@ -181,7 +183,7 @@ export const AddForm = ({
           )}
         />
 
-        <Button type="submit" className="hover:bg-primary/90">
+        <Button type="submit" variant="green">
           {submitting ? (
             <p className="flex items-center gap-x-1">
               <span>{`Añadiendo`}</span>

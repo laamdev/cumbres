@@ -17,7 +17,7 @@ export const MedalHoverCard = ({
   return (
     <HoverCard>
       <HoverCardTrigger asChild>
-        <Avatar className="flex items-center justify-center bg-branding-green text-branding-white">
+        <Avatar className="flex items-center justify-center bg-branding-yellow text-branding-green">
           <MedalIcon />
         </Avatar>
       </HoverCardTrigger>

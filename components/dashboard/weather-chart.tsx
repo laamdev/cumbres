@@ -28,13 +28,13 @@ export const WeatherChart = ({
       id: "Nevado",
       label: "Nevado",
       value: totalSnowedSummits,
-      color: "var(--primary)",
+      color: "var(--green)",
     },
     {
       id: "Seco",
       label: "Seco",
       value: totalDrySummits,
-      color: "var(--tertiary)",
+      color: "var(--yellow)",
     },
   ]
 

@@ -4,13 +4,13 @@ import { notFound } from "next/navigation"
 import { prisma } from "@/lib/client"
 import { PeakPage } from "@/components/pages/peak-page"
 
-// export async function generateStaticParams() {
-//   const peaks = await prisma.peak.findMany()
+// // export async function generateStaticParams() {
+// //   const peaks = await prisma.peak.findMany()
 
-//   return peaks.map((peak: any) => ({
-//     slug: peak.slug,
-//   }))
-// }
+// //   return peaks.map((peak: any) => ({
+// //     slug: peak.slug,
+// //   }))
+// // }
 
 async function getPeak(params: any) {
   const peak = await prisma.peak.findUnique({
@@ -89,9 +89,5 @@ export default async function PeakRoute({
     return notFound()
   }
 
-  return (
-    <div className="bg-branding-sand text-branding-green">
-      <PeakPage peak={peak} weather={weather} />
-    </div>
-  )
+  return <PeakPage peak={peak} weather={weather} />
 }

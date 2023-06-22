@@ -2,12 +2,12 @@
 
 import Image from "next/image"
 import { SignedIn } from "@clerk/nextjs"
-import clsx from "clsx"
 import format from "date-fns/format"
 import es from "date-fns/locale/es"
 import { SnowflakeIcon, SunIcon } from "lucide-react"
 
 import { Peak } from "@/types/payloads"
+import { cn } from "@/lib/utils"
 import { AddDialog } from "@/components/dialogs/add-dialog"
 import { DeleteDialog } from "@/components/dialogs/delete-dialog"
 import { UpdateDialog } from "@/components/dialogs/update-dialog"
@@ -32,9 +32,8 @@ export const PeakCard = ({
 }) => {
   return (
     <li
-      className={clsx(
-        "relative rounded-lg border px-5 py-5 aspect-video grid grid-rows-3 gap-y-5",
-        isSummited ? "border-stone-100" : "border-green-900"
+      className={cn(
+        "relative z-10 grid aspect-video grid-rows-3 gap-y-5 rounded-lg p-5 shadow"
       )}
     >
       <SignedIn>
@@ -67,15 +66,15 @@ export const PeakCard = ({
           src={peak?.imageUrl ?? "/images/card-bg.webp"}
           alt={peak?.name}
           fill
-          className={clsx(
+          className={cn(
             "rounded-lg object-cover object-center grayscale",
             !isSummited && "opacity-30"
           )}
         />
         <div
-          className={clsx(
-            isSummited ? "bg-branding-green" : "bg-branding-white opacity-10",
-            "absolute bottom-0 left-0 right-0 top-0 -z-0 rounded-lg mix-blend-multiply"
+          className={cn(
+            isSummited ? "bg-branding-green" : "bg-branding-white",
+            "absolute inset-0 -z-0 rounded-lg mix-blend-multiply"
           )}
         />
       </div>

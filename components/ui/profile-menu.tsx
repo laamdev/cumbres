@@ -1,5 +1,3 @@
-"use client"
-
 import Link from "next/link"
 import { useRouter } from "next/navigation"
 import { useClerk, useUser } from "@clerk/nextjs"
@@ -21,7 +19,7 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu"
 
-export const ProfileMenu = () => {
+export const ProfileMenu = ({ color }: { color: string }) => {
   const { isLoaded, isSignedIn, user } = useUser()
   const { signOut } = useClerk()
   const router = useRouter()
@@ -37,7 +35,9 @@ export const ProfileMenu = () => {
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
-        <Button variant="outline">Perfil</Button>
+        <Button variant={color === "green" ? "green" : "default"}>
+          Perfil
+        </Button>
       </DropdownMenuTrigger>
       <DropdownMenuContent className="w-56">
         <DropdownMenuLabel>{user?.firstName}</DropdownMenuLabel>

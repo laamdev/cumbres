@@ -2,43 +2,41 @@ import Image from "next/image"
 import { MedalIcon, MountainIcon } from "lucide-react"
 
 import { Avatar } from "@/components/ui/avatar"
+import { Separator } from "@/components/ui/separator"
 import { MapContainer } from "@/components/global/map-container"
 import { PageContainer } from "@/components/global/page-container"
-import { PageTagline } from "@/components/global/page-tagline"
 import { PageTitle } from "@/components/global/page-title"
 import { TextWrapper } from "@/components/global/text-wrapper"
-import { DetailsWidget } from "@/components/peaks/details-widget"
+import { DetailContainer } from "@/components/peak/detail-container"
+import { DetailLabel } from "@/components/peak/detail-label"
+import { DetailValue } from "@/components/peak/detail-value"
+import { WeatherWidget } from "@/components/peaks/weather-widget"
+
+import { DetailUnit } from "../peak/detail-unit"
 
 export const PeakPage = ({ peak, weather }: { peak: any; weather: any }) => {
   const highestPoint = peak.highestPoint.join(" y ")
   return (
     <PageContainer>
-      <PageTagline>
-        <div className="flex flex-wrap gap-x-1">
-          <MountainIcon />
-          <div className="flex items-baseline gap-x-1">
-            <span>{peak.elevation}</span>
-            <span className="text-sm font-normal normal-case">{`m`}</span>
-          </div>
+      {peak.highestPoint.length > 0 && (
+        <div className="mb-5 flex items-center space-x-2.5">
+          <Avatar className="flex h-8 w-8 items-center justify-center bg-branding-yellow text-branding-green md:h-10 md:w-10">
+            <MedalIcon className="h-5 w-5 md:h-7 md:w-7" />
+          </Avatar>
+          {
+            <div className="text-sm font-medium uppercase leading-none tracking-tighter text-white sm:text-lg">{`Punto más alto de ${highestPoint}`}</div>
+          }
         </div>
-      </PageTagline>
+      )}
       <PageTitle>{peak.name}</PageTitle>
 
-      <section className="mt-10 grid gap-y-10 sm:mt-20 sm:grid-cols-5 sm:gap-x-20">
+      <section className="mt-10 grid gap-y-10 sm:mt-10 sm:grid-cols-5 sm:gap-x-20">
         <div className="mt-10 sm:col-span-2 sm:mt-0">
-          {peak.highestPoint.length > 0 && (
-            <div className="mb-5 flex items-center space-x-2.5 text-lg font-semibold sm:text-xl">
-              <Avatar className="flex items-center justify-center bg-branding-green text-branding-white">
-                <MedalIcon />
-              </Avatar>
-              {<div>{`Punto más alto de ${highestPoint}`}</div>}
-            </div>
-          )}
           <TextWrapper>{peak.description}</TextWrapper>
         </div>
 
         <div className="row-start-1 sm:col-span-3 sm:row-auto">
-          <div className="relative aspect-video">
+          <div className="relative aspect-video shadow">
             <Image
               src={peak.imageUrl}
               alt={peak.name}
@@ -46,40 +44,55 @@ export const PeakPage = ({ peak, weather }: { peak: any; weather: any }) => {
               className="rounded object-cover object-center"
               priority
             />
-          </div>
 
-          <div className="mt-7 grid divide-y-2 divide-branding-sand rounded-xl bg-branding-green p-2.5 text-center text-branding-sand sm:mt-10 sm:grid-cols-3 sm:divide-x-2 sm:divide-y-0 sm:p-5">
-            <div className="grid py-2.5">
-              <span className="text-xs opacity-75 sm:text-sm">
-                Comunidad Autónoma
-              </span>
-              <span className="font-serif text-base font-bold uppercase sm:text-lg">
-                {peak.county.join(" y ")}
-              </span>
-            </div>
-            <div className="grid py-2.5">
-              <span className="text-xs opacity-75 sm:text-sm">Provincia</span>
-              <span className="font-serif text-base font-bold uppercase sm:text-lg">
-                {peak.range.join(" y ")}
-              </span>
-            </div>
-            <div className="grid py-2.5">
-              <span className="text-xs opacity-75 sm:text-sm">
-                Coordillera / Isla
-              </span>
-              <span className="font-serif text-base font-bold uppercase sm:text-lg">
-                {peak.range.join(" y ")}
-              </span>
+            <div className="rounded-bt absolute right-0 top-0 z-10 flex items-center gap-x-1 rounded-bl rounded-tr bg-branding-yellow p-1 font-bold uppercase tracking-tighter text-branding-green sm:text-lg">
+              <DetailLabel>
+                <MountainIcon className="h-5 w-5 rounded-full bg-branding-green px-1 sm:h-7 sm:w-7" />
+              </DetailLabel>
+              <DetailValue>
+                {peak.elevation} <DetailUnit>m</DetailUnit>
+              </DetailValue>
             </div>
           </div>
 
-          <DetailsWidget peak={peak} weather={weather} />
+          <WeatherWidget peak={peak} weather={weather} />
         </div>
       </section>
 
-      <div className="mt-10 h-64 w-full sm:mt-20 sm:h-72 lg:h-[96]">
-        <MapContainer peaks={[peak]} zoom={10} />
-      </div>
+      <Separator className="my-20 bg-branding-yellow" />
+
+      <section>
+        <div className="grid gap-5 font-serif md:grid-cols-3">
+          <div className="flex flex-col gap-y-2.5">
+            <div className="text-sm lowercase leading-none tracking-tighter md:text-lg">
+              Comunidad Autónoma
+            </div>
+            <div className="text-2xl font-semibold uppercase leading-none tracking-tighter md:text-4xl">
+              {peak.county.join(" y ")}
+            </div>
+          </div>
+          <div className="flex flex-col gap-y-2.5">
+            <div className="text-sm lowercase leading-none tracking-tighter md:text-lg">
+              Provincia
+            </div>
+            <div className="text-2xl font-semibold uppercase leading-none tracking-tighter md:text-4xl">
+              {peak.province.join(" y ")}
+            </div>
+          </div>
+          <div className="flex flex-col gap-y-2.5">
+            <div className="text-sm lowercase leading-none tracking-tighter md:text-lg">
+              Coordillera o Isla
+            </div>
+            <div className="text-2xl font-semibold uppercase leading-none tracking-tighter md:text-4xl">
+              {peak.range.join(" y ")}
+            </div>
+          </div>
+        </div>
+
+        <div className="mt-10 h-64 w-full rounded-xl bg-branding-white sm:mt-20 sm:h-72 lg:h-96">
+          <MapContainer peaks={[peak]} zoom={10} />
+        </div>
+      </section>
     </PageContainer>
   )
 }

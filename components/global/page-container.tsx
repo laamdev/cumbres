@@ -10,7 +10,7 @@ export const PageContainer = ({
   className?: string
 }) => {
   return (
-    <div className={cn("mx-auto max-w-7xl px-5 py-16 sm:py-40", className)}>
+    <div className={cn("mx-auto max-w-7xl px-5 py-32 sm:py-40", className)}>
       {children}
     </div>
   )

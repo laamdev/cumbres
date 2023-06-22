@@ -181,9 +181,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
     <ClerkProvider localization={esES}>
       <html lang="es" className={`${sans.variable} ${serif.variable}`}>
         <body>
-          <Header />
           <main className="relative min-h-screen">{children}</main>
-          <Footer />
           <Toaster />
         </body>
       </html>

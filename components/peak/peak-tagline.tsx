@@ -12,7 +12,7 @@ export const PeakTagline = ({
     <div
       className={clsx(
         "text-sm uppercase tracking-widest",
-        isSummited ? "text-green-200" : "text-green-800"
+        isSummited ? "text-branding-white" : "text-branding-green"
       )}
     >
       {children}

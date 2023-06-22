@@ -54,22 +54,22 @@ export const StatsPage = () => {
       {isLoading ? (
         <article>
           <section className="mt-10 grid gap-5 sm:mt-20 sm:grid-cols-2">
-            <Skeleton className="h-36 bg-branding-sand sm:h-44" />
+            <Skeleton className="h-36 bg-branding-green sm:h-44" />
 
             <div className="grid gap-5 sm:grid-cols-2">
-              <Skeleton className="h-20 bg-branding-sand" />
-              <Skeleton className="h-20 bg-branding-sand" />
-              <Skeleton className="h-20 bg-branding-sand" />
-              <Skeleton className="h-20 bg-branding-sand" />
+              <Skeleton className="h-20 bg-branding-green" />
+              <Skeleton className="h-20 bg-branding-green" />
+              <Skeleton className="h-20 bg-branding-green" />
+              <Skeleton className="h-20 bg-branding-green" />
             </div>
           </section>
 
           <section className="mt-5 grid gap-5 sm:grid-cols-2">
-            <Skeleton className="h-96 bg-branding-sand" />
-            <Skeleton className="h-96 bg-branding-sand" />
+            <Skeleton className="h-96 bg-branding-green" />
+            <Skeleton className="h-96 bg-branding-green" />
           </section>
 
-          <Skeleton className="mt-5 h-96 bg-branding-sand" />
+          <Skeleton className="mt-5 h-96 bg-branding-green" />
         </article>
       ) : (
         <>
@@ -111,7 +111,7 @@ export const StatsPage = () => {
               </section>
 
               <section className="mt-5 grid gap-5 sm:grid-cols-2">
-                <div className="h-96 w-full rounded-xl border-2 border-branding-green bg-white px-5 py-2.5">
+                <div className="h-96 w-full rounded-xl border-2 border-branding-green bg-white px-5 py-2.5 shadow">
                   <h3 className="text-bold text-sm">Condiciones Climáticas</h3>
                   <WeatherChart
                     totalSummited={totalSummited}
@@ -119,14 +119,14 @@ export const StatsPage = () => {
                     totalDrySummits={totalDrySummits!}
                   />
                 </div>
-                <div className="h-96 w-full rounded-xl border-2 border-branding-green bg-white px-5 py-2.5">
+                <div className="h-96 w-full rounded-xl border-2 border-branding-green bg-white px-5 py-2.5 shadow">
                   <h3 className="text-bold text-sm">Elevación de Ascensos</h3>
                   <AscentTimeChart peaks={summited} />
                 </div>
               </section>
 
               <div className="mt-5">
-                <div className="h-64 w-full rounded-xl border-2 border-branding-green bg-white p-2.5 sm:h-72 lg:h-96">
+                <div className="h-64 w-full rounded-xl border-2 border-branding-green bg-branding-white shadow sm:h-72 lg:h-96">
                   <MapContainer peaks={summited} zoom={3} />
                 </div>
               </div>

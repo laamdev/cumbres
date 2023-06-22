@@ -79,7 +79,7 @@ module.exports = {
           900: "#133426",
           950: "#0c2219",
         },
-        "branding-sand": {
+        "branding-yellow": {
           DEFAULT: "#e5a958",
           50: "#fdf9ef",
           100: "#faf0da",

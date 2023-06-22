@@ -11,7 +11,7 @@ export const CustomLink = ({
   return (
     <Link
       href={href}
-      className="tw-transition font-bold italic text-branding-sand hover:text-branding-sand/80"
+      className="tw-transition font-bold italic text-branding-yellow hover:text-branding-yellow/90"
     >
       {children}
     </Link>

@@ -1,44 +1,56 @@
 "use client"
 
-import { useEffect } from "react"
+import { useEffect, useRef, useState } from "react"
+import Link from "next/link"
+import { usePathname } from "next/navigation"
+import { SignedIn, SignedOut } from "@clerk/nextjs"
 import {
   motion,
+  MotionValue,
   useMotionTemplate,
   useMotionValue,
+  useMotionValueEvent,
   useScroll,
   useTransform,
 } from "framer-motion"
+import { GiMountaintop } from "react-icons/gi"
 
-let clamp = (number, min, max) => Math.min(Math.max(number, min), max)
+import { cn } from "@/lib/utils"
+import { Button, buttonVariants } from "@/components/ui/button"
 
-const useBoundedScroll = (bounds) => {
-  let { scrollY } = useScroll()
-  let scrollYBounded = useMotionValue(0)
-  let scrollYBoundedProgress = useTransform(scrollYBounded, [0, bounds], [0, 1])
+import { ProfileMenu } from "../ui/profile-menu"
 
-  useEffect(() => {
-    return scrollY.onChange((current) => {
-      let previous = scrollY.getPrevious()
-      let diff = current - previous
-      let newScrollYBounded = scrollYBounded.get() + diff
+const clamp = (number: number, min: number, max: number) =>
+  Math.min(Math.max(number, min), max)
 
-      scrollYBounded.set(clamp(newScrollYBounded, 0, bounds))
-    })
-  }, [bounds, scrollY, scrollYBounded])
+function useBoundedScroll(bounds: number) {
+  const [x, setX] = useState(0)
+  const { scrollYProgress } = useScroll()
+  const scrollYBounded = useMotionValue(0)
+  const scrollYBoundedProgress = useTransform(
+    scrollYBounded,
+    [0, bounds],
+    [0, 1]
+  )
 
-  return { scrollYBounded, scrollYBoundedProgress }
+  useMotionValueEvent(scrollYProgress, "change", (latest) => {
+    setX(latest)
+  })
+
+  return { scrollYBoundedProgress, x }
 }
 
-export const Header = () => {
-  let { scrollYBoundedProgress } = useBoundedScroll(400)
+export const Header = ({ color }: { color: string }) => {
+  let { scrollYBoundedProgress, x } = useBoundedScroll(400)
   let scrollYBoundedProgressThrottled = useTransform(
     scrollYBoundedProgress,
     [0, 0.75, 1],
     [0, 0, 1]
   )
+  const pathname = usePathname()
 
   return (
-    <div className="relative z-40 mx-auto flex w-full max-w-3xl flex-1 overflow-hidden text-slate-600">
+    <div className="relative z-40 mx-auto flex w-full max-w-5xl flex-1 overflow-hidden">
       <div className="z-0 flex-1 overflow-y-scroll">
         <motion.header
           style={{
@@ -47,15 +59,19 @@ export const Header = () => {
               [0, 1],
               [80, 50]
             ),
-            backgroundColor: useMotionTemplate`rgb(255 255 255 / ${useTransform(
+            backgroundColor: useMotionTemplate`rgb(19, 52, 38 / ${useTransform(
               scrollYBoundedProgressThrottled,
               [0, 1],
               [1, 0.1]
             )})`,
           }}
-          className="fixed inset-x-0 flex h-20 shadow backdrop-blur-md"
+          className={cn(
+            "fixed inset-x-0 mx-auto flex h-20 max-w-7xl border-b backdrop-blur-md",
+            color === "green" && "border-branding-green",
+            color === "yellow" && "border-branding-yellow"
+          )}
         >
-          <div className="mx-auto flex w-full max-w-3xl items-center justify-between px-8">
+          <div className="mx-auto flex w-full max-w-7xl items-center justify-between px-5">
             <motion.p
               style={{
                 scale: useTransform(
@@ -66,12 +82,17 @@ export const Header = () => {
               }}
               className="flex origin-left items-center text-xl font-semibold uppercase"
             >
-              <span className="-ml-1.5 inline-block -rotate-90 text-[10px] leading-[0]">
-                The
-              </span>
-              <span className="-ml-1 text-2xl tracking-[-.075em]">
-                Daily Bugle
-              </span>
+              <Link href="/">
+                <GiMountaintop
+                  className={cn(
+                    "tw-transition h-7 w-7 sm:h-10 sm:w-10",
+                    color === "green" &&
+                      "text-branding-green hover:text-branding-green/90",
+                    color === "yellow" &&
+                      "text-branding-yellow hover:text-branding-yellow/90"
+                  )}
+                />
+              </Link>
             </motion.p>
             <motion.nav
               style={{
@@ -83,9 +104,27 @@ export const Header = () => {
               }}
               className="flex space-x-4 text-xs font-medium text-slate-400"
             >
-              <a href="#">News</a>
-              <a href="#">Sports</a>
-              <a href="#">Culture</a>
+              <SignedOut>
+                <div className="space-x-2 sm:space-x-4">
+                  <Button
+                    asChild
+                    size="sm"
+                    variant={color === "green" ? "outlineGreen" : "outline"}
+                  >
+                    <Link href="/iniciar-sesion">Iniciar Sesión</Link>
+                  </Button>
+                  <Button
+                    asChild
+                    size="sm"
+                    variant={color === "green" ? "green" : "default"}
+                  >
+                    <Link href="/registrarse">Registrarse</Link>
+                  </Button>
+                </div>
+              </SignedOut>
+              <SignedIn>
+                <ProfileMenu color={color} />
+              </SignedIn>
             </motion.nav>
           </div>
         </motion.header>

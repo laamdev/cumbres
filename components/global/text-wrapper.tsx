@@ -13,7 +13,7 @@ export const TextWrapper = ({
     <p
       className={cn(
         className,
-        "max-w-3xl font-serif text-lg leading-relaxed text-branding-white-950 sm:text-2xl"
+        "max-w-3xl font-serif text-lg leading-relaxed sm:text-2xl"
       )}
     >
       {children}

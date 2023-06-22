@@ -118,9 +118,9 @@ export const UpdateForm = ({
                 <PopoverTrigger asChild>
                   <FormControl>
                     <Button
-                      variant={"outline"}
+                      variant="outlineGreen"
                       className={cn(
-                        "w-full pl-3 text-left font-normal",
+                        "w-full pl-3 text-left font-sans normal-case",
                         !field.value && "text-muted-foreground"
                       )}
                     >
@@ -138,6 +138,7 @@ export const UpdateForm = ({
                   <Calendar
                     mode="single"
                     selected={field.value}
+                    // @ts-expect-error xxx
                     onSelect={field.onChange}
                     disabled={(date) =>
                       date > new Date() || date < new Date("1900-01-01")
@@ -195,7 +196,7 @@ export const UpdateForm = ({
           )}
         />
 
-        <Button type="submit" className="hover:bg-primary/90">
+        <Button type="submit" variant="green">
           {submitting ? (
             <p className="flex items-center gap-x-1">
               <span>{`Editando`}</span>

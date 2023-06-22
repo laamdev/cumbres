@@ -16,7 +16,7 @@ export const ProgressBar = ({
   partLabel: string
 }) => {
   return (
-    <section className="rounded-xl border-2 border-branding-green bg-white px-5 py-2.5">
+    <section className="rounded-xl border-2 border-branding-green bg-white px-5 py-2.5 shadow">
       <div>
         <div className="font-serif">
           <span className="text-5xl font-bold text-branding-green sm:text-6xl">{`${completedValue}`}</span>
@@ -24,7 +24,7 @@ export const ProgressBar = ({
         </div>
       </div>
       <div>
-        <div className="mt-5 h-2.5 w-full rounded-full bg-branding-white-200/75">
+        <div className="mt-5 h-2.5 w-full rounded-full bg-branding-green/10">
           <div
             className="h-2.5 rounded-full bg-branding-green"
             style={{ width: `${completedPercentage}%` }}
