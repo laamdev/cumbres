@@ -3,7 +3,7 @@
 import { revalidatePath } from "next/cache";
 import { auth } from "@clerk/nextjs/server";
 
-import prisma from "@/lib/prisma";
+import db from "@/lib/prisma";
 
 interface CreateSummitResult {
   success: boolean;
@@ -20,7 +20,7 @@ export async function createSummit(
       throw new Error("Unauthorized");
     }
 
-    await prisma.summit.create({
+    await db.summit.create({
       data: {
         userId,
         peakSlug,
@@ -46,7 +46,7 @@ export async function deleteSummit(peakSlug: string) {
       throw new Error("Unauthorized");
     }
 
-    await prisma.summit.delete({
+    await db.summit.delete({
       where: {
         userId_peakSlug: {
           userId,

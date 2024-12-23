@@ -2,11 +2,11 @@ import { auth } from "@clerk/nextjs/server";
 
 import { peaks } from "@/data/peaks";
 
-import prisma from "@/lib/prisma";
+import db from "@/lib/prisma";
 
 export async function getTotalSummitCount() {
   try {
-    const count = await prisma.summit.count();
+    const count = await db.summit.count();
     return count;
   } catch (error) {
     console.error("Error getting total summit count:", error);
@@ -19,7 +19,7 @@ export async function getUserSummits() {
     const { userId } = await auth();
     if (!userId) return [];
 
-    const summits = await prisma.summit.findMany({
+    const summits = await db.summit.findMany({
       where: {
         userId: userId,
       },
@@ -50,7 +50,7 @@ export async function getUserSummits() {
 }
 
 export async function createSummit(data: { userId: string; peakSlug: string }) {
-  return await prisma.summit.create({
+  return await db.summit.create({
     data: {
       userId: data.userId,
       peakSlug: data.peakSlug,
@@ -64,7 +64,7 @@ export async function checkSummitStatus(peakSlug: string) {
     const { userId } = await auth();
     if (!userId) return false;
 
-    const summit = await prisma.summit.findUnique({
+    const summit = await db.summit.findUnique({
       where: {
         userId_peakSlug: {
           userId,
