@@ -1,4 +1,0 @@
--- AlterTable
-ALTER TABLE "Summit" ALTER COLUMN "summitDate" DROP DEFAULT,
-ALTER COLUMN "summitTime" DROP DEFAULT,
-ALTER COLUMN "summitWeather" DROP DEFAULT;

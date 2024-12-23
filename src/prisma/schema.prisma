@@ -1,0 +1,22 @@
+generator client {
+  provider        = "prisma-client-js"
+  previewFeatures = ["driverAdapters"]
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Summit {
+  id        String   @id @default(cuid())
+  userId    String // Clerk user ID
+  peakSlug  String // Reference to peak in JSON
+  date      DateTime
+  notes     String?
+  images    String[] // Array of image URLs
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@unique([userId, peakSlug])
+}

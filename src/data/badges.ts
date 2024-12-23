@@ -1,0 +1,321 @@
+export const badges = {
+  general: [
+    {
+      id: 1,
+      label: "Rey de los Techos",
+      value: "Has ascendido los 45 Techos de España",
+      imageUrl: "/images/badges/trophy.webp",
+      filter: 23,
+    },
+    {
+      id: 2,
+      label: "Mitad + 1",
+      value: "Has ascendido 23 de los techos de España",
+      imageUrl: "/images/badges/crown.webp",
+      filter: 45,
+    },
+  ],
+  misc: [
+    {
+      id: 1,
+      label: "Siameses",
+      value:
+        "Has ascendido todas las cumbres que son techos de dos comunidades.",
+      peaks: ["01", "13", "16", "21", "35"],
+      imageUrl: "/images/badges/siamese.webp",
+    },
+  ],
+  highestPointCountryAndPeninsula: [
+    {
+      id: 1,
+      label: "Techo de España",
+      value: "Has ascendido el Teide.",
+      peak: "01",
+      county: "20",
+      imageUrl: "/images/flags/spain.webp",
+    },
+    {
+      id: 2,
+      label: "Techo de la Península",
+      value: "Has ascendido el Mulhacén.",
+      peak: "02",
+      code: "21",
+      imageUrl: "/images/flags/peninsula.webp",
+    },
+  ],
+  highestPointCounty: [
+    {
+      id: 1,
+      label: "Techo de Andalucía",
+      value: "Has ascendido el Mulhacén.",
+      peak: "02",
+      county: "01",
+      imageUrl: "/images/flags/andalucia.webp",
+    },
+    {
+      id: 2,
+      label: "Techo de Aragón",
+      value: "Has ascendido el Aneto.",
+      peak: "03",
+      county: "02",
+      imageUrl: "/images/flags/aragon.webp",
+    },
+    {
+      id: 3,
+      label: "Techo de Asturias",
+      value: "Has ascendido el Torre de Cerredo.",
+      peak: "06",
+      county: "03",
+      imageUrl: "/images/flags/asturias.webp",
+    },
+    {
+      id: 4,
+      label: "Techo de las Islas Baleares",
+      value: "Has ascendido el Puig Major.",
+      peak: "38",
+      county: "04",
+      imageUrl: "/images/flags/islas-baleares.webp",
+    },
+    {
+      id: 5,
+      label: "Techo de Canarias",
+      value: "Has ascendido el Teide.",
+      peak: "01",
+      county: "05",
+      imageUrl: "/images/flags/canarias.webp",
+    },
+    {
+      id: 6,
+      label: "Techo de Cantabria",
+      value: "Has ascendido el Torre de Cerredo.",
+      peak: "07",
+      county: "06",
+      imageUrl: "/images/flags/cantabria.webp",
+    },
+    {
+      id: 7,
+      label: "Techo de Castilla y León",
+      value: "Has ascendido el Torre de Cerredo.",
+      peak: "17",
+      county: "08",
+      imageUrl: "/images/flags/castilla-la-mancha.webp",
+    },
+    {
+      id: 8,
+      label: "Techo de Castilla-La Mancha",
+      value: "Has ascendido el Pico del Lobo.",
+      peak: "06",
+      county: "07",
+      imageUrl: "/images/flags/castilla-y-leon.webp",
+    },
+    {
+      id: 9,
+      label: "Techo de Cataluña",
+      value: "Has ascendido el Pica d'Estats.",
+      peak: "04",
+      county: "09",
+      imageUrl: "/images/flags/cataluna.webp",
+    },
+    {
+      id: 10,
+      label: "Techo de la Comunidad Valenciana",
+      value: "Has ascendido el Pico de la Rápita.",
+      peak: "30",
+      county: "10",
+      imageUrl: "/images/flags/comunidad-valenciana.webp",
+    },
+    {
+      id: 11,
+      label: "Techo de Extremadura",
+      value: "Has ascendido el Calvitero.",
+      peak: "15",
+      county: "11",
+      imageUrl: "/images/flags/extremadura.webp",
+    },
+    {
+      id: 12,
+      label: "Techo de Galicia",
+      value: "Has ascendido el Pena Trevinca.",
+      peak: "21",
+      county: "12",
+      imageUrl: "/images/flags/galicia.webp",
+    },
+    {
+      id: 13,
+      label: "Techo de La Rioja",
+      value: "Has ascendido el San Lorenzo.",
+      peak: "18",
+      county: "17",
+      imageUrl: "/images/flags/la-rioja.webp",
+    },
+    {
+      id: 14,
+      label: "Techo de Madrid",
+      value: "Has ascendido el Peñalara.",
+      peak: "13",
+      county: "13",
+      imageUrl: "/images/flags/comunidad-de-madrid.webp",
+    },
+    {
+      id: 15,
+      label: "Techo de Murcia",
+      value: "Has ascendido el Revolcadores.",
+      peak: "25",
+      county: "14",
+      imageUrl: "/images/flags/murcia.webp",
+    },
+    {
+      id: 16,
+      label: "Techo de Navarra",
+      value: "Has ascendido el Mesa de los Tres Reyes.",
+      peak: "12",
+      county: "15",
+      imageUrl: "/images/flags/navarra.webp",
+    },
+    {
+      id: 17,
+      label: "Techo del País Vasco",
+      value: "Has ascendido el Aitxuri.",
+      peak: "34",
+      county: "16",
+      imageUrl: "/images/flags/pais-vasco.webp",
+    },
+  ],
+  allHighestPointsByCounty: [
+    {
+      id: 1,
+      label: "Picos de País Vasco",
+      value:
+        "Has ascendido las cumbres más altas de las 8 provincias de Andalucía.",
+      peaks: ["08", "31", "32", "02", "43", "19", "23", "41"],
+      imageUrl: "/images/flags/andalucia.webp",
+    },
+    {
+      id: 2,
+      label: "Picos de Aragón",
+      value:
+        "Has ascendido las cumbres más altas de las 3 provincias de Aragón.",
+      peaks: ["03", "24", "16"],
+      imageUrl: "/images/flags/aragon.webp",
+    },
+    {
+      id: 3,
+      label: "Picos de Asturias",
+      value:
+        "Has ascendido la cumbre más alta de la única provincia de Asturias.",
+      peaks: ["06"],
+      imageUrl: "/images/flags/asturias.webp",
+    },
+    {
+      id: 4,
+      label: "Picos de Baleares",
+      value:
+        "Has ascendido la cumbre más alta de la única provincia de Baleares.",
+      peaks: ["38"],
+      imageUrl: "/images/flags/islas-baleares.webp",
+    },
+    {
+      id: 5,
+      label: "Picos de Canarias",
+      value:
+        "Has ascendido las cumbres más altas de las 2 provincias de Canarias.",
+      peaks: ["01", "26"],
+      imageUrl: "/images/flags/canarias.webp",
+    },
+    {
+      id: 6,
+      label: "Picos de Cantabria",
+      value:
+        "Has ascendido la cumbre más alta de la única provincia de Cantabria.",
+      peaks: ["07"],
+      imageUrl: "/images/flags/cantabria.webp",
+    },
+    {
+      id: 7,
+      label: "Picos de Castilla y León",
+      value:
+        "Has ascendido las cumbres más altas de las 9 provincias de Castilla y León.",
+      peaks: ["10", "20", "06", "11", "14", "13", "16", "44", "21"],
+      imageUrl: "/images/flags/castilla-y-leon.webp",
+    },
+    {
+      id: 8,
+      label: "Picos de Castilla-La Mancha",
+      value:
+        "Has ascendido las cumbres más altas de las 5 provincias de Castilla-La Mancha.",
+      peaks: ["22", "39", "28", "17"],
+      imageUrl: "/images/flags/castilla-la-mancha.webp",
+    },
+    {
+      id: 9,
+      label: "Picos de Cataluña",
+      value:
+        "Has ascendido las cumbres más altas de las 4 provincias de Cataluña.",
+      peaks: ["09", "05", "04", "37"],
+      imageUrl: "/images/flags/cataluna.webp",
+    },
+    {
+      id: 10,
+      label: "Picos de Comunidad Valenciana",
+      value:
+        "Has ascendido las cumbres más altas de las 3 provincias de la Comunidad Valenciana.",
+      peaks: ["33", "30", "29"],
+      imageUrl: "/images/flags/comunidad-valenciana.webp",
+    },
+    {
+      id: 11,
+      label: "Picos de Extremadura",
+      value:
+        "Has ascendido la cumbre más alta de la única provincia de Extremadura.",
+      peaks: ["42", "15"],
+      imageUrl: "/images/flags/extremadura.webp",
+    },
+    {
+      id: 12,
+      label: "Picos de Galicia",
+      value: "Has ascendido la cumbre más alta de las 4 provincias de Galicia.",
+      peaks: ["45", "27", "21", "40"],
+      imageUrl: "/images/flags/galicia.webp",
+    },
+    {
+      id: 13,
+      label: "Picos de Madrid",
+      value:
+        "Has ascendido la cumbre más alta de la única provincia de Madrid.",
+      peaks: ["13"],
+      imageUrl: "/images/flags/comunidad-de-madrid.webp",
+    },
+    {
+      id: 14,
+      label: "Picos de Murcia",
+      value:
+        "Has ascendido la cumbre más alta de la única provincia de Murcia.",
+      peaks: ["25"],
+      imageUrl: "/images/flags/murcia.webp",
+    },
+    {
+      id: 15,
+      label: "Picos de Navarra",
+      value:
+        "Has ascendido la cumbre más alta de la única provincia de Navarra.",
+      peaks: ["12"],
+      imageUrl: "/images/flags/navarra.webp",
+    },
+    {
+      id: 16,
+      label: "Picos del País Vasco",
+      value:
+        "Has ascendido las cumbres más altas de las 2 provincias del País Vasco.",
+      peaks: ["35", "34"],
+      imageUrl: "/images/flags/pais-vasco.webp",
+    },
+    {
+      id: 17,
+      label: "Picos de La Rioja",
+      value:
+        "Has ascendido la cumbre más alta de la única provincia de La Rioja.",
+      peaks: ["18"],
+      imageUrl: "/images/flags/la-rioja.webp",
+    },
+  ],
+};
