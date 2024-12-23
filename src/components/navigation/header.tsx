@@ -2,7 +2,6 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import { usePathname } from "next/navigation";
 import { SignedIn, SignedOut } from "@clerk/nextjs";
 import {
   motion,
@@ -40,13 +39,12 @@ function useBoundedScroll(bounds: number) {
 }
 
 export const Header = ({ color }: { color: string }) => {
-  const { scrollYBoundedProgress, x } = useBoundedScroll(400);
+  const { scrollYBoundedProgress } = useBoundedScroll(400);
   const scrollYBoundedProgressThrottled = useTransform(
     scrollYBoundedProgress,
     [0, 0.75, 1],
     [0, 0, 1]
   );
-  const pathname = usePathname();
 
   return (
     <div className="relative z-40 mx-auto flex w-full max-w-5xl flex-1 overflow-hidden">

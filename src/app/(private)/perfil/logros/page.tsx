@@ -38,12 +38,12 @@ export default async function BadgesPage() {
     );
   };
 
-  const isSiamesePeaksCompleted = (
-    requiredPeaks: string[],
-    userPeaks: string[]
-  ) => {
-    return requiredPeaks.every((peak) => userPeaks.includes(peak));
-  };
+  // // const isSiamesePeaksCompleted = (
+  // //   requiredPeaks: string[],
+  // //   userPeaks: string[]
+  // // ) => {
+  // //   return requiredPeaks.every((peak) => userPeaks.includes(peak));
+  // // };
 
   return (
     <PageContainer>

@@ -25,10 +25,16 @@ interface WeatherResponse {
   wind: {
     speed: number;
   };
-  weather: Array<{
-    description: string;
-    icon: string;
-  }>;
+  weather: [
+    {
+      description: string;
+      icon: string;
+      main: string;
+    }
+  ];
+  clouds: {
+    all: number;
+  };
 }
 
 interface Peak {
@@ -149,7 +155,7 @@ export default async function PeakRoute({ params }: PeakPageProps) {
             </div>
           </div>
 
-          <WeatherWidget peak={peak} weather={weather} />
+          <WeatherWidget weather={weather} />
         </div>
       </section>
 

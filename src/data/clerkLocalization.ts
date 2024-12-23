@@ -1,4 +1,4 @@
-import type { LocalizationResource } from "@clerk/types"
+import type { LocalizationResource } from "@clerk/types";
 
 const commonTexts = {
   signIn: {
@@ -11,7 +11,7 @@ const commonTexts = {
       resendButton: "Reenviar código",
     },
   },
-} as const
+} as const;
 
 export const esES: LocalizationResource = {
   socialButtonsBlockButton: "Continuar con {{provider|titleize}}",
@@ -20,13 +20,8 @@ export const esES: LocalizationResource = {
   formFieldLabel__emailAddresses: "Direcciones de correo",
   formFieldLabel__phoneNumber: "Número telefónico",
   formFieldLabel__username: "Nombre de usuario",
-  formFieldLabel__emailAddress_phoneNumber:
-    "Correo electrónico o número de teléfono",
   formFieldLabel__emailAddress_username:
     "Correo electrónico o nombre de usuario",
-  formFieldLabel__phoneNumber_username: "número telefónico o nombre de usuario",
-  formFieldLabel__emailAddress_phoneNumber_username:
-    "Correo electrónico, número telefónico o nombre de usuario",
   formFieldLabel__password: "Contraseña",
   formFieldLabel__currentPassword: "Contraseña actual",
   formFieldLabel__newPassword: "Nueva contraseña",
@@ -43,10 +38,7 @@ export const esES: LocalizationResource = {
     "Ingrese o pegue una o más direcciones de correo electrónico, separadas por espacios o comas",
   formFieldInputPlaceholder__phoneNumber: "",
   formFieldInputPlaceholder__username: "",
-  formFieldInputPlaceholder__emailAddress_phoneNumber: "",
   formFieldInputPlaceholder__emailAddress_username: "",
-  formFieldInputPlaceholder__phoneNumber_username: "",
-  formFieldInputPlaceholder__emailAddress_phoneNumber_username: "",
   formFieldInputPlaceholder__password: "",
   formFieldInputPlaceholder__firstName: "",
   formFieldInputPlaceholder__lastName: "",
@@ -141,8 +133,6 @@ export const esES: LocalizationResource = {
       title: "Revisa tu correo electrónico",
       subtitle: "para continuar a {{applicationName}}",
       formTitle: "Código de verificación",
-      formSubtitle:
-        "Introduce el código de verificación enviado a tu correo eléctronico",
       resendButton: "Re-enviar código",
     },
     emailLink: {
@@ -183,14 +173,10 @@ export const esES: LocalizationResource = {
       title: "Verificación de dos pasos",
       subtitle: "",
       formTitle: "Código de verificación",
-      formSubtitle:
-        "Introduzca el código de verificación generado por su aplicación de autenticación",
     },
     backupCodeMfa: {
       title: "Introduce un código de seguridad",
       subtitle: "para continuar a {{applicationName}}",
-      formTitle: "",
-      formSubtitle: "",
     },
     alternativeMethods: {
       title: "Usa otro método",
@@ -222,89 +208,45 @@ export const esES: LocalizationResource = {
     start: {
       headerTitle__account: "Cuenta",
       headerTitle__security: "Seguridad",
-      headerSubtitle__account: "Administrar la información de su cuenta",
-      headerSubtitle__security: "Administra tus preferencias de seguridad",
       profileSection: {
         title: "Perfil",
       },
       usernameSection: {
         title: "Nombre de usuario",
-        primaryButton__changeUsername: "Cambiar nombre de usuario",
+        primaryButton__updateUsername: "Cambiar nombre de usuario",
         primaryButton__setUsername: "Crear nombre de usuario",
       },
       emailAddressesSection: {
         title: "Correos electrónicos",
         primaryButton: "Agregar una dirección de correo electrónico",
-        detailsTitle__primary: "Dirección de correo principal",
-        detailsSubtitle__primary:
-          "Esta dirección de correo electrónico es la dirección de correo electrónico principal",
         detailsAction__primary: "Completar la verificación",
-        detailsTitle__nonPrimary:
-          "Establecer como dirección de correo electrónico principal",
-        detailsSubtitle__nonPrimary:
-          "Establezca esta dirección de correo electrónico como la principal para recibir comunicaciones sobre su cuenta.",
         detailsAction__nonPrimary: "Establecer como primario",
-        detailsTitle__unverified:
-          "Dirección de correo electrónico no verificada",
-        detailsSubtitle__unverified:
-          "Esta dirección de correo electrónico no ha sido verificada y puede tener una funcionalidad limitada",
         detailsAction__unverified: "Completar la verificación",
-        destructiveActionTitle: "Eliminar",
-        destructiveActionSubtitle:
-          "Elimine esta dirección de correo electrónico para borrarla de su cuenta",
         destructiveAction: "Eliminar dirección de correo electrónico",
       },
       phoneNumbersSection: {
         title: "Números telefónicos",
         primaryButton: "Agregar un número de teléfono",
-        detailsTitle__primary: "Número de teléfono primario",
-        detailsSubtitle__primary:
-          "Este número de teléfono es el número de teléfono principal",
         detailsAction__primary: "Completar la verificación",
-        detailsTitle__nonPrimary:
-          "Establecer como número de teléfono principal",
-        detailsSubtitle__nonPrimary:
-          "Establezca este número de teléfono como el principal para recibir comunicaciones sobre su cuenta.",
         detailsAction__nonPrimary: "Establecer como primario",
-        detailsTitle__unverified: "Número de teléfono no verificado",
-        detailsSubtitle__unverified:
-          "Este número de teléfono no ha sido verificado y puede tener una funcionalidad limitada",
         detailsAction__unverified: "Completar la verificación",
-        destructiveActionTitle: "Quitar",
-        destructiveActionSubtitle:
-          "Elimina este número de teléfono y quítalo de tu cuenta",
         destructiveAction: "Quitar número de teléfono",
       },
       connectedAccountsSection: {
         title: "Cuentas conectadas",
         primaryButton: "Conectar cuenta",
-        title__conectionFailed: "Reintentar conexión fallida",
-        title__connectionFailed: "Reintentar conexión fallida",
-        actionLabel__conectionFailed: "Inténtelo nuevamente",
         actionLabel__connectionFailed: "Inténtelo nuevamente",
         destructiveActionTitle: "Quitar",
-        destructiveActionSubtitle: "Quitar esta cuenta conectada a su cuenta",
-        destructiveActionAccordionSubtitle: "Quitar la cuenta conectada",
       },
       passwordSection: {
         title: "Contraseña",
-        primaryButton__changePassword: "Cambiar contraseña",
         primaryButton__setPassword: "Establecer contraseña ",
       },
       mfaSection: {
         title: "Verificación de dos pasos",
         primaryButton: "Añadir verificación de dos pasos",
         phoneCode: {
-          destructiveActionTitle: "Eliminar",
-          destructiveActionSubtitle:
-            "Eliminar este número de teléfono de los métodos de verificación en dos pasos",
           destructiveActionLabel: "Eliminar número telefónico",
-          title__default: "Factor por defecto",
-          title__setDefault: "Establecer como factor predeterminado",
-          subtitle__default:
-            "Este factor se utilizará como el método de verificación de dos pasos predeterminado al iniciar sesión.",
-          subtitle__setDefault:
-            "Establezca este factor como el factor predeterminado para usarlo como el método de verificación de dos pasos predeterminado al iniciar sesión.",
           actionLabel__setDefault: "Establecer por defecto",
         },
         backupCodes: {
@@ -316,30 +258,16 @@ export const esES: LocalizationResource = {
         },
         totp: {
           headerTitle: "Aplicación de autenticación",
-          title: "Factor por defecto",
-          subtitle:
-            "Este factor se utilizará como el método de verificación de dos pasos predeterminado al iniciar sesión.",
           destructiveActionTitle: "Eliminar",
-          destructiveActionSubtitle:
-            "Eliminar la aplicación de autenticación de los métodos de verificación de dos pasos",
-          destructiveActionLabel: "Eliminar aplicación de autenticación",
         },
       },
       activeDevicesSection: {
         title: "Dispositivos activos",
-        primaryButton: "Dispositivos activos",
-        detailsTitle: "Dispositivo actual",
-        detailsSubtitle:
-          "Este es el dispositivo que está utilizando actualmente",
-        destructiveActionTitle: "Cerrar",
-        destructiveActionSubtitle: "Cerrar tu cuenta en este dispositivo",
         destructiveAction: "Cerrar sesión en el dispositivo",
       },
       web3WalletsSection: {
         title: "Web3 cartera",
         primaryButton: "Web3 cartera",
-        destructiveActionTitle: "Quitar",
-        destructiveActionSubtitle: "Quitar esta web3 cartera de su cuenta",
         destructiveAction: "Quitar cartera",
       },
     },
@@ -348,14 +276,11 @@ export const esES: LocalizationResource = {
       imageFormTitle: "Imagen de perfil",
       imageFormSubtitle: "Cargar imagen",
       imageFormDestructiveActionSubtitle: "Eliminar la imagen",
-      fileDropAreaTitle: "Arrastre el archivo aquí, o...",
-      fileDropAreaAction: "Seleccione archivo",
       fileDropAreaHint:
         "Cargue una imagen JPG, PNG, GIF o WEBP de menos de 10 MB",
       successMessage: "Tu perfil ha sido actualizado.",
     },
     usernamePage: {
-      title: "Actualizar nombre de usuario",
       successMessage: "Su nombre de usuario ha sido actualizado.",
     },
     emailAddressPage: {
@@ -393,7 +318,6 @@ export const esES: LocalizationResource = {
       successMessage: "{{identifier}} ha sido añadido a tu cuenta.",
       infoText:
         "Se enviará un mensaje de texto con un enlace de verificación a este número de teléfono.",
-      infoText__secondary: "Se pueden aplicar tarifas por mensajes y datos.",
       removeResource: {
         title: "Eliminar número de teléfono",
         messageLine1: "{{identifier}} será eliminado de esta cuenta.",
@@ -429,47 +353,6 @@ export const esES: LocalizationResource = {
         successMessage: "{{web3Wallet}} ha sido eliminado de su cuenta.",
       },
     },
-    passwordPage: {
-      title: "Configurar la clave",
-      changePasswordTitle: "Cambiar contraseña",
-      successMessage: "Su contraseña ha sido establecida.",
-      changePasswordSuccessMessage: "Tu contraseña ha sido actualizada.",
-      sessionsSignedOutSuccessMessage:
-        "Todos los demás dispositivos han cerrado sesión.",
-    },
-    mfaPage: {
-      title: "Agregar verificación en dos pasos",
-      formHint: "Seleccione un método para agregar.",
-    },
-    mfaTOTPPage: {
-      title: "Agregar aplicación de autenticación",
-      verifyTitle: "Código de verificación",
-      verifySubtitle:
-        "Ingrese el Código de verificación generado por su autenticador",
-      successMessage:
-        "La verificación en dos pasos ahora está habilitada. Al iniciar sesión, deberá ingresar un Código de verificación de este autenticador como un paso adicional.",
-      authenticatorApp: {
-        infoText__ableToScan:
-          "Configure un nuevo método de inicio de sesión en su aplicación de autenticación y escanee el siguiente código QR para vincularlo a su cuenta.",
-        infoText__unableToScan:
-          "Configure un nuevo método de inicio de sesión en su autenticador e ingrese la clave que se proporciona a continuación.",
-        inputLabel__unableToScan1:
-          "Asegúrese de que las contraseñas basadas en el tiempo o de un solo uso estén habilitadas, luego termine de vincular su cuenta.",
-        inputLabel__unableToScan2:
-          "Alternativamente, si su autenticador admite TOTP URIs, también puede copiar el URI completo.",
-        buttonAbleToScan__nonPrimary: "Escanea el código QR en su lugar",
-        buttonUnableToScan__nonPrimary: "¿No puedes escanear el código QR?",
-      },
-      removeResource: {
-        title: "Eliminar la verificación en dos pasos",
-        messageLine1:
-          "El código de verificación de este autenticador ya no será necesario al iniciar sesión.",
-        messageLine2:
-          "Es posible que su cuenta no sea tan segura. Estás seguro de que quieres continuar?",
-        successMessage:
-          "Se eliminó la verificación en dos pasos a través de la aplicación de autenticación.",
-      },
-    },
     mfaPhoneCodePage: {
       title: "Agregar verificación de código SMS",
       primaryButton__addPhoneNumber: "Agregar un número de teléfono",
@@ -477,8 +360,6 @@ export const esES: LocalizationResource = {
         "Seleccione un número de teléfono para registrarse para la verificación en dos pasos del código SMS.",
       subtitle__unavailablePhoneNumbers:
         "No hay números de teléfono disponibles para registrarse para la verificación en dos pasos del código SMS.",
-      successMessage:
-        "La verificación en dos pasos del código SMS ahora está habilitada para este número de teléfono. Al iniciar sesión, deberá ingresar un Código de verificación enviado a este número de teléfono como un paso adicional.",
       removeResource: {
         title: "Eliminar la verificación en dos pasos",
         messageLine1:
@@ -525,15 +406,9 @@ export const esES: LocalizationResource = {
   organizationProfile: {
     start: {
       headerTitle__members: "Miembros",
-      headerTitle__settings: "Configuración",
-      headerSubtitle__members:
-        "Ver y administrar los miembros de la organización",
-      headerSubtitle__settings:
-        "Administrar la configuración de la organización",
     },
     profilePage: {
       title: "Perfil de la organización",
-      subtitle: "Administrar el perfil de la organización",
       successMessage: "La organización ha sido actualizada.",
       dangerSection: {
         title: "Peligro",
@@ -557,10 +432,6 @@ export const esES: LocalizationResource = {
     membersPage: {
       detailsTitle__emptyRow: "No hay miembros para mostrar",
       action__invite: "Invitar",
-      start: {
-        headerTitle__active: "Activo",
-        headerTitle__invited: "Invitado",
-      },
       activeMembersTab: {
         tableHeader__user: "Usuario",
         tableHeader__joined: "Unido",
@@ -577,7 +448,6 @@ export const esES: LocalizationResource = {
   createOrganization: {
     title: "Crear organización",
     formButtonSubmit: "Crear organización",
-    subtitle: "Establecer el perfil de la organización",
     invitePage: {
       formButtonReset: "Saltar",
     },
@@ -659,4 +529,4 @@ export const esES: LocalizationResource = {
       "{{ date | weekday('es-ES','long') }} a las {{ date | timeString('es-ES') }}",
     numeric: "{{ date | numeric('es-ES') }}",
   },
-} as const
+} as const;

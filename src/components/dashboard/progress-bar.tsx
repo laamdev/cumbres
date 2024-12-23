@@ -4,9 +4,9 @@ export const ProgressBar = ({
   completedPercentage,
   uncompletedValue,
   uncompletedPercentage,
-  totalLabel,
-  partLabel,
-}: {
+}: // // totalLabel,
+// // partLabel,
+{
   totalValue: number;
   completedValue: number;
   completedPercentage: number;

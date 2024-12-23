@@ -15,7 +15,12 @@ interface IPopup {
   elevation: number;
 }
 
-export const MapContainer = ({ peaks, zoom }) => {
+interface MapContainerProps {
+  peaks: Array<IPopup & { id: string }>;
+  zoom: number;
+}
+
+export const MapContainer = ({ peaks, zoom }: MapContainerProps) => {
   const [popupInfo, setPopupInfo] = useState<IPopup | undefined>();
   const coordinates = peaks.map((peak) => ({
     latitude: peak.latitude,

@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import { auth } from "@clerk/nextjs/server";
 
 import { PageContainer } from "@/components/global/page-container";
 import { PageTitle } from "@/components/global/page-title";

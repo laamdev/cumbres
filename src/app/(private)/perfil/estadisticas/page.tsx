@@ -1,19 +1,19 @@
 import type { Metadata } from "next";
-import Link from "next/link";
-import { auth } from "@clerk/nextjs";
+// // import Link from "next/link";
+// // import { auth } from "@clerk/nextjs";
 
-import { Button } from "@/components/ui/button";
-import { Skeleton } from "@/components/ui/skeleton";
-import { AscentTimeChart } from "@/components/dashboard/ascent-time-chart";
-import { ProgressBar } from "@/components/dashboard/progress-bar";
-import { StatCard } from "@/components/dashboard/stat-card";
-import { StatList } from "@/components/dashboard/stat-list";
-import { WeatherChart } from "@/components/dashboard/weather-chart";
+// // import { Button } from "@/components/ui/button";
+// // import { Skeleton } from "@/components/ui/skeleton";
+// // import { AscentTimeChart } from "@/components/dashboard/ascent-time-chart";
+// // import { ProgressBar } from "@/components/dashboard/progress-bar";
+// // import { StatCard } from "@/components/dashboard/stat-card";
+// // import { StatList } from "@/components/dashboard/stat-list";
+// // import { WeatherChart } from "@/components/dashboard/weather-chart";
 import { PageContainer } from "@/components/global/page-container";
 import { PageTitle } from "@/components/global/page-title";
 import { TextWrapper } from "@/components/global/text-wrapper";
 
-import { getAverage, getPercentage, getSum } from "@/lib/helpers";
+// // import { getAverage, getPercentage, getSum } from "@/lib/helpers";
 
 export const metadata: Metadata = {
   title: "Tus Cumbres",

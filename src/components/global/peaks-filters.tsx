@@ -2,17 +2,15 @@
 
 import { useSearchParams, usePathname, useRouter } from "next/navigation";
 
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import {
   Sheet,
-  SheetClose,
+  // // SheetClose,
   SheetContent,
-  SheetDescription,
-  SheetFooter,
-  SheetHeader,
-  SheetTitle,
+  // // SheetDescription,
+  // // SheetFooter,
+  // // SheetHeader,
+  // // SheetTitle,
   SheetTrigger,
 } from "@/components/ui/sheet";
 import { FiltersIcon } from "@/components/icons/filters";
@@ -20,7 +18,6 @@ import { Checkbox } from "@/components/ui/checkbox";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 
 import { territories } from "@/data/territories";
-import { getUserSummits } from "@/lib/queries";
 
 export const PeaksFilters = () => {
   const searchParams = useSearchParams();

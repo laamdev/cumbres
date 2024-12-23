@@ -1,5 +1,6 @@
-import { peaks } from "@/data/peaks";
 import { auth } from "@clerk/nextjs/server";
+
+import { peaks } from "@/data/peaks";
 
 import prisma from "@/lib/prisma";
 
@@ -73,7 +74,8 @@ export async function checkSummitStatus(peakSlug: string) {
     });
 
     return !!summit;
-  } catch (error) {
+  } catch (err) {
+    console.log("Error checking summit status:", err);
     return false;
   }
 }

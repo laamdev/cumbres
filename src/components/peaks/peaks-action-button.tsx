@@ -1,10 +1,10 @@
 "use client";
 
+import { toast } from "sonner";
 import { useState } from "react";
 import { Plus, Minus } from "@phosphor-icons/react";
 
 import { createSummit, deleteSummit } from "@/app/_actions";
-import { toast } from "sonner";
 
 interface PeaksActionButtonProps {
   peakSlug: string;
@@ -22,7 +22,8 @@ export const PeaksActionButton = ({
       setIsLoading(true);
       await createSummit(peakSlug);
       toast.success("La cumbre se ha marcado como completada.");
-    } catch (error) {
+    } catch (err) {
+      console.log(err);
       toast.error("Failed to mark peak as summited");
     } finally {
       setIsLoading(false);
@@ -34,14 +35,15 @@ export const PeaksActionButton = ({
       setIsLoading(true);
       await deleteSummit(peakSlug);
       toast.success("La cumbre se ha marcado como no completada.");
-    } catch (error) {
+    } catch (err) {
+      console.log(err);
       toast.error("Failed to unmark peak as summited");
     } finally {
       setIsLoading(false);
     }
   };
   return (
-    <button>
+    <button disabled={isLoading} className="relative">
       {summited ? (
         <Minus
           weight="bold"
