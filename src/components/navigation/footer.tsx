@@ -7,7 +7,11 @@ import { Logo } from "@/components/global/logo";
 
 import { cn } from "@/lib/utils";
 
-export const Footer = ({ color }: { color: string }) => {
+interface FooterProps {
+  color?: string;
+}
+
+export const Footer = ({ color }: FooterProps) => {
   return (
     <footer
       className={cn(

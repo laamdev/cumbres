@@ -41,7 +41,7 @@ export default function SignInPage() {
           <SignIn
             signUpUrl="/registrarse"
             // // redirectUrl={redirectUrl || '/dashboard'}
-            redirectUrl={"/perfil/cumbres"}
+
             appearance={{
               elements: {
                 formButtonPrimary:

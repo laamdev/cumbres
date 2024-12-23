@@ -1,8 +1,20 @@
 import { ReactNode } from "react";
 
-export const PageTitle = ({ children }: { children: ReactNode }) => {
+import { cn } from "@/lib/utils";
+
+interface PageTitleProps {
+  children: ReactNode;
+  className?: string;
+}
+
+export const PageTitle = ({ children, className }: PageTitleProps) => {
   return (
-    <h1 className="font-serif text-4xl font-bold uppercase tracking-tighter sm:text-6xl">
+    <h1
+      className={cn(
+        "font-serif text-4xl font-bold uppercase tracking-tighter sm:text-6xl",
+        className
+      )}
+    >
       {children}
     </h1>
   );

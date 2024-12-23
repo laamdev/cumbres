@@ -15,8 +15,8 @@ export default async function HomePage() {
 
   const [summitsCount, elevationCount, usersCount] = await Promise.all([
     getTotalSummitCount(),
-    clerkClient.users.getCount(),
     getTotalElevation(),
+    clerkClient.users.getCount(),
   ]);
 
   return (

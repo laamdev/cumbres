@@ -18,6 +18,9 @@ import { Logo } from "@/components/global/logo";
 
 import { cn } from "@/lib/utils";
 
+interface HeaderProps {
+  color?: string;
+}
 // // const clamp = (number: number, min: number, max: number) =>
 // //   Math.min(Math.max(number, min), max);
 
@@ -38,7 +41,7 @@ function useBoundedScroll(bounds: number) {
   return { scrollYBoundedProgress, x };
 }
 
-export const Header = ({ color }: { color: string }) => {
+export const Header = ({ color }: HeaderProps) => {
   const { scrollYBoundedProgress } = useBoundedScroll(400);
   const scrollYBoundedProgressThrottled = useTransform(
     scrollYBoundedProgress,

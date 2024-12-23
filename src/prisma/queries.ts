@@ -82,15 +82,7 @@ export async function checkSummitStatus(peakSlug: string) {
 
 export async function getTotalElevation() {
   try {
-    const { userId } = await auth();
-
-    if (!userId) return null;
-
-    const summits = await db.summit.findMany({
-      where: {
-        userId: userId,
-      },
-    });
+    const summits = await db.summit.findMany(); // Fetch all summits
 
     const totalElevation = summits.reduce((acc, summit) => {
       const peak = peaks.find((p) => p.slug === summit.peakSlug);
@@ -101,6 +93,6 @@ export async function getTotalElevation() {
     return (totalElevation / 1000).toFixed(1);
   } catch (error) {
     console.error("Error calculating total elevation:", error);
-    return 0;
+    return "0.0";
   }
 }
