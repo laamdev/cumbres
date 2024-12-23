@@ -6,7 +6,19 @@ import { Map, Marker, Popup } from "@vis.gl/react-maplibre";
 import "maplibre-gl/dist/maplibre-gl.css"; // See notes below
 import { MapPin } from "@phosphor-icons/react";
 
-export const MapContainer = ({ long, lat, peakName, peakHeight }) => {
+interface MapContainerProps {
+  long: number;
+  lat: number;
+  peakName: string;
+  peakHeight: number;
+}
+
+export const MapContainer = ({
+  long,
+  lat,
+  peakName,
+  peakHeight,
+}: MapContainerProps) => {
   const [showPopup, setShowPopup] = useState(false);
 
   return (
