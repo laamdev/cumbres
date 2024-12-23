@@ -1,93 +1,52 @@
 "use client";
 
-import "mapbox-gl/dist/mapbox-gl.css";
+import { useState } from "react";
 
-import { useMemo, useState } from "react";
-import clsx from "clsx";
-import getCenter from "geolib/es/getCenter";
-import { FlagTriangleRightIcon } from "lucide-react";
-import Map, { Marker, Popup } from "react-map-gl";
+import { Map, Marker, Popup } from "@vis.gl/react-maplibre";
+import "maplibre-gl/dist/maplibre-gl.css"; // See notes below
+import { MapPin } from "@phosphor-icons/react";
 
-interface IPopup {
-  latitude: number;
-  longitude: number;
-  name: string;
-  elevation: number;
-}
-
-interface MapContainerProps {
-  peaks: Array<IPopup & { id: string }>;
-  zoom: number;
-}
-
-export const MapContainer = ({ peaks, zoom }: MapContainerProps) => {
-  const [popupInfo, setPopupInfo] = useState<IPopup | undefined>();
-  const coordinates = peaks.map((peak) => ({
-    latitude: peak.latitude,
-    longitude: peak.longitude,
-  }));
-
-  const center = getCenter(coordinates);
-
-  const pins = useMemo(
-    () =>
-      peaks.map((peak) => (
-        <Marker
-          key={peak.id}
-          latitude={peak.latitude}
-          longitude={peak.longitude}
-          anchor="bottom"
-          onClick={(e) => {
-            e.originalEvent.stopPropagation();
-            setPopupInfo(peak);
-          }}
-        >
-          <div className="flex cursor-pointer flex-col items-center">
-            <FlagTriangleRightIcon className="tw-transition h-5 w-5 fill-white stroke-branding-green hover:fill-branding-green sm:h-7 sm:w-7" />
-          </div>
-        </Marker>
-      )),
-    [peaks]
-  );
+export const MapContainer = ({ long, lat, peakName, peakHeight }) => {
+  const [showPopup, setShowPopup] = useState(false);
 
   return (
     <Map
-      style={{ width: "100%", height: "100%", borderRadius: "12px" }}
-      mapStyle={process.env.NEXT_PUBLIC_MAPBOX_STYLE_URL}
-      mapboxAccessToken={process.env.NEXT_PUBLIC_MAPBOX_TOKEN}
       initialViewState={{
-        // @ts-expect-error xxx
-        latitude: center.latitude,
-        // @ts-expect-error xxx
-        longitude: center.longitude,
-        zoom: zoom,
+        longitude: long,
+        latitude: lat,
+        zoom: 7,
       }}
-      attributionControl={false}
-      doubleClickZoom
+      style={{ width: 600, height: 400, borderRadius: 12 }}
+      mapStyle="https://tiles.stadiamaps.com/styles/stamen_terrain.json"
     >
-      {pins}
+      <Marker
+        longitude={long}
+        latitude={lat}
+        onClick={(e) => {
+          e.originalEvent.stopPropagation();
+          setShowPopup(true);
+        }}
+        color="#FF0000"
+        style={{ cursor: "pointer", zIndex: 1 }}
+      >
+        <div className="flex cursor-pointer flex-col items-center">
+          <MapPin weight="fill" className=" fill-branding-green size-9" />
+        </div>
+      </Marker>
 
-      {popupInfo && (
+      {showPopup && (
         <Popup
+          longitude={long}
+          latitude={lat}
           anchor="top"
-          latitude={popupInfo?.latitude}
-          longitude={popupInfo?.longitude}
-          closeButton={false}
-          onClose={() => setPopupInfo(null!)}
-          offset={[0, 5]}
+          offset={[0, 10]}
+          onClose={() => setShowPopup(false)}
+          closeOnClick={true}
+          style={{ zIndex: 2 }}
+          className="flex flex-col gap-y-2.5 items-center justify-center"
         >
-          {popupInfo && (
-            <div>
-              <div
-                className={clsx(
-                  "sm:text-base text-sm font-bold text-branding-green"
-                )}
-              >
-                {popupInfo.name}
-              </div>
-              <p className="text-medium">{popupInfo.elevation} m</p>
-            </div>
-          )}
+          <h2 className="text-xl font-serif font-bold">{peakName}</h2>
+          <p>{peakHeight} m</p>
         </Popup>
       )}
     </Map>
