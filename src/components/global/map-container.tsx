@@ -23,13 +23,14 @@ export const MapContainer = ({
 
   return (
     <Map
+      mapStyle={process.env.NEXT_PUBLIC_MAPBOX_STYLE_URL}
+      mapboxAccessToken={process.env.NEXT_PUBLIC_MAPBOX_TOKEN}
       initialViewState={{
         longitude: long,
         latitude: lat,
         zoom: 7,
       }}
       style={{ width: 600, height: 400, borderRadius: 12 }}
-      mapStyle="https://tiles.stadiamaps.com/styles/stamen_terrain.json"
     >
       <Marker
         longitude={long}
