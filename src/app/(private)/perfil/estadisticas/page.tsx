@@ -12,6 +12,8 @@ import type { Metadata } from "next";
 import { PageContainer } from "@/components/global/page-container";
 import { PageTitle } from "@/components/global/page-title";
 import { TextWrapper } from "@/components/global/text-wrapper";
+import { Progress } from "@/components/ui/progress";
+import { getUserSummits } from "@/prisma/queries";
 
 // // import { getAverage, getPercentage, getSum } from "@/lib/helpers";
 
@@ -44,6 +46,8 @@ export default async function StatsPage() {
 
   // // const visitedCounties = [...new Set(countyArray?.flat())].length;
 
+  const userSummits = await getUserSummits();
+
   return (
     <PageContainer>
       <PageTitle>Tus Estadísticas</PageTitle>
@@ -51,6 +55,18 @@ export default async function StatsPage() {
         Aquí podrás encontrar estadísticas, tablas y gráficos personalizados que
         visualizan tu avance en el reto de los 45 Techos de España.
       </TextWrapper>
+
+      <div className="mt-10">
+        <Progress value={(userSummits.length / 45) * 100} />
+        <p className="text-center mt-5 text-xl">
+          Has coronado{" "}
+          <span className="font-bold text-2xl font-serif">
+            {userSummits.length}
+          </span>{" "}
+          de los <span className="font-bold text-2xl font-serif">45</span>{" "}
+          techos de España.
+        </p>
+      </div>
     </PageContainer>
   );
 }

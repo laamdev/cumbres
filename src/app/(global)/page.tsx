@@ -47,7 +47,7 @@ export default async function HomePage() {
               <SignedIn>
                 <CustomLink
                   href={`/cumbres`}
-                >{`Ver todas las cumbres`}</CustomLink>
+                >{`Ve todas las cumbres `}</CustomLink>
 
                 <span className="text-branding-white">{`y gestiona el registro de los Techos de España que has coronado y los que aún te quedan por visitar.`}</span>
               </SignedIn>
