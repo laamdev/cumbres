@@ -6,6 +6,8 @@ import localFont from "next/font/local";
 import { ClerkProvider } from "@clerk/nextjs";
 
 import { Toaster } from "@/components/ui/sonner";
+import { Header } from "@/components/navigation/header";
+import { Footer } from "@/components/navigation/footer";
 
 import { esES } from "@/data/clerkLocalization";
 
@@ -180,8 +182,10 @@ export default function RootLayout({ children }: { children: ReactNode }) {
     <ClerkProvider localization={esES}>
       <html lang="es" className={`${sans.variable} ${serif.variable}`}>
         <body>
+          <Header color="green" />
           <main className="relative min-h-screen">{children}</main>
           <Toaster />
+          <Footer color="green" />
         </body>
       </html>
     </ClerkProvider>
