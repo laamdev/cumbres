@@ -15,8 +15,8 @@ export default async function HomePage() {
 
   const [summitsCount, elevationCount, usersCount] = await Promise.all([
     getTotalSummitCount(),
-    getTotalElevation(),
     clerkClient.users.getCount(),
+    getTotalElevation(),
   ]);
 
   return (
@@ -46,8 +46,8 @@ export default async function HomePage() {
             <p>
               <SignedIn>
                 <CustomLink
-                  href={`/perfil/cumbres`}
-                >{`Visita tu perfil `}</CustomLink>
+                  href={`/cumbres`}
+                >{`Ver todas las cumbres`}</CustomLink>
 
                 <span className="text-branding-white">{`y gestiona el registro de los Techos de España que has coronado y los que aún te quedan por visitar.`}</span>
               </SignedIn>

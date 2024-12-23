@@ -27,11 +27,8 @@ export default function SignUpPage() {
         </div>
         <div className="relative z-20 mt-auto text-branding-green">
           <blockquote className="space-y-2">
-            <p className="text-lg font-semibold">
-              &ldquo;Las montañas son catedrales en las que practico mi
-              religión&rdquo;
-            </p>
-            <footer className="text-sm">– Anatoli Boukreev</footer>
+            <p className="text-lg font-semibold">{`"Las montañas son catedrales en las que practico mi religión"`}</p>
+            <footer className="text-sm">{`– Anatoli Boukreev`}</footer>
           </blockquote>
         </div>
       </div>
@@ -39,8 +36,6 @@ export default function SignUpPage() {
         <div className="mx-auto flex w-full flex-col justify-center space-y-6 sm:w-[350px]">
           <SignUp
             signInUrl="/iniciar-sesion"
-            // // redirectUrl={redirectUrl || '/dashboard'}
-            redirectUrl={"/perfil/cumbres"}
             appearance={{
               elements: {
                 formButtonPrimary:
@@ -52,14 +47,10 @@ export default function SignUpPage() {
                 headerTitle: "font-serif",
               },
               layout: {
-                //   logoImageUrl: 'https://clerk.dev/logo.png',
                 logoPlacement: "inside",
                 showOptionalFields: true,
                 socialButtonsPlacement: "bottom",
                 socialButtonsVariant: "iconButton",
-                //   helpPageUrl: 'https://clerk.dev/support',
-                //   privacyPageUrl: 'https://clerk.dev/privacy',
-                //   termsPageUrl: 'https://clerk.dev/terms',
               },
             }}
           />
