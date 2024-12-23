@@ -34,12 +34,12 @@ export const MapContainer = ({
       <Marker
         longitude={long}
         latitude={lat}
-        onClick={(e) => {
+        onClick={(e: { originalEvent: MouseEvent }) => {
           e.originalEvent.stopPropagation();
           setShowPopup(true);
         }}
         color="#FF0000"
-        style={{ cursor: "pointer", zIndex: 1 }}
+        style={{ cursor: "pointer", zIndex: 1 } as const}
       >
         <div className="flex cursor-pointer flex-col items-center">
           <MapPin weight="fill" className=" fill-branding-green size-9" />
