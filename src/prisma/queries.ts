@@ -86,7 +86,7 @@ export async function getTotalElevation() {
 
     if (!userId) return null;
 
-    const summits = await prisma.summit.findMany({
+    const summits = await db.summit.findMany({
       where: {
         userId: userId,
       },
