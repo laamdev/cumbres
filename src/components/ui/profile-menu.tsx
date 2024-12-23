@@ -19,7 +19,11 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 
-export const ProfileMenu = ({ color }: { color: string }) => {
+interface ProfileMenuProps {
+  color?: string;
+}
+
+export const ProfileMenu = ({ color }: ProfileMenuProps) => {
   const { user } = useUser();
   const { signOut } = useClerk();
   const router = useRouter();
