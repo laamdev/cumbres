@@ -164,26 +164,26 @@ export default async function PeakRoute({ params }: PeakPageProps) {
       <section>
         <div className="grid gap-5 md:grid-cols-3">
           <div className="flex flex-col gap-y-2.5 items-center">
-            <div className="text-xs opacity-80 lowercase leading-none tracking-wider sm:text-sm">
+            <div className="text-xs sm:text-sm text-neutral-300 opacity-80 font-light lowercase leading-none tracking-wider">
               Comunidad Autónoma
             </div>
-            <div className="text-lg font-serif font-semibold uppercase leading-none tracking-tighter sm:text-3xl">
+            <div className="text-lg text-center font-serif font-medium leading-none sm:text-3xl">
               {countyNames}
             </div>
           </div>
           <div className="flex flex-col gap-y-2.5 items-center">
-            <div className="text-xs opacity-80 lowercase leading-none tracking-wider sm:text-sm">
+            <div className="text-xs sm:text-sm text-neutral-300 font-light opacity-80 lowercase leading-none tracking-wider">
               Provincia
             </div>
-            <div className="text-lg font-serif font-semibold uppercase leading-none tracking-tighter sm:text-3xl">
+            <div className="text-lg text-center font-serif font-medium sm:text-3xl">
               {provinceNames}
             </div>
           </div>
           <div className="flex flex-col gap-y-2.5 items-center">
-            <div className="text-xs opacity-80 lowercase leading-none tracking-wider sm:text-sm">
+            <div className="text-xs sm:text-sm font-light text-neutral-300 lowercase leading-none tracking-wider">
               Coordillera o Isla
             </div>
-            <div className="text-lg font-serif font-semibold uppercase leading-none tracking-tighter sm:text-3xl">
+            <div className="text-lg text-center font-serif font-medium sm:text-3xl">
               {peak.range.join(" y ")}
             </div>
           </div>

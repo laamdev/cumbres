@@ -360,7 +360,8 @@ export const peaks = [
     id: "24",
     name: "Peñarroya",
     slug: "penarroya",
-    description: "Jalambre",
+    description:
+      "El Pico Peñarroya, con 2.028 metros de altitud, es la cima más alta de la provincia de Teruel y se encuentra en la Sierra de Gúdar, dentro del Sistema Ibérico. Rodeado de paisajes montañosos cubiertos de pinares, ofrece vistas panorámicas impresionantes y es un destino popular para el senderismo y los deportes de invierno, gracias a su cercanía con estaciones de esquí como la de Valdelinares. Este lugar emblemático combina naturaleza, tranquilidad y oportunidades para disfrutar de actividades al aire libre en un entorno bien conservado.",
     elevation: 2028.0,
     province: ["44"],
     county: ["02"],
