@@ -1,21 +1,23 @@
 import Image from "next/image";
 import { SignedIn, SignedOut } from "@clerk/nextjs";
-// // import { createClerkClient } from "@clerk/backend";
+import { createClerkClient } from "@clerk/backend";
 
 import { PageContainer } from "@/components/global/page-container";
 import { Clouds } from "@/components/home/clouds";
 import { CustomLink } from "@/components/home/custom-link";
 
-import { getTotalSummitCount } from "@/prisma/queries";
+import { getTotalElevation, getTotalSummitCount } from "@/prisma/queries";
 
 export default async function HomePage() {
-  // // const clerkClient = await createClerkClient({
-  // //   secretKey: process.env.CLERK_SECRET_KEY,
-  // // });
+  const clerkClient = await createClerkClient({
+    secretKey: process.env.CLERK_SECRET_KEY,
+  });
 
-  // // const usersCount = await clerkClient.users.getCount();
-
-  const summitsCount = await getTotalSummitCount();
+  const [summitsCount, elevationCount, usersCount] = await Promise.all([
+    getTotalSummitCount(),
+    getTotalElevation(),
+    clerkClient.users.getCount(),
+  ]);
 
   return (
     <PageContainer>
@@ -71,7 +73,7 @@ export default async function HomePage() {
         <div className="mt-10 grid gap-10 sm:grid-cols-3">
           <div className="flex flex-col items-center gap-y-2.5 rounded-lg border-2 border-branding-green bg-branding-yellow px-10 py-5 font-serif shadow">
             <div className="text-6xl font-semibold uppercase leading-none tracking-tighter">
-              {/* {`${usersCount}`} */}
+              {`${usersCount}`}
             </div>
             <div className="text-lg lowercase leading-none tracking-tighter">
               {`Usuarios`}
@@ -85,7 +87,7 @@ export default async function HomePage() {
               {`Cumbres Ascendidas`}
             </div>
           </div>
-          {/* <div className="flex flex-col items-center gap-y-2.5 rounded-lg border-2 border-branding-green bg-branding-yellow px-10 py-5 font-serif shadow">
+          <div className="flex flex-col items-center gap-y-2.5 rounded-lg border-2 border-branding-green bg-branding-yellow px-10 py-5 font-serif shadow">
             <div className="text-6xl font-semibold uppercase leading-none tracking-tighter">
               {`${elevationCount}`}
               <span className="ml-2.5 font-sans text-xl font-normal lowercase">
@@ -95,7 +97,7 @@ export default async function HomePage() {
             <div className="text-lg lowercase leading-none tracking-tighter">
               {`Distancia Ascendida`}
             </div>
-          </div> */}
+          </div>
         </div>
       </section>
     </PageContainer>
