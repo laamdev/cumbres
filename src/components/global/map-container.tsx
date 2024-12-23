@@ -1,10 +1,18 @@
 "use client";
 
-import { useState } from "react";
+import "mapbox-gl/dist/mapbox-gl.css";
 
-import { Map, Marker, Popup } from "@vis.gl/react-maplibre";
-import "maplibre-gl/dist/maplibre-gl.css"; // See notes below
+import { useState } from "react";
+import clsx from "clsx";
+import Map, { Marker, Popup } from "react-map-gl";
 import { MapPin } from "@phosphor-icons/react";
+
+interface PopupProps {
+  latitude: number;
+  longitude: number;
+  peakName: string;
+  peakHeight: number;
+}
 
 interface MapContainerProps {
   long: number;
@@ -19,47 +27,64 @@ export const MapContainer = ({
   peakName,
   peakHeight,
 }: MapContainerProps) => {
-  const [showPopup, setShowPopup] = useState(false);
+  const [popupInfo, setPopupInfo] = useState<PopupProps | undefined>();
 
   return (
     <Map
+      style={{ width: "100%", height: "100%", borderRadius: "12px" }}
       mapStyle={process.env.NEXT_PUBLIC_MAPBOX_STYLE_URL}
       mapboxAccessToken={process.env.NEXT_PUBLIC_MAPBOX_TOKEN}
       initialViewState={{
-        longitude: long,
         latitude: lat,
-        zoom: 7,
+        longitude: long,
+        zoom: 11,
       }}
-      style={{ width: 600, height: 400, borderRadius: 12 }}
+      attributionControl={false}
+      doubleClickZoom
     >
       <Marker
-        longitude={long}
         latitude={lat}
-        onClick={(e: { originalEvent: MouseEvent }) => {
+        longitude={long}
+        anchor="bottom"
+        onClick={(e) => {
           e.originalEvent.stopPropagation();
-          setShowPopup(true);
+          setPopupInfo({
+            peakName,
+            peakHeight,
+            latitude: lat,
+            longitude: long,
+          });
         }}
-        color="#FF0000"
-        style={{ cursor: "pointer", zIndex: 1 } as const}
       >
         <div className="flex cursor-pointer flex-col items-center">
-          <MapPin weight="fill" className=" fill-branding-green size-9" />
+          <MapPin
+            weight="fill"
+            className="tw-transition size-7 fill-branding-green  sm:size-9 hover:scale-110 tw-transition"
+          />
         </div>
       </Marker>
 
-      {showPopup && (
+      {popupInfo && (
         <Popup
-          longitude={long}
-          latitude={lat}
           anchor="top"
-          offset={[0, 10]}
-          onClose={() => setShowPopup(false)}
-          closeOnClick={true}
-          style={{ zIndex: 2 }}
-          className="flex flex-col gap-y-2.5 items-center justify-center"
+          latitude={popupInfo?.latitude}
+          longitude={popupInfo?.longitude}
+          closeButton={false}
+          onClose={() => setPopupInfo(null!)}
+          offset={[0, 5]}
         >
-          <h2 className="text-xl font-serif font-bold">{peakName}</h2>
-          <p>{peakHeight} m</p>
+          {popupInfo && (
+            <div>
+              <div
+                className={clsx(
+                  "sm:text-base text-sm font-bold text-branding-green"
+                )}
+              >
+                {peakName}
+              </div>
+              <p className="text-medium">{peakHeight} m</p>
+            </div>
+          )}
         </Popup>
       )}
     </Map>

@@ -190,7 +190,7 @@ export default async function PeakRoute({ params }: PeakPageProps) {
           </div>
         </div>
 
-        <div className="flex items-center justify-center mt-20">
+        <div className="mt-10 h-64 w-full rounded-lg bg-branding-white sm:mt-20 sm:h-72 lg:h-96">
           <MapContainer
             long={peak.longitude}
             lat={peak.latitude}
