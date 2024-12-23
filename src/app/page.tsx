@@ -6,18 +6,17 @@ import { PageContainer } from "@/components/global/page-container";
 import { Clouds } from "@/components/home/clouds";
 import { CustomLink } from "@/components/home/custom-link";
 
-import { getTotalElevation, getTotalSummitCount } from "@/prisma/queries";
+import { getTotalSummitCount } from "@/prisma/queries";
 
 export default async function HomePage() {
   const clerkClient = await createClerkClient({
     secretKey: process.env.CLERK_SECRET_KEY,
   });
 
-  const [summitsCount, elevationCount, usersCount] = await Promise.all([
-    getTotalSummitCount(),
-    getTotalElevation(),
-    clerkClient.users.getCount(),
-  ]);
+  const usersCount = await clerkClient.users.getCount();
+
+  const [summitsCount] = await Promise.all([getTotalSummitCount()]);
+
   return (
     <PageContainer>
       <section className="mx-auto max-w-3xl">
@@ -86,7 +85,7 @@ export default async function HomePage() {
               {`Cumbres Ascendidas`}
             </div>
           </div>
-          <div className="flex flex-col items-center gap-y-2.5 rounded-lg border-2 border-branding-green bg-branding-yellow px-10 py-5 font-serif shadow">
+          {/* <div className="flex flex-col items-center gap-y-2.5 rounded-lg border-2 border-branding-green bg-branding-yellow px-10 py-5 font-serif shadow">
             <div className="text-6xl font-semibold uppercase leading-none tracking-tighter">
               {`${elevationCount}`}
               <span className="ml-2.5 font-sans text-xl font-normal lowercase">
@@ -96,7 +95,7 @@ export default async function HomePage() {
             <div className="text-lg lowercase leading-none tracking-tighter">
               {`Distancia Ascendida`}
             </div>
-          </div>
+          </div> */}
         </div>
       </section>
     </PageContainer>

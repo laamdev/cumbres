@@ -80,26 +80,27 @@ export async function checkSummitStatus(peakSlug: string) {
   }
 }
 
-export async function getTotalElevation() {
-  try {
-    const { userId } = await auth();
-    if (!userId) return 0;
+// // export async function getTotalElevation() {
+// //   try {
+// //     const { userId } = await auth();
 
-    const summits = await prisma.summit.findMany({
-      where: {
-        userId: userId,
-      },
-    });
+// //     if (!userId) return null;
 
-    const totalElevation = summits.reduce((acc, summit) => {
-      const peak = peaks.find((p) => p.slug === summit.peakSlug);
-      return acc + (peak?.elevation || 0);
-    }, 0);
+// //     const summits = await prisma.summit.findMany({
+// //       where: {
+// //         userId: userId,
+// //       },
+// //     });
 
-    // Convert to kilometers
-    return (totalElevation / 1000).toFixed(1);
-  } catch (error) {
-    console.error("Error calculating total elevation:", error);
-    return 0;
-  }
-}
+// //     const totalElevation = summits.reduce((acc, summit) => {
+// //       const peak = peaks.find((p) => p.slug === summit.peakSlug);
+// //       return acc + (peak?.elevation || 0);
+// //     }, 0);
+
+// //     // Convert to kilometers
+// //     return (totalElevation / 1000).toFixed(1);
+// //   } catch (error) {
+// //     console.error("Error calculating total elevation:", error);
+// //     return 0;
+// //   }
+// // }
