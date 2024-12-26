@@ -3,8 +3,8 @@ import type { Metadata } from "next";
 import { PageContainer } from "@/components/global/page-container";
 import { PageTitle } from "@/components/global/page-title";
 import { TextWrapper } from "@/components/global/text-wrapper";
-import { PublicPeakCard } from "@/components/peaks/public-peak-card";
-import { PublicPeakList } from "@/components/peaks/public-peak-list";
+import { PeakCard } from "@/components/peaks/peak-card";
+import { PeakList } from "@/components/peaks/peak-list";
 import { PeaksFilters } from "@/components/global/peaks-filters";
 
 import { peaks } from "@/data/peaks";
@@ -61,15 +61,15 @@ export default async function PeaksPage({ searchParams }: PeaksRouteProps) {
       <div className="sm:mt-20 mt-10">
         <PeaksFilters />
 
-        <PublicPeakList>
+        <PeakList>
           {filteredPeaks.map((peak) => (
-            <PublicPeakCard
+            <PeakCard
               key={peak.slug}
               peak={peak}
               summited={summitedSlugs.includes(peak.slug)}
             />
           ))}
-        </PublicPeakList>
+        </PeakList>
       </div>
     </PageContainer>
   );

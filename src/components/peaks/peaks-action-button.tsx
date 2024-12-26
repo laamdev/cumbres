@@ -4,7 +4,7 @@ import { toast } from "sonner";
 import { useState } from "react";
 import { Plus, Minus } from "@phosphor-icons/react";
 
-import { createSummit, deleteSummit } from "@/app/_actions";
+import { createSummitSafeAction, deleteSummitSafeAction } from "@/app/_actions";
 
 interface PeaksActionButtonProps {
   peakSlug: string;
@@ -17,44 +17,46 @@ export const PeaksActionButton = ({
 }: PeaksActionButtonProps) => {
   const [isLoading, setIsLoading] = useState(false);
 
-  const handleSummit = async () => {
+  const handleCreateSummit = async () => {
     try {
       setIsLoading(true);
-      await createSummit(peakSlug);
-      toast.success("La cumbre se ha marcado como completada.");
+      await createSummitSafeAction({ peakSlug, summitDate: new Date() });
+      toast.success("El pico se ha marcado como encumbrado.");
     } catch (err) {
       console.log(err);
-      toast.error("Failed to mark peak as summited");
+      toast.error("No se pudo marcar el pico como encumbrado.");
     } finally {
       setIsLoading(false);
     }
   };
 
-  const handleUnsummit = async () => {
+  const handleDeleteSummit = async () => {
     try {
       setIsLoading(true);
-      await deleteSummit(peakSlug);
+      await deleteSummitSafeAction({ peakSlug });
       toast.success("La cumbre se ha marcado como no completada.");
     } catch (err) {
       console.log(err);
-      toast.error("Failed to unmark peak as summited");
+      toast.error("No se pudo elminar el pico de la lista de encumbrados.");
     } finally {
       setIsLoading(false);
     }
   };
   return (
-    <button disabled={isLoading} className="relative">
+    <button
+      disabled={isLoading}
+      className="relative bg-white rounded-full group"
+      onClick={summited ? handleDeleteSummit : handleCreateSummit}
+    >
       {summited ? (
         <Minus
           weight="bold"
-          className="z-10 bg-white rounded-full size-5 p-1.5 fill-red-500 sm:size-7"
-          onClick={handleUnsummit}
+          className="z-10 size-5 p-1.5 fill-branding-green sm:size-7"
         />
       ) : (
         <Plus
           weight="bold"
-          className=" z-10 bg-white rounded-full size-5 p-1.5 fill-branding-green sm:size-7"
-          onClick={handleSummit}
+          className="z-10 size-5 p-1.5 fill-branding-green sm:size-7"
         />
       )}
     </button>

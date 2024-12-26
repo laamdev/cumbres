@@ -1,21 +1,23 @@
 import { notFound } from "next/navigation";
 import Image from "next/image";
+import { Medal } from "@phosphor-icons/react/dist/ssr";
+import { auth } from "@clerk/nextjs/server";
 
 import { Avatar } from "@/components/ui/avatar";
 import { Separator } from "@/components/ui/separator";
 import { PageContainer } from "@/components/global/page-container";
 import { PageTitle } from "@/components/global/page-title";
 import { TextWrapper } from "@/components/global/text-wrapper";
-import { DetailLabel } from "@/components/peak/detail-label";
-import { DetailValue } from "@/components/peak/detail-value";
 import { WeatherWidget } from "@/components/peaks/weather-widget";
-import { DetailUnit } from "@/components/peak/detail-unit";
-import { MountainIcon } from "@/components/icons/mountain";
-import { FlagIcon } from "@/components/icons/flag";
-
-import { peaks } from "@/data/peaks";
-import { getCountyNames, getProvinceNames } from "@/lib/utils";
 import { MapContainer } from "@/components/global/map-container";
+import { CreateSummitDialog } from "@/components/dialogs/create-summit-dialog";
+import { SummitTooltip } from "@/components/peaks/summit-tooltip";
+import { UpdateSummitDialog } from "@/components/dialogs/update-summit-dialog";
+import { DeleteSummitDialog } from "@/components/dialogs/delete-summit-dialog";
+
+import { getCountyNames, getProvinceNames } from "@/lib/utils";
+import db from "@/lib/prisma";
+import { peaks } from "@/data/peaks";
 
 interface WeatherResponse {
   main: {
@@ -102,7 +104,8 @@ export async function generateMetadata({ params }: PeakPageProps) {
   };
 }
 
-export default async function PeakRoute({ params }: PeakPageProps) {
+export default async function PeakPage({ params }: PeakPageProps) {
+  const { userId } = await auth();
   const { slug } = await params;
 
   const peak = await peaks.find((peak) => peak.slug === slug);
@@ -117,18 +120,33 @@ export default async function PeakRoute({ params }: PeakPageProps) {
   const provinceNames = getProvinceNames(peak.province);
   const highestPoint = getCountyNames(peak.highestPoint ?? []);
 
+  const summit = userId
+    ? await db.summit.findFirst({
+        where: {
+          userId: userId,
+          peakSlug: slug,
+        },
+      })
+    : null;
+
+  const isSummited = Boolean(summit);
+
   return (
     <PageContainer>
       {highestPoint?.length > 0 && (
         <div className="mb-5 flex items-center space-x-2.5">
           <Avatar className="flex items-center justify-center bg-white text-branding-green">
-            <FlagIcon className="size-7 rounded-full p-1.5 fill-branding-green sm:size-9" />
+            <Medal
+              weight="fill"
+              className="size-7 rounded-full p-1.5 fill-branding-green sm:size-9"
+            />
           </Avatar>
           {
             <div className="text-xs font-medium leading-none tracking-wider text-neutral-200 sm:text-sm">{`Punto más alto de ${highestPoint}`}</div>
           }
         </div>
       )}
+
       <PageTitle>{peak.name}</PageTitle>
 
       <section className="mt-10 grid gap-y-10 sm:mt-10 sm:grid-cols-5 sm:gap-x-20">
@@ -146,17 +164,29 @@ export default async function PeakRoute({ params }: PeakPageProps) {
               className="rounded-t-lg bg-gradient-to-br from-neutral-300 to-neutral-100 object-cover object-center"
             />
 
-            <div className="absolute rounded-lg -right-5 -top-5 z-10 flex flex-col items-center gap-y-2.5 bg-white p-2.5 font-bold uppercase tracking-tighter text-branding-green sm:text-lg">
-              <DetailLabel>
-                <MountainIcon className="size-7 rounded-full fill-white bg-branding-green px-1.5 sm:size-9" />
-              </DetailLabel>
-              <DetailValue>
-                {peak.elevation} <DetailUnit>m</DetailUnit>
-              </DetailValue>
+            <div className="absolute top-2.5 left-2.5 flex gap-x-2.5">
+              {isSummited ? (
+                <DeleteSummitDialog peakName={peak.name} peakSlug={peak.slug} />
+              ) : (
+                <CreateSummitDialog peakSlug={peak.slug} />
+              )}
+
+              {isSummited && (
+                <UpdateSummitDialog
+                  peakSlug={peak.slug}
+                  summitDate={summit?.summitDate}
+                />
+              )}
             </div>
+
+            {summit && isSummited && (
+              <div className="absolute -right-5 -top-5">
+                <SummitTooltip summitDate={summit.summitDate} />
+              </div>
+            )}
           </div>
 
-          <WeatherWidget weather={weather} />
+          <WeatherWidget weather={weather} elevation={peak.elevation} />
         </div>
       </section>
 

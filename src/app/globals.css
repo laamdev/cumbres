@@ -59,6 +59,6 @@
 
 @layer components {
   .tw-transition {
-    @apply transition delay-150 ease-in-out;
+    @apply transition-all delay-150 ease-in-out;
   }
 }

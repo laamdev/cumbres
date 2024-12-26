@@ -1,7 +1,6 @@
 import { auth } from "@clerk/nextjs/server";
 
 import { peaks } from "@/data/peaks";
-
 import db from "@/lib/prisma";
 
 export async function getTotalSummitCount() {
@@ -17,6 +16,7 @@ export async function getTotalSummitCount() {
 export async function getUserSummits() {
   try {
     const { userId } = await auth();
+
     if (!userId) return [];
 
     const summits = await db.summit.findMany({
@@ -34,13 +34,12 @@ export async function getUserSummits() {
         return {
           ...peak,
           summit: {
-            date: summit.date,
+            summitDate: summit.summitDate,
             notes: summit.notes,
-            images: summit.images,
           },
         };
       })
-      .filter(Boolean); // Remove null entries
+      .filter(Boolean);
 
     return summitedPeaks;
   } catch (error) {
@@ -54,7 +53,7 @@ export async function createSummit(data: { userId: string; peakSlug: string }) {
     data: {
       userId: data.userId,
       peakSlug: data.peakSlug,
-      date: new Date(),
+      summitDate: new Date(),
     },
   });
 }
@@ -94,5 +93,24 @@ export async function getTotalElevation() {
   } catch (error) {
     console.error("Error calculating total elevation:", error);
     return "0.0";
+  }
+}
+
+export async function getSummit(slug: string) {
+  try {
+    const { userId } = await auth();
+    if (!userId) return null;
+
+    const summit = await db.summit.findFirst({
+      where: {
+        userId: userId,
+        peakSlug: slug,
+      },
+    });
+
+    return summit;
+  } catch (error) {
+    console.error("Error getting user summit:", error);
+    return null;
   }
 }

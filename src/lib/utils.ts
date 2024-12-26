@@ -1,5 +1,7 @@
 import { clsx, type ClassValue } from "clsx";
 import { twMerge } from "tailwind-merge";
+import { format } from "date-fns";
+import { es } from "date-fns/locale";
 
 import { territories } from "@/data/territories";
 
@@ -36,4 +38,15 @@ export const getProvinceNames = (provinceCodes: string[]) => {
       return province?.label || provinceCode;
     })
     .join(" y ");
+};
+
+export const getFormattedDate = (
+  date: Date,
+  dateFormat: string = "EEEE dd 'de' MMMM 'del' yyyy"
+) => {
+  const formattedDate = format(new Date(date), dateFormat, {
+    locale: es,
+  });
+
+  return formattedDate;
 };

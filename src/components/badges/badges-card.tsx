@@ -6,7 +6,7 @@ import {
 } from "@/components/ui/popover";
 
 import { cn } from "@/lib/utils";
-import { Badge } from "@/types";
+import { Badge } from "@/types/peaks";
 
 interface BadgesCardProps {
   badge: Badge;

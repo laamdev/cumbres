@@ -71,30 +71,28 @@ export default async function HomePage() {
         </h2>
 
         <div className="mt-10 grid gap-10 sm:grid-cols-3">
-          <div className="flex flex-col items-center gap-y-2.5 rounded-lg border-2 border-branding-green bg-branding-yellow px-10 py-5 font-serif shadow">
-            <div className="text-6xl font-semibold uppercase leading-none tracking-tighter">
+          <div className="flex flex-col items-center gap-y-2.5 rounded-lg border-2 border-branding-green bg-branding-yellow px-10 py-5 shadow">
+            <div className="text-6xl font-serif font-semibold uppercase leading-none tracking-tighter">
               {`${usersCount}`}
             </div>
-            <div className="text-lg lowercase leading-none tracking-tighter">
-              {`Usuarios`}
-            </div>
+            <div className="text-lg lowercase leading-none">{`Usuarios`}</div>
           </div>
-          <div className="flex flex-col items-center gap-y-2.5 rounded-lg border-2 border-branding-green bg-branding-yellow px-10 py-5 font-serif shadow">
-            <div className="text-6xl font-semibold uppercase leading-none tracking-tighter">
+          <div className="flex flex-col items-center gap-y-2.5 rounded-lg border-2 border-branding-green bg-branding-yellow px-10 py-5 shadow">
+            <div className="text-6xl font-serif font-semibold uppercase leading-none tracking-tighter">
               {`${summitsCount}`}
             </div>
-            <div className="text-lg lowercase leading-none tracking-tighter">
+            <div className="text-lg lowercase leading-none">
               {`Cumbres Ascendidas`}
             </div>
           </div>
-          <div className="flex flex-col items-center gap-y-2.5 rounded-lg border-2 border-branding-green bg-branding-yellow px-10 py-5 font-serif shadow">
-            <div className="text-6xl font-semibold uppercase leading-none tracking-tighter">
+          <div className="flex flex-col items-center gap-y-2.5 rounded-lg border-2 border-branding-green bg-branding-yellow px-10 py-5 shadow">
+            <div className="text-6xl font-serif font-semibold uppercase leading-none tracking-tighter">
               {`${elevationCount}`}
               <span className="ml-2.5 font-sans text-xl font-normal lowercase">
                 {`km`}
               </span>
             </div>
-            <div className="text-lg lowercase leading-none tracking-tighter">
+            <div className="text-lg lowercase leading-none">
               {`Distancia Ascendida`}
             </div>
           </div>

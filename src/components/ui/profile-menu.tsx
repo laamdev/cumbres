@@ -2,11 +2,11 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useClerk, useUser } from "@clerk/nextjs";
 import {
-  BarChartIcon,
-  LogOutIcon,
-  MedalIcon,
-  MountainIcon,
-} from "lucide-react";
+  ChartBar,
+  Medal,
+  Mountains,
+  SignOut,
+} from "@phosphor-icons/react/dist/ssr";
 
 import { Button } from "@/components/ui/button";
 import {
@@ -46,28 +46,31 @@ export const ProfileMenu = ({ color }: ProfileMenuProps) => {
         <DropdownMenuSeparator />
         <DropdownMenuGroup>
           <Link href="/cumbres">
-            <DropdownMenuItem>
-              <MountainIcon className="mr-2 h-4 w-4 text-primary" />
-              <span>Cumbres</span>
+            <DropdownMenuItem className="cursor-pointer">
+              <Mountains weight="fill" className="size-5 text-primary" />
+              <span className="ml-1">Cumbres</span>
             </DropdownMenuItem>
           </Link>
           <Link href="/perfil/estadisticas">
-            <DropdownMenuItem>
-              <BarChartIcon className="mr-2 h-4 w-4 text-primary" />
-              <span>Estadísticas</span>
+            <DropdownMenuItem className="cursor-pointer">
+              <ChartBar weight="fill" className="size-5 text-primary" />
+              <span className="ml-1">Estadísticas</span>
             </DropdownMenuItem>
           </Link>
           <Link href="/perfil/logros">
-            <DropdownMenuItem>
-              <MedalIcon className="mr-2 h-4 w-4 text-primary" />
-              <span>Logros</span>
+            <DropdownMenuItem className="cursor-pointer">
+              <Medal weight="fill" className="size-5 text-primary" />
+              <span className="ml-1">Logros</span>
             </DropdownMenuItem>
           </Link>
         </DropdownMenuGroup>
 
         <DropdownMenuSeparator />
-        <DropdownMenuItem onClick={() => handleSingOut()}>
-          <LogOutIcon className="mr-2 h-4 w-4 text-primary" />
+        <DropdownMenuItem
+          onClick={() => handleSingOut()}
+          className="cursor-pointer"
+        >
+          <SignOut weight="fill" className="mr-2 size-7 text-primary" />
           <span>Cerrar sesión</span>
         </DropdownMenuItem>
       </DropdownMenuContent>
